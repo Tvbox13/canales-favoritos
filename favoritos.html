@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Canales Favoritos</title>
+  <style>
+    body { font-family: sans-serif; padding: 10px; background: #111; color: white; }
+    button {
+      display: block;
+      width: 100%;
+      margin: 8px 0;
+      padding: 12px;
+      background: #1e90ff;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+    }
+  </style>
+</head>
+<body onload="cargarLista()">
+  <h2>🎯 Canales Favoritos</h2>
+  <div id="lista">Cargando canales...</div>
+
+  <script>
+    const palabrasClave = ["ESPN", "HBO", "Universal", "FOX Sports"];
+    const urlM3U = "https://www.dropbox.com/scl/fi/k04q4jupuxiyur6zxxt99/lista.m3u?rlkey=29abdtzh1mo6kw2tb29vd1wg9&st=ilf69y8y&dl=1";
+
+    async function cargarLista() {
+      try {
+        const res = await fetch(urlM3U);
+        const texto = await res.text();
+        const lineas = texto.split("\n");
+        const lista = document.getElementById("lista");
+        lista.innerHTML = "";
+
+        for (let i = 0; i < lineas.length; i++) {
+          if (lineas[i].startsWith("#EXTINF")) {
+            const nombreCanal = lineas[i];
+            const urlStream = lineas[i + 1];
+            if (palabrasClave.some(palabra => nombreCanal.toLowerCase().includes(palabra.toLowerCase()))) {
+              const btn = document.createElement("button");
+              btn.textContent = nombreCanal.split(",").pop().trim();
+              btn.onclick = () => {
+                window.location.href = `intent:${urlStream}#Intent;package=org.videolan.vlc;type=video;scheme=http;end`;
+              };
+              lista.appendChild(btn);
+            }
+          }
+        }
+
+        if (lista.innerHTML.trim() === "") {
+          lista.innerHTML = "No se encontraron canales con los criterios dados.";
+        }
+
+      } catch (e) {
+        document.getElementById("lista").innerHTML = "Error al cargar la lista.";
+        console.error(e);
+      }
+    }
+  </script>
+</body>
+</html>
