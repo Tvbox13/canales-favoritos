@@ -59,11 +59,7 @@
 <body>
 
   <h1>🎯 Canales Favoritos</h1>
-
-  <button class="canal" onclick="reproducir('https://clubtv.link/ago02/espn1.m3u8')" tabindex="1">▶ ESPN 1</button>
-  <button class="canal" onclick="reproducir('https://clubtv.link/ago02/foxsports.m3u8')" tabindex="2">▶ FOX Sports</button>
-  <button class="canal" onclick="reproducir('https://clubtv.link/ago02/hbohd.m3u8')" tabindex="3">▶ HBO HD</button>
-  <button class="canal" onclick="reproducir('https://clubtv.link/ago02/universo.m3u8')" tabindex="4">▶ Universo</button>
+  <!-- Aquí se insertarán los botones automáticamente -->
 
   <!-- Reproductor integrado -->
   <div id="video-container">
@@ -74,6 +70,43 @@
     const video = document.getElementById("tv-player");
     const container = document.getElementById("video-container");
 
+    const m3uUrl = 'https://raw.githubusercontent.com/Tvbox13/canales-favoritos/main/lista.m3u'; // URL de tu lista M3U
+
+    // Función para parsear el archivo M3U y crear los botones dinámicamente
+    function cargarCanales() {
+      fetch(m3uUrl)
+        .then(response => response.text())
+        .then(data => {
+          const lines = data.split('\n');
+          const canales = [];
+          
+          // Filtrar los canales que nos interesan (esto se puede personalizar)
+          let currentCanal = null;
+          lines.forEach(line => {
+            if (line.startsWith('#EXTINF')) {
+              currentCanal = {
+                nombre: line.split(',')[1].trim(),
+                url: lines[lines.indexOf(line) + 1].trim()
+              };
+              canales.push(currentCanal);
+            }
+          });
+
+          // Crear los botones para cada canal
+          canales.forEach(canal => {
+            const btn = document.createElement('button');
+            btn.classList.add('canal');
+            btn.innerHTML = `▶ ${canal.nombre}`;
+            btn.onclick = () => reproducir(canal.url);
+            document.body.appendChild(btn);
+          });
+        })
+        .catch(error => {
+          console.error('Error al cargar la lista M3U:', error);
+        });
+    }
+
+    // Función para reproducir el video
     function reproducir(url) {
       video.src = url;
       video.muted = false;
@@ -90,13 +123,17 @@
       }, 300);
     }
 
+    // Iniciar la carga de canales
+    cargarCanales();
+
+    // Permitir retroceder y avanzar en el video con teclas
     document.addEventListener("keydown", function (e) {
       switch (e.key) {
         case "ArrowLeft":
-          video.currentTime -= 10;
+          video.currentTime -= 10; // Retroceder 10 segundos
           break;
         case "ArrowRight":
-          video.currentTime += 10;
+          video.currentTime += 10; // Avanzar 10 segundos
           break;
         case "Backspace":
         case "Escape":
@@ -106,10 +143,6 @@
           break;
       }
     });
-
-    window.onload = () => {
-      document.querySelector(".canal").focus();
-    };
   </script>
 
 </body>
