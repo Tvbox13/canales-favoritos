@@ -1,44 +1,55 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Telefe - Reproductor Android TV</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>📺 Canales Favoritos</title>
   <style>
     body {
-      margin: 0;
-      background-color: black;
       font-family: Arial, sans-serif;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
+      background: #121212;
+      color: #fff;
+      text-align: center;
+      margin: 0;
+      padding: 30px;
     }
 
-    #start-screen {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      color: white;
+    h1 {
+      color: #00ffff;
+      margin-bottom: 30px;
     }
 
-    #play-btn {
-      font-size: 28px;
-      padding: 20px 40px;
-      background-color: #00c3ff;
+    .canal {
+      margin: 15px auto;
+      padding: 20px 30px;
+      font-size: 20px;
+      background-color: #1e88e5;
       border: none;
       border-radius: 10px;
-      color: black;
-      font-weight: bold;
+      color: white;
       cursor: pointer;
+      width: 90%;
+      max-width: 400px;
+      transition: 0.3s;
     }
 
-    #play-btn:focus {
+    .canal:hover,
+    .canal:focus {
+      background-color: #1565c0;
       outline: 3px solid yellow;
     }
 
-    #tv-player {
+    #video-container {
       display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: black;
+      z-index: 9999;
+    }
+
+    video {
       width: 100%;
       height: 100%;
       background: black;
@@ -47,50 +58,38 @@
 </head>
 <body>
 
-  <!-- Pantalla de inicio con botón reproducir -->
-  <div id="start-screen">
-    <h1>📺 Telefe en Vivo</h1>
-    <button id="play-btn" autofocus>▶ Reproducir</button>
+  <h1>🎯 Canales Favoritos</h1>
+
+  <button class="canal" onclick="reproducir('https://clubtv.link/ago02/espn1.m3u8')" tabindex="1">▶ ESPN 1</button>
+  <button class="canal" onclick="reproducir('https://clubtv.link/ago02/foxsports.m3u8')" tabindex="2">▶ FOX Sports</button>
+  <button class="canal" onclick="reproducir('https://clubtv.link/ago02/hbohd.m3u8')" tabindex="3">▶ HBO HD</button>
+  <button class="canal" onclick="reproducir('https://clubtv.link/ago02/universo.m3u8')" tabindex="4">▶ Universo</button>
+
+  <!-- Reproductor integrado -->
+  <div id="video-container">
+    <video id="tv-player" controls autoplay></video>
   </div>
 
-  <!-- Reproductor de video oculto inicialmente -->
-  <video
-    id="tv-player"
-    controls
-    playsinline
-  >
-    <source src="https://telefe.com/Api/Videos/GetSourceUrl/694564/0/HLS?.m3u8" type="application/x-mpegURL" />
-    Tu navegador no soporta el video.
-  </video>
-
   <script>
-    const playBtn = document.getElementById("play-btn");
-    const startScreen = document.getElementById("start-screen");
     const video = document.getElementById("tv-player");
+    const container = document.getElementById("video-container");
 
-    playBtn.addEventListener("click", () => {
-      // Ocultar pantalla inicial y mostrar el reproductor
-      startScreen.style.display = "none";
-      video.style.display = "block";
-
-      // Reproducir con sonido
+    function reproducir(url) {
+      video.src = url;
       video.muted = false;
-      video.play();
+      container.style.display = "block";
 
-      // Solicitar pantalla completa
       setTimeout(() => {
         if (video.requestFullscreen) {
           video.requestFullscreen();
         } else if (video.webkitRequestFullscreen) {
           video.webkitRequestFullscreen();
         }
-      }, 500);
+        video.play();
+        video.focus();
+      }, 300);
+    }
 
-      // Enfocar el reproductor para navegación con control remoto
-      video.focus();
-    });
-
-    // Permitir uso del control remoto
     document.addEventListener("keydown", function (e) {
       switch (e.key) {
         case "ArrowLeft":
@@ -99,20 +98,19 @@
         case "ArrowRight":
           video.currentTime += 10;
           break;
-        case "Enter":
-        case " ":
-          if (startScreen.style.display !== "none") {
-            playBtn.click(); // Simula botón si aún no empezó
-          } else {
-            if (video.paused) {
-              video.play();
-            } else {
-              video.pause();
-            }
-          }
+        case "Backspace":
+        case "Escape":
+          video.pause();
+          video.src = "";
+          container.style.display = "none";
           break;
       }
     });
+
+    window.onload = () => {
+      document.querySelector(".canal").focus();
+    };
   </script>
+
 </body>
 </html>
