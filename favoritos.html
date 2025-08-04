@@ -1,63 +1,54 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Canales Favoritos</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>📺 Canales Favoritos</title>
   <style>
-    body { font-family: sans-serif; padding: 10px; background: #111; color: white; }
-    button {
-      display: block;
-      width: 100%;
-      margin: 8px 0;
-      padding: 12px;
-      background: #1e90ff;
-      color: white;
+    body {
+      font-family: Arial, sans-serif;
+      background: #121212;
+      color: #fff;
+      text-align: center;
+      padding: 30px;
+    }
+
+    h1 {
+      color: #00ffff;
+      margin-bottom: 30px;
+    }
+
+    .canal {
+      margin: 15px auto;
+      padding: 15px 25px;
+      font-size: 18px;
+      background-color: #1e88e5;
       border: none;
-      border-radius: 8px;
-      font-size: 16px;
+      border-radius: 10px;
+      color: white;
+      cursor: pointer;
+      width: 80%;
+      max-width: 300px;
+      transition: 0.3s;
+    }
+
+    .canal:hover {
+      background-color: #1565c0;
     }
   </style>
 </head>
-<body onload="cargarLista()">
-  <h2>🎯 Canales Favoritos</h2>
-  <div id="lista">Cargando canales...</div>
+<body>
 
-  <script>
-    const palabrasClave = ["ESPN", "HBO", "Universal", "FOX Sports"];
-    const urlM3U = "https://tvbox13.github.io/canales-favoritos/lista.m3u";
+  <h1>🎯 Canales Favoritos</h1>
 
-    async function cargarLista() {
-      try {
-        const res = await fetch(urlM3U);
-        const texto = await res.text();
-        const lineas = texto.split("\n");
-        const lista = document.getElementById("lista");
-        lista.innerHTML = "";
+  <!-- Botones con enlaces VLC (usá tus enlaces reales abajo) -->
+  <button class="canal" onclick="location.href='intent://clubtv.link/ago02/espn1.m3u8#Intent;package=org.videolan.vlc;end'">ESPN 1</button>
 
-        for (let i = 0; i < lineas.length; i++) {
-          if (lineas[i].startsWith("#EXTINF")) {
-            const nombreCanal = lineas[i];
-            const urlStream = lineas[i + 1];
-            if (palabrasClave.some(palabra => nombreCanal.toLowerCase().includes(palabra.toLowerCase()))) {
-              const btn = document.createElement("button");
-              btn.textContent = nombreCanal.split(",").pop().trim();
-              btn.onclick = () => {
-                window.location.href = `intent:${urlStream}#Intent;package=org.videolan.vlc;type=video;scheme=http;end`;
-              };
-              lista.appendChild(btn);
-            }
-          }
-        }
+  <button class="canal" onclick="location.href='intent://clubtv.link/ago02/foxsports.m3u8#Intent;package=org.videolan.vlc;end'">FOX Sports</button>
 
-        if (lista.innerHTML.trim() === "") {
-          lista.innerHTML = "No se encontraron canales con los criterios dados.";
-        }
+  <button class="canal" onclick="location.href='intent://clubtv.link/ago02/hbohd.m3u8#Intent;package=org.videolan.vlc;end'">HBO HD</button>
 
-      } catch (e) {
-        document.getElementById("lista").innerHTML = "Error al cargar la lista.";
-        console.error(e);
-      }
-    }
-  </script>
+  <button class="canal" onclick="location.href='intent://clubtv.link/ago02/universo.m3u8#Intent;package=org.videolan.vlc;end'">Universo</button>
+
 </body>
 </html>
