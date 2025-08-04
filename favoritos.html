@@ -20,20 +20,22 @@
 
     .canal {
       margin: 15px auto;
-      padding: 15px 25px;
-      font-size: 18px;
+      padding: 20px 30px;
+      font-size: 20px;
       background-color: #1e88e5;
       border: none;
       border-radius: 10px;
       color: white;
       cursor: pointer;
-      width: 80%;
-      max-width: 300px;
+      width: 90%;
+      max-width: 400px;
       transition: 0.3s;
     }
 
-    .canal:hover {
+    .canal:hover,
+    .canal:focus {
       background-color: #1565c0;
+      outline: 3px solid yellow;
     }
   </style>
 </head>
@@ -41,14 +43,30 @@
 
   <h1>🎯 Canales Favoritos</h1>
 
-  <!-- Botones con enlaces VLC (usá tus enlaces reales abajo) -->
-  <button class="canal" onclick="location.href='intent://clubtv.link/ago02/espn1.m3u8#Intent;package=org.videolan.vlc;end'">ESPN 1</button>
+  <!-- Botones que abren los canales directamente en VLC -->
+  <button class="canal" onclick="abrirVLC('clubtv.link/ago02/espn1.m3u8')" tabindex="1">▶ ESPN 1</button>
+  <button class="canal" onclick="abrirVLC('clubtv.link/ago02/foxsports.m3u8')" tabindex="2">▶ FOX Sports</button>
+  <button class="canal" onclick="abrirVLC('clubtv.link/ago02/hbohd.m3u8')" tabindex="3">▶ HBO HD</button>
+  <button class="canal" onclick="abrirVLC('clubtv.link/ago02/universo.m3u8')" tabindex="4">▶ Universo</button>
 
-  <button class="canal" onclick="location.href='intent://clubtv.link/ago02/foxsports.m3u8#Intent;package=org.videolan.vlc;end'">FOX Sports</button>
+  <script>
+    function abrirVLC(url) {
+      // Abre el enlace en VLC desde Android TV con intent
+      location.href = `intent://${url}#Intent;package=org.videolan.vlc;end`;
+    }
 
-  <button class="canal" onclick="location.href='intent://clubtv.link/ago02/hbohd.m3u8#Intent;package=org.videolan.vlc;end'">HBO HD</button>
+    // Soporte control remoto: Enter para activar botón enfocado
+    document.addEventListener("keydown", function (e) {
+      const focused = document.activeElement;
+      if (e.key === "Enter" || e.key === " ") {
+        focused.click();
+      }
+    });
 
-  <button class="canal" onclick="location.href='intent://clubtv.link/ago02/universo.m3u8#Intent;package=org.videolan.vlc;end'">Universo</button>
-
+    // Autofocus en primer botón al cargar
+    window.onload = () => {
+      document.querySelector(".canal").focus();
+    };
+  </script>
 </body>
 </html>
