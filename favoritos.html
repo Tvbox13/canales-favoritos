@@ -46,10 +46,9 @@
   <div id="canales" class="loading">Cargando canales...</div>
 
   <script>
-    // URL de la lista M3U
-    const M3U_URL = "https://canales-favoritos.netlify.app/lista.m3u";  // Asegúrate de que esta URL apunte a tu lista M3U
+    const M3U_URL = "https://canales-favoritos.netlify.app/lista.m3u"; // URL de la lista M3U
 
-    // Filtros de canales
+    // Palabras clave para filtrar canales
     const filtros = [
       /espn/i,
       /fox\s?sports?/i,
@@ -57,7 +56,7 @@
       /universo/i
     ];
 
-    // Función para cargar y filtrar los canales M3U
+    // Cargar y procesar la lista M3U
     fetch(M3U_URL)
       .then(res => res.text())
       .then(data => {
@@ -81,7 +80,6 @@
           return;
         }
 
-        // Mostrar los botones de los canales
         const buttonContainer = document.createElement('div');
         buttonContainer.classList.add('button-container');
 
@@ -89,7 +87,9 @@
           const btn = document.createElement("button");
           btn.textContent = c.nombre;
           btn.onclick = () => {
-            window.open(c.url, '_blank');  // Abre el enlace del canal en una nueva ventana o pestaña
+            const encodedUrl = encodeURIComponent(c.url);
+            const intentUrl = `intent://${c.url.replace(/^https?:\/\//, '')}#Intent;scheme=http;package=org.videolan.vlc;end`;
+            window.location.href = intentUrl;
           };
           buttonContainer.appendChild(btn);
         });
