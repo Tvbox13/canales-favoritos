@@ -1,72 +1,118 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>📺 Canales Favoritos</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Telefe - Reproductor Android TV</title>
   <style>
     body {
+      margin: 0;
+      background-color: black;
       font-family: Arial, sans-serif;
-      background: #121212;
-      color: #fff;
-      text-align: center;
-      padding: 30px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
     }
 
-    h1 {
-      color: #00ffff;
-      margin-bottom: 30px;
+    #start-screen {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      color: white;
     }
 
-    .canal {
-      margin: 15px auto;
-      padding: 20px 30px;
-      font-size: 20px;
-      background-color: #1e88e5;
+    #play-btn {
+      font-size: 28px;
+      padding: 20px 40px;
+      background-color: #00c3ff;
       border: none;
       border-radius: 10px;
-      color: white;
+      color: black;
+      font-weight: bold;
       cursor: pointer;
-      width: 90%;
-      max-width: 400px;
-      transition: 0.3s;
     }
 
-    .canal:hover,
-    .canal:focus {
-      background-color: #1565c0;
+    #play-btn:focus {
       outline: 3px solid yellow;
+    }
+
+    #tv-player {
+      display: none;
+      width: 100%;
+      height: 100%;
+      background: black;
     }
   </style>
 </head>
 <body>
 
-  <h1>🎯 Canales Favoritos</h1>
+  <!-- Pantalla de inicio con botón reproducir -->
+  <div id="start-screen">
+    <h1>📺 Telefe en Vivo</h1>
+    <button id="play-btn" autofocus>▶ Reproducir</button>
+  </div>
 
-  <!-- Botones que abren los canales directamente en VLC -->
-  <button class="canal" onclick="abrirVLC('clubtv.link/ago02/espn1.m3u8')" tabindex="1">▶ ESPN 1</button>
-  <button class="canal" onclick="abrirVLC('clubtv.link/ago02/foxsports.m3u8')" tabindex="2">▶ FOX Sports</button>
-  <button class="canal" onclick="abrirVLC('clubtv.link/ago02/hbohd.m3u8')" tabindex="3">▶ HBO HD</button>
-  <button class="canal" onclick="abrirVLC('clubtv.link/ago02/universo.m3u8')" tabindex="4">▶ Universo</button>
+  <!-- Reproductor de video oculto inicialmente -->
+  <video
+    id="tv-player"
+    controls
+    playsinline
+  >
+    <source src="https://telefe.com/Api/Videos/GetSourceUrl/694564/0/HLS?.m3u8" type="application/x-mpegURL" />
+    Tu navegador no soporta el video.
+  </video>
 
   <script>
-    function abrirVLC(url) {
-      // Abre el enlace en VLC desde Android TV con intent
-      location.href = `intent://${url}#Intent;package=org.videolan.vlc;end`;
-    }
+    const playBtn = document.getElementById("play-btn");
+    const startScreen = document.getElementById("start-screen");
+    const video = document.getElementById("tv-player");
 
-    // Soporte control remoto: Enter para activar botón enfocado
-    document.addEventListener("keydown", function (e) {
-      const focused = document.activeElement;
-      if (e.key === "Enter" || e.key === " ") {
-        focused.click();
-      }
+    playBtn.addEventListener("click", () => {
+      // Ocultar pantalla inicial y mostrar el reproductor
+      startScreen.style.display = "none";
+      video.style.display = "block";
+
+      // Reproducir con sonido
+      video.muted = false;
+      video.play();
+
+      // Solicitar pantalla completa
+      setTimeout(() => {
+        if (video.requestFullscreen) {
+          video.requestFullscreen();
+        } else if (video.webkitRequestFullscreen) {
+          video.webkitRequestFullscreen();
+        }
+      }, 500);
+
+      // Enfocar el reproductor para navegación con control remoto
+      video.focus();
     });
 
-    // Autofocus en primer botón al cargar
-    window.onload = () => {
-      document.querySelector(".canal").focus();
-    };
+    // Permitir uso del control remoto
+    document.addEventListener("keydown", function (e) {
+      switch (e.key) {
+        case "ArrowLeft":
+          video.currentTime -= 10;
+          break;
+        case "ArrowRight":
+          video.currentTime += 10;
+          break;
+        case "Enter":
+        case " ":
+          if (startScreen.style.display !== "none") {
+            playBtn.click(); // Simula botón si aún no empezó
+          } else {
+            if (video.paused) {
+              video.play();
+            } else {
+              video.pause();
+            }
+          }
+          break;
+      }
+    });
   </script>
 </body>
 </html>
