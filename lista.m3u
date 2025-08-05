@@ -1,5 +1,5 @@
 #EXTM3U
-http://clubtv.link/ago02/phpcode/lista5.php?c=a0kn&token=TecnoplusJunio03&f=.m3u8
+
 #EXTINF:1 tvg-name="Tv Publica" tvg-id="TvPublica.arg" tvg-logo="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhvCMnWaBkcvulkc2mTJ4joGquqHghOTJHDsx1s_tc2rCjybU3piOvtC3xSpDGgFLjEJXRlm0-RkbjUHzRf2yoFyeXKpwqlz3OF3phx6fPUJ-33hSD46zG2ulN1U-zCF9P9DUfNHyLKwLw/s1920/tvp-2021.png" group-title="bsas",Tv Publica
 https://g3.vxral-slo.transport.edge-access.net/b16/ngrp:c7_vivo01_dai_source-20001_all/c7_vivo01_dai_source-20001_1080p.m3u8
 #EXTINF:1 tvg-name="Canal De La Ciudad" tvg-id="ciudadabierta.ba" tvg-logo="https://files.catbox.moe/w97e42.png" group-title="bsas",Canal De La Ciudad
@@ -13,7 +13,7 @@ https://sae13.playlist.ttvnw.net/v1/playlist/Cq8GHdw8dq4-qem5IbO3HBtgVju33b9y7RZ
 #EXTINF:1 tvg-name="Net TV" tvg-id="nettvperfil.ar" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/a/a5/Net_TV_logo.png" group-title="bsas",Net TV
 https://unlimited1-us.dps.live/nettv/nettv.smil/playlist.m3u8
 #EXTINF:1 tvg-name="Canal Provincial" tvg-id="provincialtvtelered.ar" tvg-logo="https://files.catbox.moe/iqhfki.png" group-title="bsas",Canal Provincial
-https://smcdn03.trimi.com.ar:443/live/sm-live/PROVINCIAL/sa_live_hls/PROVINCIAL.m3u8
+http://clubtv.link/ago02/phpcode/lista5.php?c=a0kn&token=TecnoplusJunio03&f=.m3u8
 #EXTINF:1 tvg-name="Canal 10 Junin" tvg-id="americajunin10.ar" tvg-logo="https://files.catbox.moe/yh232w.png" group-title="bsas",Canal 10 Junin
 https://g4.mc-hor.transport.edge-access.net/a10/ngrp:canal10junin-100056_all/Playlist.m3u8?sense=true
 #EXTINF:1 tvg-name="Bravo TV" tvg-id="bravoperfiltv.ar" tvg-logo="https://files.catbox.moe/za53j7.png" group-title="bsas",Bravo TV
