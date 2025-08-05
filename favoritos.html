@@ -1,149 +1,21 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>📺 Canales Favoritos</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #121212;
-      color: #fff;
-      text-align: center;
-      margin: 0;
-      padding: 30px;
-    }
+document.addEventListener("keydown", function (e) {
+  switch (e.key) {
+    case "ArrowLeft":
+      video.currentTime -= 10;
+      break;
+    case "ArrowRight":
+      video.currentTime += 10;
+      break;
+    case "Backspace":
+    case "Escape":
+    case "Back": // compatibilidad con Android TV o controles remotos
+      video.pause();
+      video.src = "";
+      container.style.display = "none";
 
-    h1 {
-      color: #00ffff;
-      margin-bottom: 30px;
-    }
-
-    .canal {
-      margin: 15px auto;
-      padding: 20px 30px;
-      font-size: 20px;
-      background-color: #1e88e5;
-      border: none;
-      border-radius: 10px;
-      color: white;
-      cursor: pointer;
-      width: 90%;
-      max-width: 400px;
-      transition: 0.3s;
-    }
-
-    .canal:hover,
-    .canal:focus {
-      background-color: #1565c0;
-      outline: 3px solid yellow;
-    }
-
-    #video-container {
-      display: none;
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: black;
-      z-index: 9999;
-    }
-
-    video {
-      width: 100%;
-      height: 100%;
-      background: black;
-    }
-  </style>
-</head>
-<body>
-
-  <h1>🎯 Canales Favoritos</h1>
-  <!-- Aquí se insertarán los botones automáticamente -->
-
-  <!-- Reproductor integrado -->
-  <div id="video-container">
-    <video id="tv-player" controls autoplay></video>
-  </div>
-
-  <script>
-    const video = document.getElementById("tv-player");
-    const container = document.getElementById("video-container");
-
-    const m3uUrl = 'https://raw.githubusercontent.com/Tvbox13/canales-favoritos/main/lista.m3u'; // URL de tu lista M3U
-
-    // Función para parsear el archivo M3U y crear los botones dinámicamente
-    function cargarCanales() {
-      fetch(m3uUrl)
-        .then(response => response.text())
-        .then(data => {
-          const lines = data.split('\n');
-          const canales = [];
-          
-          // Filtrar los canales que nos interesan (esto se puede personalizar)
-          let currentCanal = null;
-          lines.forEach(line => {
-            if (line.startsWith('#EXTINF')) {
-              currentCanal = {
-                nombre: line.split(',')[1].trim(),
-                url: lines[lines.indexOf(line) + 1].trim()
-              };
-              canales.push(currentCanal);
-            }
-          });
-
-          // Crear los botones para cada canal
-          canales.forEach(canal => {
-            const btn = document.createElement('button');
-            btn.classList.add('canal');
-            btn.innerHTML = `▶ ${canal.nombre}`;
-            btn.onclick = () => reproducir(canal.url);
-            document.body.appendChild(btn);
-          });
-        })
-        .catch(error => {
-          console.error('Error al cargar la lista M3U:', error);
-        });
-    }
-
-    // Función para reproducir el video
-    function reproducir(url) {
-      video.src = url;
-      video.muted = false;
-      container.style.display = "block";
-
-      setTimeout(() => {
-        if (video.requestFullscreen) {
-          video.requestFullscreen();
-        } else if (video.webkitRequestFullscreen) {
-          video.webkitRequestFullscreen();
-        }
-        video.play();
-        video.focus();
-      }, 300);
-    }
-
-    // Iniciar la carga de canales
-    cargarCanales();
-
-    // Permitir retroceder y avanzar en el video con teclas
-    document.addEventListener("keydown", function (e) {
-      switch (e.key) {
-        case "ArrowLeft":
-          video.currentTime -= 10; // Retroceder 10 segundos
-          break;
-        case "ArrowRight":
-          video.currentTime += 10; // Avanzar 10 segundos
-          break;
-        case "Backspace":
-        case "Escape":
-          video.pause();
-          video.src = "";
-          container.style.display = "none";
-          break;
-      }
-    });
-  </script>
-
-</body>
-</html>
+      // Volver el foco al primer canal al cerrar el reproductor
+      const primerBoton = document.querySelector('.canal');
+      if (primerBoton) primerBoton.focus();
+      break;
+  }
+});
