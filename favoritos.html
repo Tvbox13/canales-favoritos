@@ -60,15 +60,17 @@
 
   <h1>🎯 Canales Favoritos</h1>
 
-  <!-- Aquí se insertarán los botones automáticamente -->
-
   <!-- Reproductor integrado -->
   <div id="video-container">
-    <video id="tv-player" controls autoplay></video>
+    <video id="tv-player" controls autoplay>
+      <source id="video-source" src="" type="application/x-mpegURL">
+      Tu navegador no soporta el video.
+    </video>
   </div>
 
   <script>
     const video = document.getElementById("tv-player");
+    const source = document.getElementById("video-source");
     const container = document.getElementById("video-container");
 
     const m3uUrl = 'https://raw.githubusercontent.com/Tvbox13/canales-favoritos/main/lista.m3u';
@@ -79,7 +81,7 @@
         .then(data => {
           const lines = data.split('\n');
           const canales = [];
-          
+
           let nombre = "", url = "";
 
           for (let i = 0; i < lines.length; i++) {
@@ -92,14 +94,19 @@
             }
           }
 
-          // Crear botones
           canales.forEach(canal => {
             const btn = document.createElement('button');
             btn.classList.add('canal');
-            btn.innerHTML = `▶ ${canal.nombre}`;
+            btn.textContent = `▶ ${canal.nombre}`;
             btn.onclick = () => reproducir(canal.url);
             document.body.appendChild(btn);
           });
+
+          // Foco al primer botón
+          setTimeout(() => {
+            const primerBoton = document.querySelector('.canal');
+            if (primerBoton) primerBoton.focus();
+          }, 100);
         })
         .catch(error => {
           console.error('Error al cargar la lista M3U:', error);
@@ -107,9 +114,11 @@
     }
 
     function reproducir(url) {
-      video.src = url;
-      video.muted = false;
+      source.src = url;
+      video.load();
       container.style.display = "block";
+      video.muted = false;
+      video.play();
 
       setTimeout(() => {
         if (video.requestFullscreen) {
@@ -117,7 +126,6 @@
         } else if (video.webkitRequestFullscreen) {
           video.webkitRequestFullscreen();
         }
-        video.play();
         video.focus();
       }, 300);
     }
@@ -136,21 +144,13 @@
           video.pause();
           video.src = "";
           container.style.display = "none";
-
-          // Devolver el foco al primer botón de canal
           const primerBoton = document.querySelector('.canal');
           if (primerBoton) primerBoton.focus();
           break;
       }
     });
 
-    // Al cargar la página
-    cargarCanales();
-
-    window.onload = () => {
-      const primerBoton = document.querySelector('.canal');
-      if (primerBoton) primerBoton.focus();
-    };
+    window.onload = cargarCanales;
   </script>
 
 </body>
