@@ -2,128 +2,151 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <title>📺 Reproductor TV Completo</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <script src="https://cdn.jsdelivr.net/npm/clappr@0.4.7/dist/clappr.min.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>📺 Canales Favoritos - Mejorado</title>
+
+  <!-- Clappr Player -->
+  <script src="https://cdn.jsdelivr.net/npm/clappr@latest/dist/clappr.min.js"></script>
+
   <style>
     body {
       margin: 0;
-      background: #121212;
       font-family: Arial, sans-serif;
+      background-color: #121212;
       color: white;
+      text-align: center;
+      padding: 20px;
     }
 
     h1 {
-      text-align: center;
       color: #00ffff;
-      margin-top: 20px;
+      margin-bottom: 30px;
     }
 
-    #contenedor-canales {
-      padding: 20px;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 10px;
-    }
-
-    .canal-btn {
+    .canal {
+      margin: 10px auto;
+      padding: 15px 25px;
+      font-size: 18px;
       background-color: #1e88e5;
       border: none;
       border-radius: 10px;
-      padding: 15px;
       color: white;
-      font-size: 18px;
       cursor: pointer;
       width: 90%;
-      max-width: 300px;
-      transition: 0.2s;
-      text-align: left;
+      max-width: 400px;
+      transition: 0.3s;
     }
 
-    .canal-btn:hover, .canal-btn:focus {
+    .canal:hover, .canal:focus {
       background-color: #1565c0;
-      outline: 2px solid yellow;
+      outline: 3px solid yellow;
     }
 
-    #player-container {
+    #player-wrapper {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
       width: 100vw;
       height: 100vh;
-      display: none;
-      background-color: black;
+      background: black;
+      z-index: 9999;
+    }
+
+    #player {
+      width: 100%;
+      height: 100%;
     }
   </style>
 </head>
 <body>
+
   <h1>📺 Canales Favoritos</h1>
-  <div id="contenedor-canales"></div>
-  <div id="player-container"></div>
+
+  <div id="canales-container"></div>
+
+  <div id="player-wrapper">
+    <div id="player"></div>
+  </div>
 
   <script>
     const m3uUrl = 'https://raw.githubusercontent.com/Tvbox13/canales-favoritos/main/lista.m3u';
-    const contenedor = document.getElementById('contenedor-canales');
-    const playerContainer = document.getElementById('player-container');
-    let player = null;
-
-    function reproducir(url) {
-      contenedor.style.display = 'none';
-      playerContainer.style.display = 'block';
-
-      if (player) {
-        player.destroy();
-      }
-
-      player = new Clappr.Player({
-        source: url,
-        parentId: '#player-container',
-        autoPlay: true,
-        mute: false,
-        height: '100%',
-        width: '100%',
-      });
-
-      document.addEventListener('keydown', function (e) {
-        if (['Backspace', 'Escape'].includes(e.key)) {
-          player.destroy();
-          playerContainer.style.display = 'none';
-          contenedor.style.display = 'flex';
-          const primero = document.querySelector('.canal-btn');
-          if (primero) primero.focus();
-        }
-      });
-    }
+    const container = document.getElementById("canales-container");
+    const playerWrapper = document.getElementById("player-wrapper");
+    let playerInstance = null;
 
     function cargarCanales() {
       fetch(m3uUrl)
-        .then(res => res.text())
+        .then(response => response.text())
         .then(data => {
           const lines = data.split('\n');
-          let nombre = '', url = '', logo = '';
+          let nombre = "", url = "";
 
           for (let i = 0; i < lines.length; i++) {
-            if (lines[i].startsWith('#EXTINF')) {
-              const matchNombre = lines[i].split(',')[1]?.trim();
-              const matchLogo = lines[i].match(/tvg-logo="(.*?)"/);
-              nombre = matchNombre;
-              logo = matchLogo ? matchLogo[1] : '';
-            } else if (lines[i].startsWith('http')) {
-              url = lines[i].trim();
-              if (url && nombre) {
-                const btn = document.createElement('button');
-                btn.className = 'canal-btn';
-                btn.innerHTML = logo
-                  ? `<img src="${logo}" style="height:24px; vertical-align:middle; margin-right:10px;"> ${nombre}`
-                  : `▶ ${nombre}`;
-                btn.onclick = () => reproducir(url);
-                contenedor.appendChild(btn);
+            if (lines[i].startsWith("#EXTINF")) {
+              nombre = lines[i].split(',')[1]?.trim();
+              url = lines[i + 1]?.trim();
+              if (url && url.startsWith("http")) {
+                agregarBoton(nombre, url);
               }
             }
           }
+
+          const primerBoton = document.querySelector(".canal");
+          if (primerBoton) primerBoton.focus();
         })
-        .catch(err => console.error('Error al cargar la lista:', err));
+        .catch(error => console.error('Error al cargar la lista M3U:', error));
     }
 
-    cargarCanales();
+    function agregarBoton(nombre, url) {
+      const btn = document.createElement("button");
+      btn.className = "canal";
+      btn.textContent = `▶ ${nombre}`;
+      btn.onclick = () => reproducir(url);
+      container.appendChild(btn);
+    }
+
+    function reproducir(url) {
+      if (playerInstance) {
+        playerInstance.destroy();
+      }
+
+      playerWrapper.style.display = "block";
+
+      playerInstance = new Clappr.Player({
+        source: url,
+        parentId: "#player",
+        autoPlay: true,
+        mute: false,
+        height: "100%",
+        width: "100%",
+        fullscreenEnabled: true,
+        exitFullscreenOnEnd: false,
+        playback: {
+          hlsUseNextLevel: true,
+          hlsMinimumDvrSize: 60
+        }
+      });
+
+      playerInstance.focus();
+    }
+
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" || e.key === "Backspace" || e.key === "Back") {
+        if (playerWrapper.style.display === "block") {
+          playerWrapper.style.display = "none";
+          if (playerInstance) {
+            playerInstance.destroy();
+            playerInstance = null;
+          }
+
+          // Enfocar primer canal
+          const primerBoton = document.querySelector(".canal");
+          if (primerBoton) primerBoton.focus();
+        }
+      }
+    });
+
+    window.onload = cargarCanales;
   </script>
 </body>
 </html>
