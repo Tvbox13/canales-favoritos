@@ -25,7 +25,7 @@
 
     .canal {
       margin: 10px auto;
-      padding: 15px 25px;
+      padding: 10px 15px;
       font-size: 18px;
       background-color: #1e88e5;
       border: none;
@@ -33,13 +33,30 @@
       color: white;
       cursor: pointer;
       width: 90%;
-      max-width: 400px;
+      max-width: 500px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 15px;
       transition: 0.3s;
     }
 
     .canal:hover, .canal:focus {
       background-color: #1565c0;
       outline: 3px solid yellow;
+    }
+
+    .canal img {
+      width: 45px;
+      height: 45px;
+      object-fit: contain;
+      background-color: white;
+      border-radius: 5px;
+    }
+
+    .canal span {
+      flex-grow: 1;
+      text-align: left;
     }
 
     #player-wrapper {
@@ -79,14 +96,24 @@
         .then(response => response.text())
         .then(data => {
           const lines = data.split('\n');
-          let nombre = "", url = "";
+          let nombre = "", url = "", logo = "";
 
           for (let i = 0; i < lines.length; i++) {
             if (lines[i].startsWith("#EXTINF")) {
-              nombre = lines[i].split(',')[1]?.trim();
+              const linea = lines[i];
+
+              // Extraer nombre del canal
+              const nombreMatch = linea.split(',')[1]?.trim();
+              nombre = nombreMatch || "Canal";
+
+              // Extraer logo
+              const logoMatch = linea.match(/tvg-logo="([^"]+)"/);
+              logo = logoMatch ? logoMatch[1] : "";
+
+              // Obtener URL
               url = lines[i + 1]?.trim();
               if (url && url.startsWith("http")) {
-                agregarBoton(nombre, url);
+                agregarBoton(nombre, url, logo);
               }
             }
           }
@@ -97,11 +124,22 @@
         .catch(error => console.error('Error al cargar la lista M3U:', error));
     }
 
-    function agregarBoton(nombre, url) {
+    function agregarBoton(nombre, url, logo) {
       const btn = document.createElement("button");
       btn.className = "canal";
-      btn.textContent = `▶ ${nombre}`;
       btn.onclick = () => reproducir(url);
+
+      if (logo) {
+        const img = document.createElement("img");
+        img.src = logo;
+        img.alt = nombre;
+        btn.appendChild(img);
+      }
+
+      const span = document.createElement("span");
+      span.textContent = `▶ ${nombre}`;
+      btn.appendChild(span);
+
       container.appendChild(btn);
     }
 
@@ -150,4 +188,3 @@
   </script>
 </body>
 </html>
-
