@@ -12,7 +12,10 @@
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      background-color: #121212;
+      background-image: url('https://dl.dropboxusercontent.com/scl/fi/53cl5dg07jneprsqbvkdp/Fondo-dorado-negro.jpg?rlkey=fxysssw9toe3zdhw873nob0k7&st=brpgsbw8');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
       color: white;
       text-align: center;
       padding: 20px;
@@ -20,14 +23,26 @@
 
     h1 {
       color: #00ffff;
-      margin-bottom: 30px;
+      margin-bottom: 10px;
+      text-shadow: 2px 2px 4px black;
+    }
+
+    #buscador {
+      padding: 10px;
+      font-size: 16px;
+      width: 90%;
+      max-width: 500px;
+      margin: 20px auto 30px auto;
+      border-radius: 8px;
+      border: none;
+      outline: none;
     }
 
     .canal {
       margin: 10px auto;
       padding: 10px 15px;
       font-size: 18px;
-      background-color: #1e88e5;
+      background-color: rgba(30, 136, 229, 0.9);
       border: none;
       border-radius: 10px;
       color: white;
@@ -42,7 +57,7 @@
     }
 
     .canal:hover, .canal:focus {
-      background-color: #1565c0;
+      background-color: rgba(21, 101, 192, 0.9);
       outline: 3px solid yellow;
     }
 
@@ -78,6 +93,7 @@
 <body>
 
   <h1>📺 Canales Favoritos</h1>
+  <input type="text" id="buscador" placeholder="🔍 Buscar canal..." />
 
   <div id="canales-container"></div>
 
@@ -88,6 +104,7 @@
   <script>
     const m3uUrl = 'https://raw.githubusercontent.com/Tvbox13/canales-favoritos/main/lista.m3u';
     const container = document.getElementById("canales-container");
+    const buscador = document.getElementById("buscador");
     const playerWrapper = document.getElementById("player-wrapper");
     let playerInstance = null;
 
@@ -101,17 +118,11 @@
           for (let i = 0; i < lines.length; i++) {
             if (lines[i].startsWith("#EXTINF")) {
               const linea = lines[i];
-
-              // Extraer nombre del canal
-              const nombreMatch = linea.split(',')[1]?.trim();
-              nombre = nombreMatch || "Canal";
-
-              // Extraer logo
+              nombre = linea.split(',')[1]?.trim() || "Canal";
               const logoMatch = linea.match(/tvg-logo="([^"]+)"/);
               logo = logoMatch ? logoMatch[1] : "";
-
-              // Obtener URL
               url = lines[i + 1]?.trim();
+
               if (url && url.startsWith("http")) {
                 agregarBoton(nombre, url, logo);
               }
@@ -127,6 +138,7 @@
     function agregarBoton(nombre, url, logo) {
       const btn = document.createElement("button");
       btn.className = "canal";
+      btn.setAttribute("data-nombre", nombre.toLowerCase());
       btn.onclick = () => reproducir(url);
 
       if (logo) {
@@ -177,11 +189,19 @@
             playerInstance = null;
           }
 
-          // Enfocar primer canal
           const primerBoton = document.querySelector(".canal");
           if (primerBoton) primerBoton.focus();
         }
       }
+    });
+
+    buscador.addEventListener("input", function () {
+      const filtro = this.value.toLowerCase();
+      const botones = document.querySelectorAll(".canal");
+      botones.forEach(boton => {
+        const nombre = boton.getAttribute("data-nombre");
+        boton.style.display = nombre.includes(filtro) ? "flex" : "none";
+      });
     });
 
     window.onload = cargarCanales;
