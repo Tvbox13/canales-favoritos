@@ -3,11 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>📺 Canales Favoritos - Mejorado</title>
-
-  <!-- Clappr Player -->
-  <script src="https://cdn.jsdelivr.net/npm/clappr@latest/dist/clappr.min.js"></script>
-
+  <title>📺 Canales Favoritos</title>
   <style>
     body {
       margin: 0;
@@ -41,38 +37,16 @@
       background-color: #1565c0;
       outline: 3px solid yellow;
     }
-
-    #player-wrapper {
-      display: none;
-      position: fixed;
-      top: 0; left: 0;
-      width: 100vw;
-      height: 100vh;
-      background: black;
-      z-index: 9999;
-    }
-
-    #player {
-      width: 100%;
-      height: 100%;
-    }
   </style>
 </head>
 <body>
 
   <h1>📺 Canales Favoritos</h1>
-
   <div id="canales-container"></div>
-
-  <div id="player-wrapper">
-    <div id="player"></div>
-  </div>
 
   <script>
     const m3uUrl = 'https://raw.githubusercontent.com/Tvbox13/canales-favoritos/main/lista.m3u';
     const container = document.getElementById("canales-container");
-    const playerWrapper = document.getElementById("player-wrapper");
-    let playerInstance = null;
 
     function cargarCanales() {
       fetch(m3uUrl)
@@ -101,50 +75,14 @@
       const btn = document.createElement("button");
       btn.className = "canal";
       btn.textContent = `▶ ${nombre}`;
-      btn.onclick = () => reproducir(url);
+      btn.onclick = () => enviarACanalPrincipal(url);
       container.appendChild(btn);
     }
 
-    function reproducir(url) {
-      if (playerInstance) {
-        playerInstance.destroy();
-      }
-
-      playerWrapper.style.display = "block";
-
-      playerInstance = new Clappr.Player({
-        source: url,
-        parentId: "#player",
-        autoPlay: true,
-        mute: false,
-        height: "100%",
-        width: "100%",
-        fullscreenEnabled: true,
-        exitFullscreenOnEnd: false,
-        playback: {
-          hlsUseNextLevel: true,
-          hlsMinimumDvrSize: 60
-        }
-      });
-
-      playerInstance.focus();
+    function enviarACanalPrincipal(url) {
+      // Enviar URL al contenedor principal
+      window.parent.postMessage(url, "*"); // Reemplazá "*" por tu dominio si querés seguridad
     }
-
-    document.addEventListener("keydown", function (e) {
-      if (e.key === "Escape" || e.key === "Backspace" || e.key === "Back") {
-        if (playerWrapper.style.display === "block") {
-          playerWrapper.style.display = "none";
-          if (playerInstance) {
-            playerInstance.destroy();
-            playerInstance = null;
-          }
-
-          // Enfocar primer canal
-          const primerBoton = document.querySelector(".canal");
-          if (primerBoton) primerBoton.focus();
-        }
-      }
-    });
 
     window.onload = cargarCanales;
   </script>
