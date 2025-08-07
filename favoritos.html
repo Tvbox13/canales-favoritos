@@ -2,29 +2,46 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Canales en VLC - Android TV</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>DC Store - Canales en VLC</title>
   <style>
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      background: black;
-      color: white;
+      background: url('https://dl.dropboxusercontent.com/scl/fi/53cl5dg07jneprsqbvkdp/Fondo-dorado-negro.jpg?rlkey=fxysssw9toe3zdhw873nob0k7&st=brpgsbw8&dl=0') no-repeat center center fixed;
+      background-size: cover;
       text-align: center;
+      color: white;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.6);
+      z-index: 0;
+    }
+
+    .container {
+      position: relative;
+      z-index: 1;
       padding: 20px;
     }
 
     h1 {
-      color: gold;
       font-size: 3rem;
-      text-shadow: 2px 2px 8px black;
+      margin: 30px 0;
+      background: linear-gradient(to right, gold, white, black);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.8), 0 0 20px gold;
     }
 
-    .canal-grid {
+    .canales {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 20px;
+      gap: 25px;
       margin-top: 30px;
     }
 
@@ -32,57 +49,71 @@
       background: rgba(255, 255, 255, 0.1);
       border: 3px solid gold;
       border-radius: 12px;
-      padding: 20px;
-      width: 220px;
+      width: 120px;
+      padding: 15px;
       text-decoration: none;
       color: white;
       display: flex;
       flex-direction: column;
       align-items: center;
-      transition: 0.3s;
+      transition: transform 0.3s, box-shadow 0.3s;
     }
 
-    .canal:hover {
-      transform: scale(1.05);
+    .canal:hover, .canal:focus {
+      transform: scale(1.1);
       box-shadow: 0 0 20px gold;
     }
 
     .canal img {
-      width: 100px;
-      height: 100px;
+      width: 64px;
+      height: 64px;
       object-fit: contain;
       border-radius: 8px;
-      margin-bottom: 10px;
       background: white;
+      margin-bottom: 8px;
     }
 
     .canal span {
-      font-size: 1.1rem;
-      font-weight: bold;
+      font-size: 0.9rem;
+      color: #ffbf00;
+      text-shadow: 1px 1px 2px black;
+    }
+
+    @media (max-width: 600px) {
+      .canal {
+        width: 100px;
+      }
+      .canal img {
+        width: 48px;
+        height: 48px;
+      }
     }
   </style>
 </head>
 <body>
-  <h1>📺 Canales en VLC (Android TV)</h1>
+  <div class="container">
+    <h1>📺 DC Store - Android TV con VLC</h1>
+    <div class="canales">
 
-  <div class="canal-grid">
-    <!-- Canal 1 -->
-    <a class="canal" href="intent://clubtv.link/ago02/phpcode/lista5.php?c=a05k&token=TecnoplusJunio03&f=.m3u8#Intent;package=org.videolan.vlc;type=video/*;scheme=http;end">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/3/33/VLC_Icon.svg" alt="TecnoPlus">
-      <span>TecnoPlus</span>
-    </a>
+      <!-- Canal 1: TecnoPlus -->
+      <a class="canal" href="intent://clubtv.link/ago02/phpcode/lista5.php?c=a05k&token=TecnoplusJunio03&f=.m3u8#Intent;package=org.videolan.vlc;type=video/*;scheme=http;end">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/3/33/VLC_Icon.svg" alt="TecnoPlus" />
+        <span>TecnoPlus</span>
+      </a>
 
-    <!-- Canal 2 -->
-    <a class="canal" href="intent://otrocanal.com/stream.m3u8#Intent;package=org.videolan.vlc;type=video/*;scheme=http;end">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Generic_TV_icon.svg/512px-Generic_TV_icon.svg.png" alt="Canal 2">
-      <span>Canal 2</span>
-    </a>
+      <!-- Canal 2: MoviePlus -->
+      <a class="canal" href="intent://midominio.com/stream/movie.m3u8#Intent;package=org.videolan.vlc;type=video/*;scheme=http;end">
+        <img src="https://cdn-icons-png.flaticon.com/512/833/833314.png" alt="MoviePlus" />
+        <span>MoviePlus</span>
+      </a>
 
-    <!-- Canal 3 -->
-    <a class="canal" href="intent://ejemplo.com/stream.m3u8#Intent;package=org.videolan.vlc;type=video/*;scheme=http;end">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Iconic_image_of_TV.svg/512px-Iconic_image_of_TV.svg.png" alt="Canal 3">
-      <span>Canal 3</span>
-    </a>
+      <!-- Canal 3: SeriesLive -->
+      <a class="canal" href="intent://midominio.com/stream/series.m3u8#Intent;package=org.videolan.vlc;type=video/*;scheme=http;end">
+        <img src="https://cdn-icons-png.flaticon.com/512/854/854866.png" alt="SeriesLive" />
+        <span>SeriesLive</span>
+      </a>
+
+    </div>
   </div>
 </body>
 </html>
