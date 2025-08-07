@@ -1,79 +1,333 @@
 #EXTM3U
 
-#EXTINF:-1 tvg-id="canal-a" tvg-name="Canal A" group-title="Test", Canal A
+#EXTINF:-1 tvg-id="A0CA" tvg-name="Canal 1" group-title="IPTV", Canal 1
 http://181.13.198.204:8000/play/a0ca/index.m3u8
 
-#EXTINF:-1 tvg-id="canal-b" tvg-name="Canal B" group-title="Test", Canal B
+#EXTINF:-1 tvg-id="A0CB" tvg-name="Canal 2" group-title="IPTV", Canal 2
 http://181.13.198.204:8000/play/a0cb/index.m3u8
 
-#EXTINF:-1 tvg-id="canal-c" tvg-name="Canal C" group-title="Test", Canal C
+#EXTINF:-1 tvg-id="A0CC" tvg-name="Canal 3" group-title="IPTV", Canal 3
 http://181.13.198.204:8000/play/a0cc/index.m3u8
 
-#EXTINF:-1 tvg-id="canal-d" tvg-name="Canal D" group-title="Test", Canal D
+#EXTINF:-1 tvg-id="A0CD" tvg-name="Canal 4" group-title="IPTV", Canal 4
 http://181.13.198.204:8000/play/a0cd/index.m3u8
 
-#EXTINF:-1 tvg-id="canal-e" tvg-name="Canal E" group-title="Test", Canal E
+#EXTINF:-1 tvg-id="A0CE" tvg-name="Canal 5" group-title="IPTV", Canal 5
 http://181.13.198.204:8000/play/a0ce/index.m3u8
 
-#EXTINF:-1 tvg-id="canal-f" tvg-name="Canal F" group-title="Test", Canal F
+#EXTINF:-1 tvg-id="A0CF" tvg-name="Canal 6" group-title="IPTV", Canal 6
 http://181.13.198.204:8000/play/a0cf/index.m3u8
 
-#EXTINF:-1 tvg-id="canal-g" tvg-name="Canal G" group-title="Test", Canal G
+#EXTINF:-1 tvg-id="A0CG" tvg-name="Canal 7" group-title="IPTV", Canal 7
 http://181.13.198.204:8000/play/a0cg/index.m3u8
 
-#EXTINF:-1 tvg-id="canal-i" tvg-name="Canal I" group-title="Test", Canal I
+#EXTINF:-1 tvg-id="A0CI" tvg-name="Canal 9" group-title="IPTV", Canal 9
 http://181.13.198.204:8000/play/a0ci/index.m3u8
 
-#EXTINF:-1 tvg-id="canal-j" tvg-name="Canal J" group-title="Test", Canal J
+#EXTINF:-1 tvg-id="A0CJ" tvg-name="Canal 10" group-title="IPTV", Canal 10
 http://181.13.198.204:8000/play/a0cj/index.m3u8
 
-#EXTINF:-1 tvg-id="canal-k" tvg-name="Canal K" group-title="Test", Canal K
+#EXTINF:-1 tvg-id="A0CK" tvg-name="Canal 11" group-title="IPTV", Canal 11
 http://181.13.198.204:8000/play/a0ck/index.m3u8
 
-#EXTINF:-1 tvg-id="canal-l" tvg-name="Canal L" group-title="Test", Canal L
+#EXTINF:-1 tvg-id="A0CL" tvg-name="Canal 12" group-title="IPTV", Canal 12
 http://181.13.198.204:8000/play/a0cl/index.m3u8
 
-#EXTINF:-1 tvg-id="canal-m" tvg-name="Canal M" group-title="Test", Canal M
+#EXTINF:-1 tvg-id="A0CM" tvg-name="Canal 13" group-title="IPTV", Canal 13
 http://181.13.198.204:8000/play/a0cm/index.m3u8
 
-#EXTINF:-1 tvg-id="canal-n" tvg-name="Canal N" group-title="Test", Canal N
+#EXTINF:-1 tvg-id="A0CN" tvg-name="Canal 14" group-title="IPTV", Canal 14
 http://181.13.198.204:8000/play/a0cn/index.m3u8
 
-#EXTINF:-1 tvg-id="canal-o" tvg-name="Canal O" group-title="Test", Canal O
-http://181.13.198.204:8000/play/a0co/index.m3u8
 
-#EXTINF:-1 tvg-id="canal-p" tvg-name="Canal P" group-title="Test", Canal P
+#EXTINF:-1 tvg-id="A0CP" tvg-name="Canal 16" group-title="IPTV", Canal 16
 http://181.13.198.204:8000/play/a0cp/index.m3u8
 
-#EXTINF:-1 tvg-id="canal-q" tvg-name="Canal Q" group-title="Test", Canal Q
+#EXTINF:-1 tvg-id="A0CQ" tvg-name="Canal 17" group-title="IPTV", Canal 17
 http://181.13.198.204:8000/play/a0cq/index.m3u8
 
-#EXTINF:-1 tvg-id="canal-r" tvg-name="Canal R" group-title="Test", Canal R
+#EXTINF:-1 tvg-id="A0CR" tvg-name="Canal 18" group-title="IPTV", Canal 18
 http://181.13.198.204:8000/play/a0cr/index.m3u8
 
-#EXTINF:-1 tvg-id="canal-s" tvg-name="Canal S" group-title="Test", Canal S
+#EXTINF:-1 tvg-id="A0CS" tvg-name="Canal 19" group-title="IPTV", Canal 19
 http://181.13.198.204:8000/play/a0cs/index.m3u8
 
-#EXTINF:-1 tvg-id="canal-t" tvg-name="Canal T" group-title="Test", Canal T
+#EXTINF:-1 tvg-id="A0CT" tvg-name="Canal 20" group-title="IPTV", Canal 20
 http://181.13.198.204:8000/play/a0ct/index.m3u8
 
-#EXTINF:-1 tvg-id="canal-v" tvg-name="Canal V" group-title="Test", Canal V
+
+#EXTINF:-1 tvg-id="A0CV" tvg-name="Canal 22" group-title="IPTV", Canal 22
 http://181.13.198.204:8000/play/a0cv/index.m3u8
 
-#EXTINF:-1 tvg-id="canal-x" tvg-name="Canal X" group-title="Test", Canal X
+#EXTINF:-1 tvg-id="A0CX" tvg-name="Canal 24" group-title="IPTV", Canal 24
 http://181.13.198.204:8000/play/a0cx/index.m3u8
 
-#EXTINF:-1 tvg-id="canal-y" tvg-name="Canal Y" group-title="Test", Canal Y
+#EXTINF:-1 tvg-id="A0CY" tvg-name="Canal 25" group-title="IPTV", Canal 25
 http://181.13.198.204:8000/play/a0cy/index.m3u8
 
-#EXTINF:-1 tvg-id="canal-y" tvg-name="Canal Y" group-title="Test", Canal Y
-http://181.13.198.204:8000/play/a0c5/index.m3u8
+#EXTINF:-1 tvg-id="A0CZ" tvg-name="Canal 26" group-title="IPTV", Canal 26
+http://181.13.198.204:8000/play/a0cz/index.m3u8
 
-#EXTINF:-1 tvg-id="canal-y" tvg-name="Canal Y" group-title="Test", Canal Y
-http://181.13.198.204:8000/play/a0c6/index.m3u8
+#EXTINF:-1 tvg-id="A0DD" tvg-name="Canal A0DD" group-title="IPTV", Canal A0DD
+http://181.13.198.204:8000/play/a0dd/index.m3u8
 
-#EXTINF:-1 tvg-id="canal-y" tvg-name="Canal Y" group-title="Test", Canal Y
-http://181.13.198.204:8000/play/a0c7/index.m3u8
+#EXTINF:-1 tvg-id="A0DE" tvg-name="Canal A0DE" group-title="IPTV", Canal A0DE
+http://181.13.198.204:8000/play/a0de/index.m3u8
 
-#EXTINF:-1 tvg-id="canal-y" tvg-name="Canal Y" group-title="Test", Canal Y
-http://181.13.198.204:8000/play/a0c8/index.m3u8
+#EXTINF:-1 tvg-id="A0DF" tvg-name="Canal A0DF" group-title="IPTV", Canal A0DF
+http://181.13.198.204:8000/play/a0cq/index.m3u8
+
+#EXTINF:-1 tvg-id="A0E0" tvg-name="Canal A0E0" group-title="IPTV", Canal A0E0
+http://181.13.198.204:8000/play/a0e0/index.m3u8
+
+
+#EXTINF:-1 tvg-id="A0E3" tvg-name="Canal A0E3" group-title="IPTV", Canal A0E3
+http://181.13.198.204:8000/play/a0e3/index.m3u8
+
+#EXTINF:-1 tvg-id="A0E7" tvg-name="Canal A0E7" group-title="IPTV", Canal A0E7
+http://181.13.198.204:8000/play/a0e7/index.m3u8
+
+#EXTINF:-1 tvg-id="A0E8" tvg-name="Canal A0E8" group-title="IPTV", Canal A0E8
+http://181.13.198.204:8000/play/a0e8/index.m3u8
+
+#EXTINF:-1 tvg-id="A0E9" tvg-name="Canal A0E9" group-title="IPTV", Canal A0E9
+http://181.13.198.204:8000/play/a0e9/index.m3u8
+
+#EXTINF:-1 tvg-id="A0EA" tvg-name="Canal A0EA" group-title="IPTV", Canal A0EA
+http://181.13.198.204:8000/play/a0ea/index.m3u8
+
+#EXTINF:-1 tvg-id="A0EB" tvg-name="Canal A0EB" group-title="IPTV", Canal A0EB
+http://181.13.198.204:8000/play/a0eb/index.m3u8
+
+#EXTINF:-1 tvg-id="A0EC" tvg-name="Canal A0EC" group-title="IPTV", Canal A0EC
+http://181.13.198.204:8000/play/a0ec/index.m3u8
+
+#EXTINF:-1 tvg-id="A0ED" tvg-name="Canal A0ED" group-title="IPTV", Canal A0ED
+http://181.13.198.204:8000/play/a0ed/index.m3u8
+
+#EXTINF:-1 tvg-id="A0EE" tvg-name="Canal A0EE" group-title="IPTV", Canal A0EE
+http://181.13.198.204:8000/play/a0ee/index.m3u8
+
+#EXTINF:-1 tvg-id="A0F9" tvg-name="Canal A0F9" group-title="IPTV", Canal A0F9
+http://181.13.198.204:8000/play/a0f9/index.m3u8
+
+#EXTINF:-1 tvg-id="A0FA" tvg-name="Canal A0FA" group-title="IPTV", Canal A0FA
+http://181.13.198.204:8000/play/a0fa/index.m3u8
+
+#EXTINF:-1 tvg-id="A0FE" tvg-name="Canal A0FE" group-title="IPTV", Canal A0FE
+http://181.13.198.204:8000/play/a0fe/index.m3u8
+
+#EXTINF:-1 tvg-id="A0FF" tvg-name="Canal A0FF" group-title="IPTV", Canal A0FF
+http://181.13.198.204:8000/play/a0ff/index.m3u8
+
+#EXTINF:-1 tvg-id="A0EA" tvg-name="Canal 27" group-title="IPTV", Canal 27
+http://181.13.198.204:8000/play/a0ea/index.m3u8
+
+#EXTINF:-1 tvg-id="A0EB" tvg-name="Canal 28" group-title="IPTV", Canal 28
+http://181.13.198.204:8000/play/a0eb/index.m3u8
+
+#EXTINF:-1 tvg-id="A0EC" tvg-name="Canal 29" group-title="IPTV", Canal 29
+http://181.13.198.204:8000/play/a0ec/index.m3u8
+
+#EXTINF:-1 tvg-id="A0ED" tvg-name="Canal 30" group-title="IPTV", Canal 30
+http://181.13.198.204:8000/play/a0ed/index.m3u8
+
+#EXTINF:-1 tvg-id="A0EE" tvg-name="Canal 31" group-title="IPTV", Canal 31
+http://181.13.198.204:8000/play/a0ee/index.m3u8
+
+#EXTINF:-1 tvg-id="A0EM" tvg-name="Canal 39" group-title="IPTV", Canal 39
+http://181.13.198.204:8000/play/a0em/index.m3u8
+
+#EXTINF:-1 tvg-id="A0EN" tvg-name="Canal 40" group-title="IPTV", Canal 40
+http://181.13.198.204:8000/play/a0en/index.m3u8
+
+#EXTINF:-1 tvg-id="A0EO" tvg-name="Canal 41" group-title="IPTV", Canal 41
+http://181.13.198.204:8000/play/a0eo/index.m3u8
+
+#EXTINF:-1 tvg-id="A0EP" tvg-name="Canal 42" group-title="IPTV", Canal 42
+http://181.13.198.204:8000/play/a0ep/index.m3u8
+
+#EXTINF:-1 tvg-id="A0EQ" tvg-name="Canal 43" group-title="IPTV", Canal 43
+http://181.13.198.204:8000/play/a0eq/index.m3u8
+
+#EXTINF:-1 tvg-id="A0EY" tvg-name="Canal 51" group-title="IPTV", Canal 51
+http://181.13.198.204:8000/play/a0ey/index.m3u8
+#EXTINF:-1 tvg-id="A0EA" tvg-name="Canal 27" group-title="IPTV", Canal 27
+http://181.13.198.204:8000/play/a0ea/index.m3u8
+
+#EXTINF:-1 tvg-id="A0EB" tvg-name="Canal 28" group-title="IPTV", Canal 28
+http://181.13.198.204:8000/play/a0eb/index.m3u8
+
+#EXTINF:-1 tvg-id="A0EC" tvg-name="Canal 29" group-title="IPTV", Canal 29
+http://181.13.198.204:8000/play/a0ec/index.m3u8
+
+#EXTINF:-1 tvg-id="A0ED" tvg-name="Canal 30" group-title="IPTV", Canal 30
+http://181.13.198.204:8000/play/a0ed/index.m3u8
+
+#EXTINF:-1 tvg-id="A0EE" tvg-name="Canal 31" group-title="IPTV", Canal 31
+http://181.13.198.204:8000/play/a0ee/index.m3u8
+
+#EXTINF:-1 tvg-id="A0EM" tvg-name="Canal 39" group-title="IPTV", Canal 39
+http://181.13.198.204:8000/play/a0em/index.m3u8
+
+#EXTINF:-1 tvg-id="A0EN" tvg-name="Canal 40" group-title="IPTV", Canal 40
+http://181.13.198.204:8000/play/a0en/index.m3u8
+
+#EXTINF:-1 tvg-id="A0EO" tvg-name="Canal 41" group-title="IPTV", Canal 41
+http://181.13.198.204:8000/play/a0eo/index.m3u8
+
+#EXTINF:-1 tvg-id="A0EP" tvg-name="Canal 42" group-title="IPTV", Canal 42
+http://181.13.198.204:8000/play/a0ep/index.m3u8
+
+#EXTINF:-1 tvg-id="A0EQ" tvg-name="Canal 43" group-title="IPTV", Canal 43
+http://181.13.198.204:8000/play/a0eq/index.m3u8
+
+#EXTINF:-1 tvg-id="A0EY" tvg-name="Canal 51" group-title="IPTV", Canal 51
+http://181.13.198.204:8000/play/a0ey/index.m3u8
+
+#EXTINF:-1 tvg-id="A0BA" tvg-name="Canal 131" group-title="IPTV", Canal 131
+http://181.13.198.204:8000/play/a0ba/index.m3u8
+
+#EXTINF:-1 tvg-id="A0BB" tvg-name="Canal 132" group-title="IPTV", Canal 132
+http://181.13.198.204:8000/play/a0bb/index.m3u8
+
+#EXTINF:-1 tvg-id="A0BC" tvg-name="Canal 133" group-title="IPTV", Canal 133
+http://181.13.198.204:8000/play/a0bc/index.m3u8
+
+#EXTINF:-1 tvg-id="A0BD" tvg-name="Canal 134" group-title="IPTV", Canal 134
+http://181.13.198.204:8000/play/a0bd/index.m3u8
+
+#EXTINF:-1 tvg-id="A0BE" tvg-name="Canal 135" group-title="IPTV", Canal 135
+http://181.13.198.204:8000/play/a0be/index.m3u8
+
+#EXTINF:-1 tvg-id="A0BF" tvg-name="Canal 136" group-title="IPTV", Canal 136
+http://181.13.198.204:8000/play/a0bf/index.m3u8
+
+#EXTINF:-1 tvg-id="A0BG" tvg-name="Canal 137" group-title="IPTV", Canal 137
+http://181.13.198.204:8000/play/a0bg/index.m3u8
+
+#EXTINF:-1 tvg-id="A0BH" tvg-name="Canal 138" group-title="IPTV", Canal 138
+http://181.13.198.204:8000/play/a0bh/index.m3u8
+
+#EXTINF:-1 tvg-id="A0BI" tvg-name="Canal 139" group-title="IPTV", Canal 139
+http://181.13.198.204:8000/play/a0bi/index.m3u8
+
+#EXTINF:-1 tvg-id="A0BJ" tvg-name="Canal 140" group-title="IPTV", Canal 140
+http://181.13.198.204:8000/play/a0bj/index.m3u8
+
+#EXTINF:-1 tvg-id="A0BK" tvg-name="Canal 141" group-title="IPTV", Canal 141
+http://181.13.198.204:8000/play/a0bk/index.m3u8
+
+#EXTINF:-1 tvg-id="A0BL" tvg-name="Canal 142" group-title="IPTV", Canal 142
+http://181.13.198.204:8000/play/a0bl/index.m3u8
+
+#EXTINF:-1 tvg-id="A0BM" tvg-name="Canal 143" group-title="IPTV", Canal 143
+http://181.13.198.204:8000/play/a0bm/index.m3u8
+
+#EXTINF:-1 tvg-id="A0BN" tvg-name="Canal 144" group-title="IPTV", Canal 144
+http://181.13.198.204:8000/play/a0bn/index.m3u8
+
+#EXTINF:-1 tvg-id="A0BO" tvg-name="Canal 145" group-title="IPTV", Canal 145
+http://181.13.198.204:8000/play/a0bo/index.m3u8
+
+#EXTINF:-1 tvg-id="A0BP" tvg-name="Canal 146" group-title="IPTV", Canal 146
+http://181.13.198.204:8000/play/a0bp/index.m3u8
+
+#EXTINF:-1 tvg-id="A0BQ" tvg-name="Canal 147" group-title="IPTV", Canal 147
+http://181.13.198.204:8000/play/a0bq/index.m3u8
+
+#EXTINF:-1 tvg-id="A0BR" tvg-name="Canal 148" group-title="IPTV", Canal 148
+http://181.13.198.204:8000/play/a0br/index.m3u8
+
+#EXTINF:-1 tvg-id="A0BS" tvg-name="Canal 149" group-title="IPTV", Canal 149
+http://181.13.198.204:8000/play/a0bs/index.m3u8
+
+#EXTINF:-1 tvg-id="A0BT" tvg-name="Canal 150" group-title="IPTV", Canal 150
+http://181.13.198.204:8000/play/a0bt/index.m3u8
+
+#EXTINF:-1 tvg-id="A0BU" tvg-name="Canal 151" group-title="IPTV", Canal 151
+http://181.13.198.204:8000/play/a0bu/index.m3u8
+
+#EXTINF:-1 tvg-id="A0BV" tvg-name="Canal 152" group-title="IPTV", Canal 152
+http://181.13.198.204:8000/play/a0bv/index.m3u8
+
+#EXTINF:-1 tvg-id="A0BW" tvg-name="Canal 153" group-title="IPTV", Canal 153
+http://181.13.198.204:8000/play/a0bw/index.m3u8
+
+#EXTINF:-1 tvg-id="A0BX" tvg-name="Canal 154" group-title="IPTV", Canal 154
+http://181.13.198.204:8000/play/a0bx/index.m3u8
+
+#EXTINF:-1 tvg-id="A0BY" tvg-name="Canal 155" group-title="IPTV", Canal 155
+http://181.13.198.204:8000/play/a0by/index.m3u8
+
+#EXTINF:-1 tvg-id="A0BZ" tvg-name="Canal 156" group-title="IPTV", Canal 156
+http://181.13.198.204:8000/play/a0bz/index.m3u8
+#EXTINF:-1 tvg-id="A0DA" tvg-name="Canal 157" group-title="IPTV", Canal 157
+http://181.13.198.204:8000/play/a0da/index.m3u8
+
+#EXTINF:-1 tvg-id="A0DB" tvg-name="Canal 158" group-title="IPTV", Canal 158
+http://181.13.198.204:8000/play/a0db/index.m3u8
+
+#EXTINF:-1 tvg-id="A0DD" tvg-name="Canal 160" group-title="IPTV", Canal 160
+http://181.13.198.204:8000/play/a0dd/index.m3u8
+
+#EXTINF:-1 tvg-id="A0DE" tvg-name="Canal 161" group-title="IPTV", Canal 161
+http://181.13.198.204:8000/play/a0de/index.m3u8
+
+#EXTINF:-1 tvg-id="A0DF" tvg-name="Canal 162" group-title="IPTV", Canal 162
+http://181.13.198.204:8000/play/a0df/index.m3u8
+
+#EXTINF:-1 tvg-id="A0DG" tvg-name="Canal 163" group-title="IPTV", Canal 163
+http://181.13.198.204:8000/play/a0dg/index.m3u8
+
+#EXTINF:-1 tvg-id="A0DH" tvg-name="Canal 164" group-title="IPTV", Canal 164
+http://181.13.198.204:8000/play/a0dh/index.m3u8
+
+#EXTINF:-1 tvg-id="A0DL" tvg-name="Canal 168" group-title="IPTV", Canal 168
+http://181.13.198.204:8000/play/a0dl/index.m3u8
+
+#EXTINF:-1 tvg-id="A0DM" tvg-name="Canal 169" group-title="IPTV", Canal 169
+http://181.13.198.204:8000/play/a0dm/index.m3u8
+
+#EXTINF:-1 tvg-id="A0DN" tvg-name="Canal 170" group-title="IPTV", Canal 170
+http://181.13.198.204:8000/play/a0dn/index.m3u8
+
+#EXTINF:-1 tvg-id="A0DO" tvg-name="Canal 171" group-title="IPTV", Canal 171
+http://181.13.198.204:8000/play/a0do/index.m3u8
+
+#EXTINF:-1 tvg-id="A0DQ" tvg-name="Canal 173" group-title="IPTV", Canal 173
+http://181.13.198.204:8000/play/a0dq/index.m3u8
+
+#EXTINF:-1 tvg-id="A0DR" tvg-name="Canal 174" group-title="IPTV", Canal 174
+http://181.13.198.204:8000/play/a0dr/index.m3u8
+
+#EXTINF:-1 tvg-id="A0DS" tvg-name="Canal 175" group-title="IPTV", Canal 175
+http://181.13.198.204:8000/play/a0ds/index.m3u8
+
+#EXTINF:-1 tvg-id="A0DU" tvg-name="Canal 177" group-title="IPTV", Canal 177
+http://181.13.198.204:8000/play/a0du/index.m3u8
+
+#EXTINF:-1 tvg-id="A0DV" tvg-name="Canal 178" group-title="IPTV", Canal 178
+http://181.13.198.204:8000/play/a0dv/index.m3u8
+
+#EXTINF:-1 tvg-id="A0DW" tvg-name="Canal 179" group-title="IPTV", Canal 179
+http://181.13.198.204:8000/play/a0dw/index.m3u8
+
+#EXTINF:-1 tvg-id="A0DX" tvg-name="Canal 180" group-title="IPTV", Canal 180
+http://181.13.198.204:8000/play/a0dx/index.m3u8
+
+#EXTINF:-1 tvg-id="A0DY" tvg-name="Canal 181" group-title="IPTV", Canal 181
+http://181.13.198.204:8000/play/a0dy/index.m3u8
+
+#EXTINF:-1 tvg-id="A0DZ" tvg-name="Canal 182" group-title="IPTV", Canal 182
+http://181.13.198.204:8000/play/a0dz/index.m3u8
+#EXTINF:-1 tvg-id="A0FA" tvg-name="Canal 79" group-title="IPTV", Canal 79
+http://181.13.198.204:8000/play/a0fa/index.m3u8
+
+#EXTINF:-1 tvg-id="A0FE" tvg-name="Canal 83" group-title="IPTV", Canal 83
+http://181.13.198.204:8000/play/a0fe/index.m3u8
+
+#EXTINF:-1 tvg-id="A0FF" tvg-name="Canal 84" group-title="IPTV", Canal 84
+http://181.13.198.204:8000/play/a0ff/index.m3u8
+
+
