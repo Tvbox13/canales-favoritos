@@ -1,331 +1,177 @@
 #EXTM3U
-
-#EXTINF:-1 tvg-id="A0CA" tvg-name="El Nueve" group-title="IPTV",
+#EXTINF:-1 tvg-id="A0CA" tvg-name="Canal 1" group-title="IPTV",
 http://181.13.198.204:8000/play/a0ca/index.m3u8
-
 #EXTINF:-1 tvg-id="A0CB" tvg-name="Canal 2" group-title="IPTV",
 http://181.13.198.204:8000/play/a0cb/index.m3u8
-
 #EXTINF:-1 tvg-id="A0CC" tvg-name="Canal 3" group-title="IPTV",
 http://181.13.198.204:8000/play/a0cc/index.m3u8
-
 #EXTINF:-1 tvg-id="A0CD" tvg-name="Canal 4" group-title="IPTV",
 http://181.13.198.204:8000/play/a0cd/index.m3u8
-
 #EXTINF:-1 tvg-id="A0CE" tvg-name="Canal 5" group-title="IPTV",
 http://181.13.198.204:8000/play/a0ce/index.m3u8
-
 #EXTINF:-1 tvg-id="A0CF" tvg-name="Canal 6" group-title="IPTV",
 http://181.13.198.204:8000/play/a0cf/index.m3u8
-
 #EXTINF:-1 tvg-id="A0CG" tvg-name="Canal 7" group-title="IPTV",
 http://181.13.198.204:8000/play/a0cg/index.m3u8
-
 #EXTINF:-1 tvg-id="A0CI" tvg-name="Canal 8" group-title="IPTV",
 http://181.13.198.204:8000/play/a0ci/index.m3u8
-
 #EXTINF:-1 tvg-id="A0CJ" tvg-name="Canal 9" group-title="IPTV",
 http://181.13.198.204:8000/play/a0cj/index.m3u8
-
 #EXTINF:-1 tvg-id="A0CK" tvg-name="Canal 10" group-title="IPTV",
 http://181.13.198.204:8000/play/a0ck/index.m3u8
-
 #EXTINF:-1 tvg-id="A0CL" tvg-name="Canal 11" group-title="IPTV",
 http://181.13.198.204:8000/play/a0cl/index.m3u8
-
 #EXTINF:-1 tvg-id="A0CM" tvg-name="Canal 12" group-title="IPTV",
 http://181.13.198.204:8000/play/a0cm/index.m3u8
-
 #EXTINF:-1 tvg-id="A0CN" tvg-name="Canal 13" group-title="IPTV",
 http://181.13.198.204:8000/play/a0cn/index.m3u8
-
 #EXTINF:-1 tvg-id="A0CP" tvg-name="Canal 14" group-title="IPTV",
 http://181.13.198.204:8000/play/a0cp/index.m3u8
-
 #EXTINF:-1 tvg-id="A0CQ" tvg-name="Canal 15" group-title="IPTV",
 http://181.13.198.204:8000/play/a0cq/index.m3u8
-
 #EXTINF:-1 tvg-id="A0CR" tvg-name="Canal 16" group-title="IPTV",
 http://181.13.198.204:8000/play/a0cr/index.m3u8
-
 #EXTINF:-1 tvg-id="A0CS" tvg-name="Canal 17" group-title="IPTV",
 http://181.13.198.204:8000/play/a0cs/index.m3u8
-
 #EXTINF:-1 tvg-id="A0CT" tvg-name="Canal 18" group-title="IPTV",
 http://181.13.198.204:8000/play/a0ct/index.m3u8
-
 #EXTINF:-1 tvg-id="A0CV" tvg-name="Canal 19" group-title="IPTV",
 http://181.13.198.204:8000/play/a0cv/index.m3u8
-
 #EXTINF:-1 tvg-id="A0CX" tvg-name="Canal 20" group-title="IPTV",
 http://181.13.198.204:8000/play/a0cx/index.m3u8
-
 #EXTINF:-1 tvg-id="A0CY" tvg-name="Canal 21" group-title="IPTV",
 http://181.13.198.204:8000/play/a0cy/index.m3u8
-
 #EXTINF:-1 tvg-id="A0CZ" tvg-name="Canal 22" group-title="IPTV",
 http://181.13.198.204:8000/play/a0cz/index.m3u8
-
 #EXTINF:-1 tvg-id="A0DD" tvg-name="Canal 23" group-title="IPTV",
 http://181.13.198.204:8000/play/a0dd/index.m3u8
-
 #EXTINF:-1 tvg-id="A0DE" tvg-name="Canal 24" group-title="IPTV",
 http://181.13.198.204:8000/play/a0de/index.m3u8
-
-#EXTINF:-1 tvg-id="A0DF" tvg-name="Canal 25" group-title="IPTV",
-http://181.13.198.204:8000/play/a0cq/index.m3u8
-
 #EXTINF:-1 tvg-id="A0E0" tvg-name="Canal 26" group-title="IPTV",
 http://181.13.198.204:8000/play/a0e0/index.m3u8
-
 #EXTINF:-1 tvg-id="A0E3" tvg-name="Canal 27" group-title="IPTV",
 http://181.13.198.204:8000/play/a0e3/index.m3u8
-
 #EXTINF:-1 tvg-id="A0E7" tvg-name="Canal 28" group-title="IPTV",
 http://181.13.198.204:8000/play/a0e7/index.m3u8
-
 #EXTINF:-1 tvg-id="A0E8" tvg-name="Canal 29" group-title="IPTV",
 http://181.13.198.204:8000/play/a0e8/index.m3u8
-
 #EXTINF:-1 tvg-id="A0E9" tvg-name="Canal 30" group-title="IPTV",
 http://181.13.198.204:8000/play/a0e9/index.m3u8
-
 #EXTINF:-1 tvg-id="A0EA" tvg-name="Canal 31" group-title="IPTV",
 http://181.13.198.204:8000/play/a0ea/index.m3u8
-
 #EXTINF:-1 tvg-id="A0EB" tvg-name="Canal 32" group-title="IPTV",
 http://181.13.198.204:8000/play/a0eb/index.m3u8
-
 #EXTINF:-1 tvg-id="A0EC" tvg-name="Canal 33" group-title="IPTV",
 http://181.13.198.204:8000/play/a0ec/index.m3u8
-
 #EXTINF:-1 tvg-id="A0ED" tvg-name="Canal 34" group-title="IPTV",
 http://181.13.198.204:8000/play/a0ed/index.m3u8
-
 #EXTINF:-1 tvg-id="A0EE" tvg-name="Canal 35" group-title="IPTV",
 http://181.13.198.204:8000/play/a0ee/index.m3u8
-
 #EXTINF:-1 tvg-id="A0F9" tvg-name="Canal 36" group-title="IPTV",
 http://181.13.198.204:8000/play/a0f9/index.m3u8
-
 #EXTINF:-1 tvg-id="A0FA" tvg-name="Canal 37" group-title="IPTV",
 http://181.13.198.204:8000/play/a0fa/index.m3u8
-
 #EXTINF:-1 tvg-id="A0FE" tvg-name="Canal 38" group-title="IPTV",
 http://181.13.198.204:8000/play/a0fe/index.m3u8
-
 #EXTINF:-1 tvg-id="A0FF" tvg-name="Canal 39" group-title="IPTV",
 http://181.13.198.204:8000/play/a0ff/index.m3u8
-
-#EXTINF:-1 tvg-id="A0EA" tvg-name="Canal 40" group-title="IPTV",
-http://181.13.198.204:8000/play/a0ea/index.m3u8
-
-#EXTINF:-1 tvg-id="A0EB" tvg-name="Canal 41" group-title="IPTV",
-http://181.13.198.204:8000/play/a0eb/index.m3u8
-
-#EXTINF:-1 tvg-id="A0EC" tvg-name="Canal 42" group-title="IPTV",
-http://181.13.198.204:8000/play/a0ec/index.m3u8
-
-#EXTINF:-1 tvg-id="A0ED" tvg-name="Canal 43" group-title="IPTV",
-http://181.13.198.204:8000/play/a0ed/index.m3u8
-
-#EXTINF:-1 tvg-id="A0EE" tvg-name="Canal 44" group-title="IPTV",
-http://181.13.198.204:8000/play/a0ee/index.m3u8
-
 #EXTINF:-1 tvg-id="A0EM" tvg-name="Canal 45" group-title="IPTV",
 http://181.13.198.204:8000/play/a0em/index.m3u8
-
 #EXTINF:-1 tvg-id="A0EN" tvg-name="Canal 46" group-title="IPTV",
 http://181.13.198.204:8000/play/a0en/index.m3u8
-
 #EXTINF:-1 tvg-id="A0EO" tvg-name="Canal 47" group-title="IPTV",
 http://181.13.198.204:8000/play/a0eo/index.m3u8
-
 #EXTINF:-1 tvg-id="A0EP" tvg-name="Canal 48" group-title="IPTV",
 http://181.13.198.204:8000/play/a0ep/index.m3u8
-
 #EXTINF:-1 tvg-id="A0EQ" tvg-name="Canal 49" group-title="IPTV",
 http://181.13.198.204:8000/play/a0eq/index.m3u8
-
 #EXTINF:-1 tvg-id="A0EY" tvg-name="Canal 50" group-title="IPTV",
 http://181.13.198.204:8000/play/a0ey/index.m3u8
-
-#EXTINF:-1 tvg-id="A0EA" tvg-name="Canal 51" group-title="IPTV",
-http://181.13.198.204:8000/play/a0ea/index.m3u8
-
-#EXTINF:-1 tvg-id="A0EB" tvg-name="Canal 52" group-title="IPTV",
-http://181.13.198.204:8000/play/a0eb/index.m3u8
-
-#EXTINF:-1 tvg-id="A0EC" tvg-name="Canal 53" group-title="IPTV",
-http://181.13.198.204:8000/play/a0ec/index.m3u8
-
-#EXTINF:-1 tvg-id="A0ED" tvg-name="Canal 54" group-title="IPTV",
-http://181.13.198.204:8000/play/a0ed/index.m3u8
-
-#EXTINF:-1 tvg-id="A0EE" tvg-name="Canal 55" group-title="IPTV",
-http://181.13.198.204:8000/play/a0ee/index.m3u8
-
-#EXTINF:-1 tvg-id="A0EM" tvg-name="Canal 56" group-title="IPTV",
-http://181.13.198.204:8000/play/a0em/index.m3u8
-
-#EXTINF:-1 tvg-id="A0EN" tvg-name="Canal 57" group-title="IPTV",
-http://181.13.198.204:8000/play/a0en/index.m3u8
-
-#EXTINF:-1 tvg-id="A0EO" tvg-name="Canal 58" group-title="IPTV",
-http://181.13.198.204:8000/play/a0eo/index.m3u8
-
-#EXTINF:-1 tvg-id="A0EP" tvg-name="Canal 59" group-title="IPTV",
-http://181.13.198.204:8000/play/a0ep/index.m3u8
-
-#EXTINF:-1 tvg-id="A0EQ" tvg-name="Canal 60" group-title="IPTV",
-http://181.13.198.204:8000/play/a0eq/index.m3u8
-
-#EXTINF:-1 tvg-id="A0EY" tvg-name="Canal 61" group-title="IPTV",
-http://181.13.198.204:8000/play/a0ey/index.m3u8
-
 #EXTINF:-1 tvg-id="A0BA" tvg-name="Canal 62" group-title="IPTV",
 http://181.13.198.204:8000/play/a0ba/index.m3u8
-
 #EXTINF:-1 tvg-id="A0BB" tvg-name="Canal 63" group-title="IPTV",
 http://181.13.198.204:8000/play/a0bb/index.m3u8
-
 #EXTINF:-1 tvg-id="A0BC" tvg-name="Canal 64" group-title="IPTV",
 http://181.13.198.204:8000/play/a0bc/index.m3u8
-
 #EXTINF:-1 tvg-id="A0BD" tvg-name="Canal 65" group-title="IPTV",
 http://181.13.198.204:8000/play/a0bd/index.m3u8
-
 #EXTINF:-1 tvg-id="A0BE" tvg-name="Canal 66" group-title="IPTV",
 http://181.13.198.204:8000/play/a0be/index.m3u8
-
 #EXTINF:-1 tvg-id="A0BF" tvg-name="Canal 67" group-title="IPTV",
 http://181.13.198.204:8000/play/a0bf/index.m3u8
-
 #EXTINF:-1 tvg-id="A0BG" tvg-name="Canal 68" group-title="IPTV",
 http://181.13.198.204:8000/play/a0bg/index.m3u8
-
 #EXTINF:-1 tvg-id="A0BH" tvg-name="Canal 69" group-title="IPTV",
 http://181.13.198.204:8000/play/a0bh/index.m3u8
-
 #EXTINF:-1 tvg-id="A0BI" tvg-name="Canal 70" group-title="IPTV",
 http://181.13.198.204:8000/play/a0bi/index.m3u8
-
 #EXTINF:-1 tvg-id="A0BJ" tvg-name="Canal 71" group-title="IPTV",
 http://181.13.198.204:8000/play/a0bj/index.m3u8
-
 #EXTINF:-1 tvg-id="A0BK" tvg-name="Canal 72" group-title="IPTV",
 http://181.13.198.204:8000/play/a0bk/index.m3u8
-
 #EXTINF:-1 tvg-id="A0BL" tvg-name="Canal 73" group-title="IPTV",
 http://181.13.198.204:8000/play/a0bl/index.m3u8
-
 #EXTINF:-1 tvg-id="A0BM" tvg-name="Canal 74" group-title="IPTV",
 http://181.13.198.204:8000/play/a0bm/index.m3u8
-
 #EXTINF:-1 tvg-id="A0BN" tvg-name="Canal 75" group-title="IPTV",
 http://181.13.198.204:8000/play/a0bn/index.m3u8
-
 #EXTINF:-1 tvg-id="A0BO" tvg-name="Canal 76" group-title="IPTV",
 http://181.13.198.204:8000/play/a0bo/index.m3u8
-
 #EXTINF:-1 tvg-id="A0BP" tvg-name="Canal 77" group-title="IPTV",
 http://181.13.198.204:8000/play/a0bp/index.m3u8
-
 #EXTINF:-1 tvg-id="A0BQ" tvg-name="Canal 78" group-title="IPTV",
 http://181.13.198.204:8000/play/a0bq/index.m3u8
-
 #EXTINF:-1 tvg-id="A0BR" tvg-name="Canal 79" group-title="IPTV",
 http://181.13.198.204:8000/play/a0br/index.m3u8
-
 #EXTINF:-1 tvg-id="A0BS" tvg-name="Canal 80" group-title="IPTV",
 http://181.13.198.204:8000/play/a0bs/index.m3u8
-
 #EXTINF:-1 tvg-id="A0BT" tvg-name="Canal 81" group-title="IPTV",
 http://181.13.198.204:8000/play/a0bt/index.m3u8
-
 #EXTINF:-1 tvg-id="A0BU" tvg-name="Canal 82" group-title="IPTV",
 http://181.13.198.204:8000/play/a0bu/index.m3u8
-
 #EXTINF:-1 tvg-id="A0BV" tvg-name="Canal 83" group-title="IPTV",
 http://181.13.198.204:8000/play/a0bv/index.m3u8
-
 #EXTINF:-1 tvg-id="A0BW" tvg-name="Canal 84" group-title="IPTV",
 http://181.13.198.204:8000/play/a0bw/index.m3u8
-
 #EXTINF:-1 tvg-id="A0BX" tvg-name="Canal 85" group-title="IPTV",
 http://181.13.198.204:8000/play/a0bx/index.m3u8
-
 #EXTINF:-1 tvg-id="A0BY" tvg-name="Canal 86" group-title="IPTV",
 http://181.13.198.204:8000/play/a0by/index.m3u8
-
 #EXTINF:-1 tvg-id="A0BZ" tvg-name="Canal 87" group-title="IPTV",
 http://181.13.198.204:8000/play/a0bz/index.m3u8
-
 #EXTINF:-1 tvg-id="A0DA" tvg-name="Canal 88" group-title="IPTV",
 http://181.13.198.204:8000/play/a0da/index.m3u8
-
 #EXTINF:-1 tvg-id="A0DB" tvg-name="Canal 89" group-title="IPTV",
 http://181.13.198.204:8000/play/a0db/index.m3u8
-
-#EXTINF:-1 tvg-id="A0DD" tvg-name="Canal 90" group-title="IPTV",
-http://181.13.198.204:8000/play/a0dd/index.m3u8
-
-#EXTINF:-1 tvg-id="A0DE" tvg-name="Canal 91" group-title="IPTV",
-http://181.13.198.204:8000/play/a0de/index.m3u8
-
 #EXTINF:-1 tvg-id="A0DF" tvg-name="Canal 92" group-title="IPTV",
 http://181.13.198.204:8000/play/a0df/index.m3u8
-
 #EXTINF:-1 tvg-id="A0DG" tvg-name="Canal 93" group-title="IPTV",
 http://181.13.198.204:8000/play/a0dg/index.m3u8
-
 #EXTINF:-1 tvg-id="A0DH" tvg-name="Canal 94" group-title="IPTV",
 http://181.13.198.204:8000/play/a0dh/index.m3u8
-
 #EXTINF:-1 tvg-id="A0DL" tvg-name="Canal 95" group-title="IPTV",
 http://181.13.198.204:8000/play/a0dl/index.m3u8
-
 #EXTINF:-1 tvg-id="A0DM" tvg-name="Canal 96" group-title="IPTV",
 http://181.13.198.204:8000/play/a0dm/index.m3u8
-
 #EXTINF:-1 tvg-id="A0DN" tvg-name="Canal 97" group-title="IPTV",
 http://181.13.198.204:8000/play/a0dn/index.m3u8
-
 #EXTINF:-1 tvg-id="A0DO" tvg-name="Canal 98" group-title="IPTV",
 http://181.13.198.204:8000/play/a0do/index.m3u8
-
 #EXTINF:-1 tvg-id="A0DQ" tvg-name="Canal 99" group-title="IPTV",
 http://181.13.198.204:8000/play/a0dq/index.m3u8
-
 #EXTINF:-1 tvg-id="A0DR" tvg-name="Canal 100" group-title="IPTV",
 http://181.13.198.204:8000/play/a0dr/index.m3u8
-
 #EXTINF:-1 tvg-id="A0DS" tvg-name="Canal 101" group-title="IPTV",
 http://181.13.198.204:8000/play/a0ds/index.m3u8
-
 #EXTINF:-1 tvg-id="A0DU" tvg-name="Canal 102" group-title="IPTV",
 http://181.13.198.204:8000/play/a0du/index.m3u8
-
 #EXTINF:-1 tvg-id="A0DV" tvg-name="Canal 103" group-title="IPTV",
 http://181.13.198.204:8000/play/a0dv/index.m3u8
-
 #EXTINF:-1 tvg-id="A0DW" tvg-name="Canal 104" group-title="IPTV",
 http://181.13.198.204:8000/play/a0dw/index.m3u8
-
 #EXTINF:-1 tvg-id="A0DX" tvg-name="Canal 105" group-title="IPTV",
 http://181.13.198.204:8000/play/a0dx/index.m3u8
-
 #EXTINF:-1 tvg-id="A0DY" tvg-name="Canal 106" group-title="IPTV",
 http://181.13.198.204:8000/play/a0dy/index.m3u8
-
 #EXTINF:-1 tvg-id="A0DZ" tvg-name="Canal 107" group-title="IPTV",
 http://181.13.198.204:8000/play/a0dz/index.m3u8
-
-#EXTINF:-1 tvg-id="A0FA" tvg-name="Canal 108" group-title="IPTV",
-http://181.13.198.204:8000/play/a0fa/index.m3u8
-
-#EXTINF:-1 tvg-id="A0FE" tvg-name="Canal 109" group-title="IPTV",
-http://181.13.198.204:8000/play/a0fe/index.m3u8
-
-#EXTINF:-1 tvg-id="A0FF" tvg-name="Canal 110" group-title="IPTV",
-http://181.13.198.204:8000/play/a0ff/index.m3u8
