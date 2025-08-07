@@ -3,15 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>📺 Canales Favoritos - Estilo DC</title>
-
-  <!-- Clappr Player -->
+  <title>📺 Dc Tv - Estilo DC</title>
   <script src="https://cdn.jsdelivr.net/npm/clappr@latest/dist/clappr.min.js"></script>
 
   <style>
     :root {
       --text-color: #fff;
-      --item-padding: 5px;
+      --item-padding: 20px;
       --item-margin: 30px;
     }
 
@@ -22,6 +20,8 @@
       background-size: cover;
       color: var(--text-color);
       text-align: center;
+      position: relative;
+      z-index: 1;
     }
 
     body::before {
@@ -42,8 +42,8 @@
     }
 
     h1 {
-      font-size: 4rem;
-      margin: 40px 0 20px;
+      font-size: 3rem;
+      margin: 40px 0 30px;
       background: linear-gradient(to right, gold, white, black);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
@@ -51,31 +51,27 @@
     }
 
     #buscador {
-      padding: 10px;
+      padding: 12px;
       font-size: 16px;
       width: 90%;
       max-width: 500px;
-      margin-bottom: 30px;
-      border-radius: 8px;
+      margin: 20px auto 40px auto;
+      border-radius: 10px;
       border: none;
       outline: none;
-      background: rgba(255,255,255,0.2);
+      background-color: rgba(255, 255, 255, 0.15);
       color: white;
+      text-align: center;
+      box-shadow: 0 0 10px gold;
     }
 
-    .app-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: var(--item-margin);
-      justify-content: center;
-    }
-
-    .app-item {
+    .canal {
       background: rgba(255, 255, 255, 0.1);
       border-radius: 12px;
       width: calc(30% - var(--item-margin));
       max-width: 250px;
       padding: var(--item-padding);
+      margin: var(--item-margin) auto;
       box-sizing: border-box;
       text-decoration: none;
       color: var(--text-color);
@@ -87,42 +83,40 @@
       cursor: pointer;
     }
 
-    .app-item:hover,
-    .app-item:focus {
+    .canal:hover,
+    .canal:focus {
       transform: scale(1.05);
       box-shadow: 0 0 25px gold;
       outline: 3px solid gold;
     }
 
-    .app-item img {
-      width: 80px;
-      height: 80px;
+    .canal img {
+      width: 60px;
+      height: 60px;
       object-fit: contain;
       background-color: white;
       border-radius: 8px;
+      margin-bottom: 10px;
     }
 
-    .app-info {
-      margin-top: 5px;
-      text-align: center;
-    }
-
-    .app-item h2 {
-      margin: 0;
+    .canal span {
       font-size: 1.2rem;
       color: #ffbf00;
-      text-shadow: 1px 1px 0 black, -1px -1px 0 black, 0 0 10px white;
+      text-shadow: 1px 1px 0 black, 0 0 5px white;
     }
 
-    .app-item p {
-      font-size: 0.8rem;
-      margin-top: 2px;
+    #canales-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: var(--item-margin);
     }
 
     #player-wrapper {
       display: none;
       position: fixed;
-      top: 0; left: 0;
+      top: 0;
+      left: 0;
       width: 100vw;
       height: 100vh;
       background: black;
@@ -135,13 +129,13 @@
     }
 
     @media (max-width: 768px) {
-      .app-item {
+      .canal {
         width: calc(50% - var(--item-margin));
       }
     }
 
     @media (max-width: 480px) {
-      .app-item {
+      .canal {
         width: calc(100% - var(--item-margin));
       }
     }
@@ -151,7 +145,7 @@
   <div class="container">
     <h1>📺 Canales Favoritos</h1>
     <input type="text" id="buscador" placeholder="🔍 Buscar canal..." />
-    <section class="app-list" id="canales-container" role="list"></section>
+    <div id="canales-container"></div>
   </div>
 
   <div id="player-wrapper">
@@ -164,6 +158,8 @@
     const buscador = document.getElementById("buscador");
     const playerWrapper = document.getElementById("player-wrapper");
     let playerInstance = null;
+
+    const esAndroid = /Android/i.test(navigator.userAgent);
 
     function cargarCanales() {
       fetch(m3uUrl)
@@ -181,55 +177,45 @@
               url = lines[i + 1]?.trim();
 
               if (url && url.startsWith("http")) {
-                agregarBoton(nombre, url, logo);
+                agregarCanal(nombre, url, logo);
               }
             }
           }
 
-          const primerBoton = document.querySelector(".app-item");
-          if (primerBoton) primerBoton.focus();
+          const primerCanal = document.querySelector(".canal");
+          if (primerCanal) primerCanal.focus();
         })
         .catch(error => console.error('Error al cargar la lista M3U:', error));
     }
 
-    function agregarBoton(nombre, url, logo) {
-      const btn = document.createElement("div");
-      btn.className = "app-item";
-      btn.setAttribute("data-nombre", nombre.toLowerCase());
-      btn.onclick = () => reproducir(url);
+    function agregarCanal(nombre, url, logo) {
+      const elemento = esAndroid ? document.createElement("a") : document.createElement("button");
+      elemento.className = "canal";
+      elemento.setAttribute("data-nombre", nombre.toLowerCase());
+
+      if (esAndroid) {
+        const intentUrl = `intent://${url.replace(/^https?:\/\//, '')}#Intent;package=org.videolan.vlc;type=video/*;scheme=http;end`;
+        elemento.href = intentUrl;
+        elemento.target = "_self";
+      } else {
+        elemento.onclick = () => reproducir(url);
+      }
 
       if (logo) {
         const img = document.createElement("img");
         img.src = logo;
         img.alt = nombre;
-        btn.appendChild(img);
+        elemento.appendChild(img);
       }
 
-      const info = document.createElement("div");
-      info.className = "app-info";
+      const span = document.createElement("span");
+      span.textContent = esAndroid ? nombre : `▶ ${nombre}`;
+      elemento.appendChild(span);
 
-      const titulo = document.createElement("h2");
-      titulo.textContent = nombre;
-
-      const subtitulo = document.createElement("p");
-      subtitulo.textContent = "TV";
-
-      info.appendChild(titulo);
-      info.appendChild(subtitulo);
-      btn.appendChild(info);
-
-      container.appendChild(btn);
+      container.appendChild(elemento);
     }
 
-    // ✅ MODIFICADO: Abrir VLC en Android TV
     function reproducir(url) {
-      const isAndroid = /Android/i.test(navigator.userAgent);
-
-      if (isAndroid) {
-        window.location.href = `intent:${url}#Intent;package=org.videolan.vlc;scheme=http;end`;
-        return;
-      }
-
       if (playerInstance) {
         playerInstance.destroy();
       }
@@ -263,18 +249,18 @@
             playerInstance = null;
           }
 
-          const primerBoton = document.querySelector(".app-item");
-          if (primerBoton) primerBoton.focus();
+          const primerCanal = document.querySelector(".canal");
+          if (primerCanal) primerCanal.focus();
         }
       }
     });
 
     buscador.addEventListener("input", function () {
       const filtro = this.value.toLowerCase();
-      const botones = document.querySelectorAll(".app-item");
-      botones.forEach(boton => {
-        const nombre = boton.getAttribute("data-nombre");
-        boton.style.display = nombre.includes(filtro) ? "flex" : "none";
+      const canales = document.querySelectorAll(".canal");
+      canales.forEach(canal => {
+        const nombre = canal.getAttribute("data-nombre");
+        canal.style.display = nombre.includes(filtro) ? "flex" : "none";
       });
     });
 
