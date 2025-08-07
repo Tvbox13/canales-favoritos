@@ -1,8 +1,6 @@
 #EXTM3U
-
 #EXTINF:-1 tvg-id="canal-a" tvg-name="Canal A" group-title="Test", Canal A
 http://181.13.198.204:8000/play/a0ca/index.m3u8
-
 #EXTINF:-1 tvg-id="canal-b" tvg-name="Canal B" group-title="Test", Canal B
 http://181.13.198.204:8000/play/a0cb/index.m3u8
 
