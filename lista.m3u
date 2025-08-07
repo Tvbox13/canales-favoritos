@@ -1,6 +1,6 @@
 #EXTM3U
 
-#EXTINF:-1 tvg-id="A0CA" tvg-name="Canal_1" group-title="IPTV",
+#EXTINF:-1 tvg-id="A0CA" tvg-name="El Nueve" group-title="IPTV",
 http://181.13.198.204:8000/play/a0ca/index.m3u8
 
 #EXTINF:-1 tvg-id="A0CB" tvg-name="Canal 2" group-title="IPTV",
