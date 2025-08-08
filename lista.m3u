@@ -1,31 +1,63 @@
-#EXTM3U
-
-#EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/Canal_9_Argentina_logo_2021.svg/320px-Canal_9_Argentina_logo_2021.svg.png",EL NUEVE
-http://181.13.198.204:8000/play/a0ca/index.m3u8
-
-#EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/TN_logo_2021.svg/320px-TN_logo_2021.svg.png",TN NOTICIAS
-http://181.13.198.204:8000/play/a0cb/index.m3u8
-
-#EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/ESPN_wordmark.svg/320px-ESPN_wordmark.svg.png",ESPN
-http://181.13.198.204:8000/play/a0cc/index.m3u8
-
-#EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/ESPN2_logo.svg/320px-ESPN2_logo.svg.png",ESPN 2
-http://181.13.198.204:8000/play/a0cd/index.m3u8
-
-#EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/ESPN_3_logo.svg/320px-ESPN_3_logo.svg.png",ESPN 3
-http://181.13.198.204:8000/play/a0ce/index.m3u8
-
-#EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Fox_Sports_Logo.svg/320px-Fox_Sports_Logo.svg.png",FOX SPORTS 2
-http://181.13.198.204:8000/play/a0cf/index.m3u8
-
-#EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Sony_Channel_2020.svg/320px-Sony_Channel_2020.svg.png",SONY CHANNEL
-http://181.13.198.204:8000/play/a0cg/index.m3u8
-
-#EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/AXN_logo.svg/320px-AXN_logo.svg.png",AXN
-http://181.13.198.204:8000/play/a0ci/index.m3u8
-
-#EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Natgeo_logo_yellow.svg/320px-Natgeo_logo_yellow.svg.png",NATIONAL GEOGRAPHIC
-http://181.13.198.204:8000/play/a0cj/index.m3u8
-
-#EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/History_Logo.svg/320px-History_Logo.svg.png",THE HISTORY CHANNEL
-http://181.13.198.204:8000/play/a0ck/index.m3u8
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Listado de Canales IPTV</title>
+</head>
+<body>
+  <ul>
+    <li>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/3/3a/Canal_9_ba_logo.png" alt="EL NUEVE" width="50">
+      <strong>EL NUEVE</strong>
+      — <a href="http://181.13.198.204:8000/play/a0ca/index.m3u8">Ver canal</a>
+    </li>
+    <li>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/3/3a/TN_todo_noticias_logo.svg" alt="TN NOTICIAS" width="50">
+      <strong>TN NOTICIAS</strong>
+      — <a href="http://181.13.198.204:8000/play/a0cb/index.m3u8">Ver canal</a>
+    </li>
+    <li><strong>ESPN</strong> — <a href="http://181.13.198.204:8000/play/a0cc/index.m3u8">Ver canal</a></li>
+    <li><strong>ESPN 2</strong> — <a href="http://181.13.198.204:8000/play/a0cd/index.m3u8">Ver canal</a></li>
+    <li><strong>ESPN 3</strong> — <a href="http://181.13.198.204:8000/play/a0ce/index.m3u8">Ver canal</a></li>
+    <li><strong>FOX SPORTS 2</strong> — <a href="http://181.13.198.204:8000/play/a0cf/index.m3u8">Ver canal</a></li>
+    <li><strong>SONY CHANNEL</strong> — <a href="http://181.13.198.204:8000/play/a0cg/index.m3u8">Ver canal</a></li>
+    <li><strong>AXN</strong> — <a href="http://181.13.198.204:8000/play/a0ci/index.m3u8">Ver canal</a></li>
+    <li><strong>NATIONAL GEOGRAPHIC</strong> — <a href="http://181.13.198.204:8000/play/a0cj/index.m3u8">Ver canal</a></li>
+    <li><strong>THE HISTORY CHANNEL</strong> — <a href="http://181.13.198.204:8000/play/a0ck/index.m3u8">Ver canal</a></li>
+    <li><strong>A&E</strong> — <a href="http://181.13.198.204:8000/play/a0cl/index.m3u8">Ver canal</a></li>
+    <li><strong>UNIVERSAL TV</strong> — <a href="http://181.13.198.204:8000/play/a0cm/index.m3u8">Ver canal</a></li>
+    <li><strong>SONY MOVIES</strong> — <a href="http://181.13.198.204:8000/play/a0cn/index.m3u8">Ver canal</a></li>
+    <li><strong>A24</strong> — <a href="http://181.13.198.204:8000/play/a0cp/index.m3u8">Ver canal</a></li>
+    <li><strong>C5N</strong> — <a href="http://181.13.198.204:8000/play/a0cq/index.m3u8">Ver canal</a></li>
+    <li><strong>CRONICA TV</strong> — <a href="http://181.13.198.204:8000/play/a0cr/index.m3u8">Ver canal</a></li>
+    <li><strong>CANAL 26</strong> — <a href="http://181.13.198.204:8000/play/a0cs/index.m3u8">Ver canal</a></li>
+    <li><strong>LN+</strong> — <a href="http://181.13.198.204:8000/play/a0ct/index.m3u8">Ver canal</a></li>
+    <li><strong>TURBO DICOVERY</strong> — <a href="http://181.13.198.204:8000/play/a0cv/index.m3u8">Ver canal</a></li>
+    <li><strong>AMC</strong> — <a href="http://181.13.198.204:8000/play/a0cx/index.m3u8">Ver canal</a></li>
+    <li><strong>Canal sin nombre</strong> — <a href="http://181.13.198.204:8000/play/a0cy/index.m3u8">Ver canal</a></li>
+    <li><strong>*</strong> — <a href="http://181.13.198.204:8000/play/a0cz/index.m3u8">Ver canal</a></li>
+    <li><strong>PARAMOUNT NETWORK</strong> — <a href="http://181.13.198.204:8000/play/a0dd/index.m3u8">Ver canal</a></li>
+    <li><strong>DISCOVERY THEATER</strong> — <a href="http://181.13.198.204:8000/play/a0de/index.m3u8">Ver canal</a></li>
+    <li><strong>CNN EN ESPAÑOL</strong> — <a href="http://181.13.198.204:8000/play/a0df/index.m3u8">Ver canal</a></li>
+    <li><strong>ENCUENTRO</strong> — <a href="http://181.13.198.204:8000/play/a0e0/index.m3u8">Ver canal</a></li>
+    <li><strong>CINE AR</strong> — <a href="http://181.13.198.204:8000/play/a0e3/index.m3u8">Ver canal</a></li>
+    <li><strong>CANAL A</strong> — <a href="http://181.13.198.204:8000/play/a0e7/index.m3u8">Ver canal</a></li>
+    <li><strong>BABY TV</strong> — <a href="http://181.13.198.204:8000/play/a0e8/index.m3u8">Ver canal</a></li>
+    <li><strong>*</strong> — <a href="http://181.13.198.204:8000/play/a0e9/index.m3u8">Ver canal</a></li>
+    <li><strong>CIUDAD MAGAZINE</strong> — <a href="http://181.13.198.204:8000/play/a0ea/index.m3u8">Ver canal</a></li>
+    <li><strong>Canal sin nombre</strong> — <a href="http://181.13.198.204:8000/play/a0eb/index.m3u8">Ver canal</a></li>
+    <li><strong>G</strong> — <a href="http://181.13.198.204:8000/play/a0ec/index.m3u8">Ver canal</a></li>
+    <li><strong>COMEDY CENTRAL</strong> — <a href="http://181.13.198.204:8000/play/a0ed/index.m3u8">Ver canal</a></li>
+    <li><strong>WORLD DISCOVERY</strong> — <a href="http://181.13.198.204:8000/play/a0ee/index.m3u8">Ver canal</a></li>
+    <li><strong>DISCOVERY</strong> — <a href="http://181.13.198.204:8000/play/a0f9/index.m3u8">Ver canal</a></li>
+    <li><strong>STAR CHANNEL</strong> — <a href="http://181.13.198.204:8000/play/a0fa/index.m3u8">Ver canal</a></li>
+    <li><strong>DISCOVERY KIDS</strong> — <a href="http://181.13.198.204:8000/play/a0fe/index.m3u8">Ver canal</a></li>
+    <li><strong>*</strong> — <a href="http://181.13.198.204:8000/play/a0ff/index.m3u8">Ver canal</a></li>
+    <li><strong>DEPORTV</strong> — <a href="http://181.13.198.204:8000/play/a0ea/index.m3u8">Ver canal</a></li>
+    <li><strong>NICK JR</strong> — <a href="http://181.13.198.204:8000/play/a0eb/index.m3u8">Ver canal</a></li>
+    <li><strong>EUROPA EUROPA</strong> — <a href="http://181.13.198.204:8000/play/a0ec/index.m3u8">Ver canal</a></li>
+    <li><strong>GOURMET</strong> — <a href="http://181.13.198.204:8000/play/a0ed/index.m3u8">Ver canal</a></li>
+    <li><strong>FILM Y ARTS</strong> — <a href="http://181.13.198.204:8000/play/a0ee/index.m3u8">Ver canal</a></li>
+  </ul>
+</body>
+</html>
