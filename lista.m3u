@@ -1,61 +1,31 @@
 #EXTM3U
 
-#EXTINF:-1 tvg-id="A0CA" tvg-name="EL NUEVE" group-title="IPTV",
+#EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/Canal_9_Argentina_logo_2021.svg/320px-Canal_9_Argentina_logo_2021.svg.png",EL NUEVE
 http://181.13.198.204:8000/play/a0ca/index.m3u8
 
-#EXTINF:-1 tvg-id="A0CB" tvg-name="TN NOTICIAS" group-title="IPTV",
+#EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/TN_logo_2021.svg/320px-TN_logo_2021.svg.png",TN NOTICIAS
 http://181.13.198.204:8000/play/a0cb/index.m3u8
 
-#EXTINF:-1 tvg-id="A0CC" tvg-name="ESPN" group-title="IPTV",
+#EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/ESPN_wordmark.svg/320px-ESPN_wordmark.svg.png",ESPN
 http://181.13.198.204:8000/play/a0cc/index.m3u8
 
-#EXTINF:-1 tvg-id="A0CD" tvg-name="ESPN 2" group-title="IPTV",
+#EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/ESPN2_logo.svg/320px-ESPN2_logo.svg.png",ESPN 2
 http://181.13.198.204:8000/play/a0cd/index.m3u8
 
-#EXTINF:-1 tvg-id="A0CE" tvg-name="ESPN 3" group-title="IPTV",
+#EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/ESPN_3_logo.svg/320px-ESPN_3_logo.svg.png",ESPN 3
 http://181.13.198.204:8000/play/a0ce/index.m3u8
 
-#EXTINF:-1 tvg-id="A0CF" tvg-name="FOX SPORTS 2" group-title="IPTV",
+#EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Fox_Sports_Logo.svg/320px-Fox_Sports_Logo.svg.png",FOX SPORTS 2
 http://181.13.198.204:8000/play/a0cf/index.m3u8
 
-#EXTINF:-1 tvg-id="A0CG" tvg-name="SONY CHANNEL" group-title="IPTV",
+#EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Sony_Channel_2020.svg/320px-Sony_Channel_2020.svg.png",SONY CHANNEL
 http://181.13.198.204:8000/play/a0cg/index.m3u8
 
-#EXTINF:-1 tvg-id="A0CI" tvg-name="AXN" group-title="IPTV",
+#EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/AXN_logo.svg/320px-AXN_logo.svg.png",AXN
 http://181.13.198.204:8000/play/a0ci/index.m3u8
 
-#EXTINF:-1 tvg-id="A0CJ" tvg-name="NATIONAL GEOGRAPHIC" group-title="IPTV",
+#EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Natgeo_logo_yellow.svg/320px-Natgeo_logo_yellow.svg.png",NATIONAL GEOGRAPHIC
 http://181.13.198.204:8000/play/a0cj/index.m3u8
 
-#EXTINF:-1 tvg-id="A0CK" tvg-name="THE HISTORY CHANNEL" group-title="IPTV",
+#EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/History_Logo.svg/320px-History_Logo.svg.png",THE HISTORY CHANNEL
 http://181.13.198.204:8000/play/a0ck/index.m3u8
-
-#EXTINF:-1 tvg-id="A0CL" tvg-name="A&E" group-title="IPTV",
-http://181.13.198.204:8000/play/a0cl/index.m3u8
-
-#EXTINF:-1 tvg-id="A0CM" tvg-name="UNIVERSAL TV" group-title="IPTV",
-http://181.13.198.204:8000/play/a0cm/index.m3u8
-
-#EXTINF:-1 tvg-id="A0CN" tvg-name="SONY MOVIES" group-title="IPTV",
-http://181.13.198.204:8000/play/a0cn/index.m3u8
-
-#EXTINF:-1 tvg-id="A0CP" tvg-name="A24" group-title="IPTV",
-http://181.13.198.204:8000/play/a0cp/index.m3u8
-
-#EXTINF:-1 tvg-id="A0CQ" tvg-name="C5N" group-title="IPTV",
-http://181.13.198.204:8000/play/a0cq/index.m3u8
-
-#EXTINF:-1 tvg-id="A0CR" tvg-name="CRONICA TV" group-title="IPTV",
-http://181.13.198.204:8000/play/a0cr/index.m3u8
-
-#EXTINF:-1 tvg-id="A0CS" tvg-name="CANAL 26" group-title="IPTV",
-http://181.13.198.204:8000/play/a0cs/index.m3u8
-
-#EXTINF:-1 tvg-id="A0CT" tvg-name="LN+" group-title="IPTV",
-http://181.13.198.204:8000/play/a0ct/index.m3u8
-
-#EXTINF:-1 tvg-id="A0CV" tvg-name="TURBO DICOVERY" group-title="IPTV",
-http://181.13.198.204:8000/play/a0cv/index.m3u8
-
-#EXTINF:-1 tvg-id="A0CX" tvg-name="AMC" group-title="IPTV",
-http://181.13.198.204:8000/play/a0cx/index.m3u8
