@@ -1,80 +1,83 @@
 #EXTM3U
-#EXTINF:-1 tvg-id="A0CA" tvg-name="Canal 1" group-title="IPTV",
-http://181.13.198.204:8000/play/a0ca/index.m3u8
-#EXTINF:-1 tvg-id="A0CB" tvg-name="Canal 2" group-title="IPTV",
-http://181.13.198.204:8000/play/a0cb/index.m3u8
-#EXTINF:-1 tvg-id="A0CC" tvg-name="Canal 3" group-title="IPTV",
-http://181.13.198.204:8000/play/a0cc/index.m3u8
-#EXTINF:-1 tvg-id="A0CD" tvg-name="Canal 4" group-title="IPTV",
-http://181.13.198.204:8000/play/a0cd/index.m3u8
-#EXTINF:-1 tvg-id="A0CE" tvg-name="Canal 5" group-title="IPTV",
-http://181.13.198.204:8000/play/a0ce/index.m3u8
-#EXTINF:-1 tvg-id="A0CF" tvg-name="Canal 6" group-title="IPTV",
-http://181.13.198.204:8000/play/a0cf/index.m3u8
-#EXTINF:-1 tvg-id="A0CG" tvg-name="Canal 7" group-title="IPTV",
-http://181.13.198.204:8000/play/a0cg/index.m3u8
-#EXTINF:-1 tvg-id="A0CI" tvg-name="Canal 8" group-title="IPTV",
-http://181.13.198.204:8000/play/a0ci/index.m3u8
-#EXTINF:-1 tvg-id="A0CJ" tvg-name="Canal 9" group-title="IPTV",
-http://181.13.198.204:8000/play/a0cj/index.m3u8
-#EXTINF:-1 tvg-id="A0CK" tvg-name="Canal 10" group-title="IPTV",
-http://181.13.198.204:8000/play/a0ck/index.m3u8
-#EXTINF:-1 tvg-id="A0CL" tvg-name="Canal 11" group-title="IPTV",
-http://181.13.198.204:8000/play/a0cl/index.m3u8
-#EXTINF:-1 tvg-id="A0CM" tvg-name="Canal 12" group-title="IPTV",
-http://181.13.198.204:8000/play/a0cm/index.m3u8
-#EXTINF:-1 tvg-id="A0CN" tvg-name="Canal 13" group-title="IPTV",
-http://181.13.198.204:8000/play/a0cn/index.m3u8
-#EXTINF:-1 tvg-id="A0CP" tvg-name="Canal 14" group-title="IPTV",
-http://181.13.198.204:8000/play/a0cp/index.m3u8
-#EXTINF:-1 tvg-id="A0CQ" tvg-name="Canal 15" group-title="IPTV",
-http://181.13.198.204:8000/play/a0cq/index.m3u8
-#EXTINF:-1 tvg-id="A0CR" tvg-name="Canal 16" group-title="IPTV",
-http://181.13.198.204:8000/play/a0cr/index.m3u8
-#EXTINF:-1 tvg-id="A0CS" tvg-name="Canal 17" group-title="IPTV",
-http://181.13.198.204:8000/play/a0cs/index.m3u8
-#EXTINF:-1 tvg-id="A0CT" tvg-name="Canal 18" group-title="IPTV",
-http://181.13.198.204:8000/play/a0ct/index.m3u8
-#EXTINF:-1 tvg-id="A0CV" tvg-name="Canal 19" group-title="IPTV",
-http://181.13.198.204:8000/play/a0cv/index.m3u8
-#EXTINF:-1 tvg-id="A0CX" tvg-name="Canal 20" group-title="IPTV",
-http://181.13.198.204:8000/play/a0cx/index.m3u8
-#EXTINF:-1 tvg-id="A0CY" tvg-name="Canal 21" group-title="IPTV",
-http://181.13.198.204:8000/play/a0cy/index.m3u8
-#EXTINF:-1 tvg-id="A0CZ" tvg-name="Canal 22" group-title="IPTV",
-http://181.13.198.204:8000/play/a0cz/index.m3u8
-#EXTINF:-1 tvg-id="A0DD" tvg-name="Canal 23" group-title="IPTV",
-http://181.13.198.204:8000/play/a0dd/index.m3u8
-#EXTINF:-1 tvg-id="A0DE" tvg-name="Canal 24" group-title="IPTV",
-http://181.13.198.204:8000/play/a0de/index.m3u8
-#EXTINF:-1 tvg-id="A0E0" tvg-name="Canal 26" group-title="IPTV",
-http://181.13.198.204:8000/play/a0e0/index.m3u8
-#EXTINF:-1 tvg-id="A0E3" tvg-name="Canal 27" group-title="IPTV",
-http://181.13.198.204:8000/play/a0e3/index.m3u8
-#EXTINF:-1 tvg-id="A0E7" tvg-name="Canal 28" group-title="IPTV",
-http://181.13.198.204:8000/play/a0e7/index.m3u8
-#EXTINF:-1 tvg-id="A0E8" tvg-name="Canal 29" group-title="IPTV",
-http://181.13.198.204:8000/play/a0e8/index.m3u8
-#EXTINF:-1 tvg-id="A0E9" tvg-name="Canal 30" group-title="IPTV",
-http://181.13.198.204:8000/play/a0e9/index.m3u8
-#EXTINF:-1 tvg-id="A0EA" tvg-name="Canal 31" group-title="IPTV",
-http://181.13.198.204:8000/play/a0ea/index.m3u8
-#EXTINF:-1 tvg-id="A0EB" tvg-name="Canal 32" group-title="IPTV",
-http://181.13.198.204:8000/play/a0eb/index.m3u8
-#EXTINF:-1 tvg-id="A0EC" tvg-name="Canal 33" group-title="IPTV",
-http://181.13.198.204:8000/play/a0ec/index.m3u8
-#EXTINF:-1 tvg-id="A0ED" tvg-name="Canal 34" group-title="IPTV",
-http://181.13.198.204:8000/play/a0ed/index.m3u8
-#EXTINF:-1 tvg-id="A0EE" tvg-name="Canal 35" group-title="IPTV",
-http://181.13.198.204:8000/play/a0ee/index.m3u8
-#EXTINF:-1 tvg-id="A0F9" tvg-name="Canal 36" group-title="IPTV",
-http://181.13.198.204:8000/play/a0f9/index.m3u8
-#EXTINF:-1 tvg-id="A0FA" tvg-name="Canal 37" group-title="IPTV",
-http://181.13.198.204:8000/play/a0fa/index.m3u8
-#EXTINF:-1 tvg-id="A0FE" tvg-name="Canal 38" group-title="IPTV",
-http://181.13.198.204:8000/play/a0fe/index.m3u8
-#EXTINF:-1 tvg-id="A0FF" tvg-name="Canal 39" group-title="IPTV",
-http://181.13.198.204:8000/play/a0ff/index.m3u8
+#EXTINF:-1 tvg-id="A001" tvg-name="EL NUEVE" tvg-logo="https://m3u.cl/logo/elnueve.png" group-title="IPTV",
+http://181.13.198.204:8000/play/a0a/index.m3u8
+#EXTINF:-1 tvg-id="A002" tvg-name="TN NOTICIAS" tvg-logo="https://m3u.cl/logo/tnnoticias.png" group-title="IPTV",
+http://181.13.198.204:8000/play/a0b/index.m3u8
+#EXTINF:-1 tvg-id="A003" tvg-name="ESPN" tvg-logo="https://m3u.cl/logo/espn.png" group-title="IPTV",
+http://181.13.198.204:8000/play/a0c/index.m3u8
+#EXTINF:-1 tvg-id="A004" tvg-name="ESPN 2" tvg-logo="https://m3u.cl/logo/espn2.png" group-title="IPTV",
+http://181.13.198.204:8000/play/a0d/index.m3u8
+#EXTINF:-1 tvg-id="A005" tvg-name="ESPN 3" tvg-logo="https://m3u.cl/logo/espn3.png" group-title="IPTV",
+http://181.13.198.204:8000/play/a0e/index.m3u8
+#EXTINF:-1 tvg-id="A006" tvg-name="FOX SPORTS 2" tvg-logo="https://m3u.cl/logo/foxsports2.png" group-title="IPTV",
+http://181.13.198.204:8000/play/a0f/index.m3u8
+#EXTINF:-1 tvg-id="A007" tvg-name="SONY CHANNEL" tvg-logo="https://m3u.cl/logo/sonychannel.png" group-title="IPTV",
+http://181.13.198.204:8000/play/a0g/index.m3u8
+#EXTINF:-1 tvg-id="A008" tvg-name="AXN" tvg-logo="https://m3u.cl/logo/axn.png" group-title="IPTV",
+http://181.13.198.204:8000/play/a0h/index.m3u8
+#EXTINF:-1 tvg-id="A009" tvg-name="NATIONAL GEOGRAPHIC" tvg-logo="https://m3u.cl/logo/nationalgeographic.png" group-title="IPTV",
+http://181.13.198.204:8000/play/a0i/index.m3u8
+#EXTINF:-1 tvg-id="A010" tvg-name="THE HISTORY CHANNEL" tvg-logo="https://m3u.cl/logo/thehistorychannel.png" group-title="IPTV",
+http://181.13.198.204:8000/play/a0j/index.m3u8
+#EXTINF:-1 tvg-id="A011" tvg-name="A&E" tvg-logo="https://m3u.cl/logo/aey.png" group-title="IPTV",
+http://181.13.198.204:8000/play/a0k/index.m3u8
+#EXTINF:-1 tvg-id="A012" tvg-name="UNIVERSAL TV" tvg-logo="https://m3u.cl/logo/universaltv.png" group-title="IPTV",
+http://181.13.198.204:8000/play/a0l/index.m3u8
+#EXTINF:-1 tvg-id="A013" tvg-name="SONY MOVIES" tvg-logo="https://m3u.cl/logo/sonymovies.png" group-title="IPTV",
+http://181.13.198.204:8000/play/a0m/index.m3u8
+#EXTINF:-1 tvg-id="A014" tvg-name="A24" tvg-logo="https://m3u.cl/logo/a24.png" group-title="IPTV",
+http://181.13.198.204:8000/play/a0n/index.m3u8
+#EXTINF:-1 tvg-id="A015" tvg-name="C5N" tvg-logo="https://m3u.cl/logo/c5n.png" group-title="IPTV",
+http://181.13.198.204:8000/play/a0o/index.m3u8
+#EXTINF:-1 tvg-id="A016" tvg-name="CRONICA TV" tvg-logo="https://m3u.cl/logo/cronica.png" group-title="IPTV",
+http://181.13.198.204:8000/play/a0p/index.m3u8
+#EXTINF:-1 tvg-id="A017" tvg-name="CANAL 26" tvg-logo="https://m3u.cl/logo/canal26.png" group-title="IPTV",
+http://181.13.198.204:8000/play/a0q/index.m3u8
+#EXTINF:-1 tvg-id="A018" tvg-name="LN+" tvg-logo="https://m3u.cl/logo/lnmas.png" group-title="IPTV",
+http://181.13.198.204:8000/play/a0r/index.m3u8
+#EXTINF:-1 tvg-id="A019" tvg-name="TURBO DICOVERY" tvg-logo="https://m3u.cl/logo/turbodicovery.png" group-title="IPTV",
+http://181.13.198.204:8000/play/a0s/index.m3u8
+#EXTINF:-1 tvg-id="A020" tvg-name="AMC" tvg-logo="https://m3u.cl/logo/amc.png" group-title="IPTV",
+http://181.13.198.204:8000/play/a0t/index.m3u8
+#EXTINF:-1 tvg-id="A023" tvg-name="PARAMOUNT NETWORK" tvg-logo="https://m3u.cl/logo/paramountnetwork.png" group-title="IPTV",
+http://181.13.198.204:8000/play/a0w/index.m3u8
+#EXTINF:-1 tvg-id="A024" tvg-name="DISCOVERY THEATER" tvg-logo="https://m3u.cl/logo/discoverytheater.png" group-title="IPTV",
+http://181.13.198.204:8000/play/a0x/index.m3u8
+#EXTINF:-1 tvg-id="A025" tvg-name="CNN EN ESPAÑOL" tvg-logo="https://m3u.cl/logo/cnnenespanol.png" group-title="IPTV",
+http://181.13.198.204:8000/play/a0y/index.m3u8
+#EXTINF:-1 tvg-id="A026" tvg-name="ENCUENTRO" tvg-logo="https://m3u.cl/logo/encuentro.png" group-title="IPTV",
+http://181.13.198.204:8000/play/a0z/index.m3u8
+#EXTINF:-1 tvg-id="A027" tvg-name="CINE AR" tvg-logo="https://m3u.cl/logo/cinear.png" group-title="IPTV",
+http://181.13.198.204:8000/play/a0aa/index.m3u8
+#EXTINF:-1 tvg-id="A028" tvg-name="CANAL A" tvg-logo="https://m3u.cl/logo/canala.png" group-title="IPTV",
+http://181.13.198.204:8000/play/a0ab/index.m3u8
+#EXTINF:-1 tvg-id="A029" tvg-name="BABY TV" tvg-logo="https://m3u.cl/logo/babytv.png" group-title="IPTV",
+http://181.13.198.204:8000/play/a0ac/index.m3u8
+#EXTINF:-1 tvg-id="A031" tvg-name="CIUDAD MAGAZINE" tvg-logo="https://m3u.cl/logo/ciudadmagazine.png" group-title="IPTV",
+http://181.13.198.204:8000/play/a0ae/index.m3u8
+#EXTINF:-1 tvg-id="A033" tvg-name="G" tvg-logo="https://m3u.cl/logo/g.png" group-title="IPTV",
+http://181.13.198.204:8000/play/a0ag/index.m3u8
+#EXTINF:-1 tvg-id="A034" tvg-name="COMEDY CENTRAL" tvg-logo="https://m3u.cl/logo/comedycentral.png" group-title="IPTV",
+http://181.13.198.204:8000/play/a0ah/index.m3u8
+#EXTINF:-1 tvg-id="A035" tvg-name="WORLD DISCOVERY" tvg-logo="https://m3u.cl/logo/worlddiscovery.png" group-title="IPTV",
+http://181.13.198.204:8000/play/a0ai/index.m3u8
+#EXTINF:-1 tvg-id="A036" tvg-name="DISCOVERY" tvg-logo="https://m3u.cl/logo/discovery.png" group-title="IPTV",
+http://181.13.198.204:8000/play/a0aj/index.m3u8
+#EXTINF:-1 tvg-id="A037" tvg-name="STAR CHANNEL" tvg-logo="https://m3u.cl/logo/starchannel.png" group-title="IPTV",
+http://181.13.198.204:8000/play/a0ak/index.m3u8
+#EXTINF:-1 tvg-id="A038" tvg-name="DISCOVERY KIDS" tvg-logo="https://m3u.cl/logo/discoverykids.png" group-title="IPTV",
+http://181.13.198.204:8000/play/a0al/index.m3u8
+#EXTINF:-1 tvg-id="A040" tvg-name="DEPORTV" tvg-logo="https://m3u.cl/logo/deportv.png" group-title="IPTV",
+http://181.13.198.204:8000/play/a0an/index.m3u8
+#EXTINF:-1 tvg-id="A041" tvg-name="NICK JR" tvg-logo="https://m3u.cl/logo/nickjr.png" group-title="IPTV",
+http://181.13.198.204:8000/play/a0ao/index.m3u8
+#EXTINF:-1 tvg-id="A042" tvg-name="EUROPA EUROPA" tvg-logo="https://m3u.cl/logo/europaeuropa.png" group-title="IPTV",
+http://181.13.198.204:8000/play/a0ap/index.m3u8
+#EXTINF:-1 tvg-id="A043" tvg-name="GOURMET" tvg-logo="https://m3u.cl/logo/gourmet.png" group-title="IPTV",
+http://181.13.198.204:8000/play/a0aq/index.m3u8
+#EXTINF:-1 tvg-id="A044" tvg-name="FILM Y ARTS" tvg-logo="https://m3u.cl/logo/filmyarts.png" group-title="IPTV",
+http://181.13.198.204:8000/play/a0ar/index.m3u8
+
 #EXTINF:-1 tvg-id="A0EM" tvg-name="Canal 45" group-title="IPTV",
 http://181.13.198.204:8000/play/a0em/index.m3u8
 #EXTINF:-1 tvg-id="A0EN" tvg-name="Canal 46" group-title="IPTV",
