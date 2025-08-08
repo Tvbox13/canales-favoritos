@@ -1,133 +1,133 @@
 #EXTM3U
 
-#EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/3/3a/Canal_9_ba_logo.png",EL NUEVE
+#EXTINF:-1 tvg-logo="",EL NUEVE
 http://181.13.198.204:8000/play/a0ca/index.m3u8
 
-#EXTINF:-1, TN NOTICIAS
+#EXTINF:-1 tvg-logo="",TN NOTICIAS
 http://181.13.198.204:8000/play/a0cb/index.m3u8
 
-#EXTINF:-1, ESPN
+#EXTINF:-1 tvg-logo="",ESPN
 http://181.13.198.204:8000/play/a0cc/index.m3u8
 
-#EXTINF:-1, ESPN 2
+#EXTINF:-1 tvg-logo="",ESPN 2
 http://181.13.198.204:8000/play/a0cd/index.m3u8
 
-#EXTINF:-1, ESPN 3
+#EXTINF:-1 tvg-logo="",ESPN 3
 http://181.13.198.204:8000/play/a0ce/index.m3u8
 
-#EXTINF:-1, FOX SPORTS 2
+#EXTINF:-1 tvg-logo="",FOX SPORTS 2
 http://181.13.198.204:8000/play/a0cf/index.m3u8
 
-#EXTINF:-1, SONY CHANNEL
+#EXTINF:-1 tvg-logo="",SONY CHANNEL
 http://181.13.198.204:8000/play/a0cg/index.m3u8
 
-#EXTINF:-1, AXN
+#EXTINF:-1 tvg-logo="",AXN
 http://181.13.198.204:8000/play/a0ci/index.m3u8
 
-#EXTINF:-1, NATIONAL GEOGRAPHIC
+#EXTINF:-1 tvg-logo="",NATIONAL GEOGRAPHIC
 http://181.13.198.204:8000/play/a0cj/index.m3u8
 
-#EXTINF:-1, THE HISTORY CHANNEL
+#EXTINF:-1 tvg-logo="",THE HISTORY CHANNEL
 http://181.13.198.204:8000/play/a0ck/index.m3u8
 
-#EXTINF:-1, A&E
+#EXTINF:-1 tvg-logo="",A&E
 http://181.13.198.204:8000/play/a0cl/index.m3u8
 
-#EXTINF:-1, UNIVERSAL TV
+#EXTINF:-1 tvg-logo="",UNIVERSAL TV
 http://181.13.198.204:8000/play/a0cm/index.m3u8
 
-#EXTINF:-1, SONY MOVIES
+#EXTINF:-1 tvg-logo="",SONY MOVIES
 http://181.13.198.204:8000/play/a0cn/index.m3u8
 
-#EXTINF:-1, A24
+#EXTINF:-1 tvg-logo="",A24
 http://181.13.198.204:8000/play/a0cp/index.m3u8
 
-#EXTINF:-1, C5N
+#EXTINF:-1 tvg-logo="",C5N
 http://181.13.198.204:8000/play/a0cq/index.m3u8
 
-#EXTINF:-1, CRONICA TV
+#EXTINF:-1 tvg-logo="",CRONICA TV
 http://181.13.198.204:8000/play/a0cr/index.m3u8
 
-#EXTINF:-1, CANAL 26
+#EXTINF:-1 tvg-logo="",CANAL 26
 http://181.13.198.204:8000/play/a0cs/index.m3u8
 
-#EXTINF:-1, LN+
+#EXTINF:-1 tvg-logo="",LN+
 http://181.13.198.204:8000/play/a0ct/index.m3u8
 
-#EXTINF:-1, TURBO DICOVERY
+#EXTINF:-1 tvg-logo="",TURBO DICOVERY
 http://181.13.198.204:8000/play/a0cv/index.m3u8
 
-#EXTINF:-1, AMC
+#EXTINF:-1 tvg-logo="",AMC
 http://181.13.198.204:8000/play/a0cx/index.m3u8
 
-#EXTINF:-1,
+#EXTINF:-1 tvg-logo="",Canal sin nombre
 http://181.13.198.204:8000/play/a0cy/index.m3u8
 
-#EXTINF:-1, *
+#EXTINF:-1 tvg-logo="",*
 http://181.13.198.204:8000/play/a0cz/index.m3u8
 
-#EXTINF:-1, PARAMOUNT NETWORK
+#EXTINF:-1 tvg-logo="",PARAMOUNT NETWORK
 http://181.13.198.204:8000/play/a0dd/index.m3u8
 
-#EXTINF:-1, DISCOVERY THEATER
+#EXTINF:-1 tvg-logo="",DISCOVERY THEATER
 http://181.13.198.204:8000/play/a0de/index.m3u8
 
-#EXTINF:-1, CNN EN ESPAÑOL
+#EXTINF:-1 tvg-logo="",CNN EN ESPAÑOL
 http://181.13.198.204:8000/play/a0df/index.m3u8
 
-#EXTINF:-1, ENCUENTRO
+#EXTINF:-1 tvg-logo="",ENCUENTRO
 http://181.13.198.204:8000/play/a0e0/index.m3u8
 
-#EXTINF:-1, CINE AR
+#EXTINF:-1 tvg-logo="",CINE AR
 http://181.13.198.204:8000/play/a0e3/index.m3u8
 
-#EXTINF:-1, CANAL A
+#EXTINF:-1 tvg-logo="",CANAL A
 http://181.13.198.204:8000/play/a0e7/index.m3u8
 
-#EXTINF:-1, BABY TV
+#EXTINF:-1 tvg-logo="",BABY TV
 http://181.13.198.204:8000/play/a0e8/index.m3u8
 
-#EXTINF:-1, *
+#EXTINF:-1 tvg-logo="",*
 http://181.13.198.204:8000/play/a0e9/index.m3u8
 
-#EXTINF:-1, CIUDAD MAGAZINE
+#EXTINF:-1 tvg-logo="",CIUDAD MAGAZINE
 http://181.13.198.204:8000/play/a0ea/index.m3u8
 
-#EXTINF:-1,
+#EXTINF:-1 tvg-logo="",Canal sin nombre
 http://181.13.198.204:8000/play/a0eb/index.m3u8
 
-#EXTINF:-1, G
+#EXTINF:-1 tvg-logo="",G
 http://181.13.198.204:8000/play/a0ec/index.m3u8
 
-#EXTINF:-1, COMEDY CENTRAL
+#EXTINF:-1 tvg-logo="",COMEDY CENTRAL
 http://181.13.198.204:8000/play/a0ed/index.m3u8
 
-#EXTINF:-1, WORLD DISCOVERY
+#EXTINF:-1 tvg-logo="",WORLD DISCOVERY
 http://181.13.198.204:8000/play/a0ee/index.m3u8
 
-#EXTINF:-1, DISCOVERY
+#EXTINF:-1 tvg-logo="",DISCOVERY
 http://181.13.198.204:8000/play/a0f9/index.m3u8
 
-#EXTINF:-1, STAR CHANNEL
+#EXTINF:-1 tvg-logo="",STAR CHANNEL
 http://181.13.198.204:8000/play/a0fa/index.m3u8
 
-#EXTINF:-1, DISCOVERY KIDS
+#EXTINF:-1 tvg-logo="",DISCOVERY KIDS
 http://181.13.198.204:8000/play/a0fe/index.m3u8
 
-#EXTINF:-1, *
+#EXTINF:-1 tvg-logo="",*
 http://181.13.198.204:8000/play/a0ff/index.m3u8
 
-#EXTINF:-1, DEPORTV
+#EXTINF:-1 tvg-logo="",DEPORTV
 http://181.13.198.204:8000/play/a0ea/index.m3u8
 
-#EXTINF:-1, NICK JR
+#EXTINF:-1 tvg-logo="",NICK JR
 http://181.13.198.204:8000/play/a0eb/index.m3u8
 
-#EXTINF:-1, EUROPA EUROPA
+#EXTINF:-1 tvg-logo="",EUROPA EUROPA
 http://181.13.198.204:8000/play/a0ec/index.m3u8
 
-#EXTINF:-1, GOURMET
+#EXTINF:-1 tvg-logo="",GOURMET
 http://181.13.198.204:8000/play/a0ed/index.m3u8
 
-#EXTINF:-1, FILM Y ARTS
+#EXTINF:-1 tvg-logo="",FILM Y ARTS
 http://181.13.198.204:8000/play/a0ee/index.m3u8
