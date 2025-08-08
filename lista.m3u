@@ -129,5 +129,346 @@ http://181.13.198.204:8000/play/a0ec/index.m3u8
 #EXTINF:-1 tvg-logo="",GOURMET
 http://181.13.198.204:8000/play/a0ed/index.m3u8
 
+
+
+#EXTM3U
+#EXTINF:-1 tvg-logo="https://imgur.com/BT1f1ER.png" group-title="TV PREMIUM",Canal 1
+http://38.199.6.1:17001/play/a031/index.m3u8
+#EXTINF:-1 tvg-logo="https://imgur.com/BT1f1ER.png" group-title="TV PREMIUM",Canal 2
+http://38.199.6.1:17001/play/a054/index.m3u8
+#EXTINF:-1 tvg-logo="https://imgur.com/BT1f1ER.png" group-title="TV PREMIUM",Canal 3
+http://38.199.6.1:17001/play/a048/index.m3u8
+#EXTINF:-1 tvg-logo="https://imgur.com/BT1f1ER.png" group-title="TV PREMIUM",Canal 4
+http://38.199.6.1:17001/play/a0ck/index.m3u8
+#EXTINF:-1 tvg-logo="https://imgur.com/BT1f1ER.png" group-title="TV PREMIUM",Canal 5
+http://38.199.6.1:17001/play/a0cl/index.m3u8
+#EXTINF:-1 tvg-logo="https://imgur.com/BT1f1ER.png" group-title="TV PREMIUM",Canal 6
+http://38.199.6.1:17001/play/a034/index.m3u8
+#EXTINF:-1 tvg-logo="https://imgur.com/BT1f1ER.png" group-title="TV PREMIUM",Canal 7
+http://38.199.6.1:17001/play/a0uk/index.m3u8
+#EXTINF:-1 tvg-logo="https://imgur.com/BT1f1ER.png" group-title="TV PREMIUM",Canal 8
+http://38.199.6.1:17001/play/a04c/index.m3u8
+#EXTINF:-1 tvg-logo="https://imgur.com/BT1f1ER.png" group-title="TV PREMIUM",Canal 9
+http://38.199.6.1:17001/play/a0aw/index.m3u8
+#EXTINF:-1 tvg-logo="https://imgur.com/BT1f1ER.png" group-title="TV PREMIUM",Canal 10
+http://38.199.6.1:17001/play/a0uz/index.m3u8
+#EXTINF:-1 tvg-logo="https://imgur.com/BT1f1ER.png" group-title="TV PREMIUM",Canal 11
+http://38.199.6.1:17001/play/a05g/index.m3u8
+#EXTINF:-1 tvg-logo="https://imgur.com/BT1f1ER.png" group-title="TV PREMIUM",Canal 12
+http://38.199.6.1:17001/play/a0uq/index.m3u8
+#EXTINF:-1 tvg-logo="https://imgur.com/BT1f1ER.png" group-title="TV PREMIUM",Canal 13
+http://38.199.6.1:17001/play/a0cj/index.m3u8
+#EXTINF:-1 tvg-logo="https://imgur.com/BT1f1ER.png" group-title="TV PREMIUM",Canal 14
+http://38.199.6.1:17001/play/a0un/index.m3u8
+#EXTINF:-1 tvg-logo="https://imgur.com/BT1f1ER.png" group-title="TV PREMIUM",Canal 15
+http://38.199.6.1:17001/play/a061/index.m3u8
+#EXTINF:-1 tvg-logo="https://imgur.com/BT1f1ER.png" group-title="TV PREMIUM",Canal 16
+http://38.199.6.1:17001/play/a0da/index.m3u8
+#EXTINF:-1 tvg-logo="https://imgur.com/BT1f1ER.png" group-title="TV PREMIUM",Canal 17
+http://38.199.6.1:17001/play/a06c/index.m3u8
+#EXTINF:-1 tvg-logo="https://imgur.com/BT1f1ER.png" group-title="TV PREMIUM",Canal 18
+http://38.199.6.1:17001/play/a059/index.m3u8
+#EXTINF:-1 tvg-logo="https://imgur.com/BT1f1ER.png" group-title="TV PREMIUM",Canal 19
+http://38.199.6.1:17001/play/a0gr/index.m3u8
+#EXTINF:-1 tvg-logo="https://imgur.com/BT1f1ER.png" group-title="TV PREMIUM",Canal 20
+http://38.199.6.1:17001/play/a0dn/index.m3u8
+#EXTINF:-1 tvg-logo="https://imgur.com/BT1f1ER.png" group-title="TV PREMIUM",Canal 21
+http://38.199.6.1:17001/play/a053/index.m3u8
+#EXTINF:-1 tvg-logo="https://imgur.com/BT1f1ER.png" group-title="TV PREMIUM",Canal 22
+http://38.199.6.1:17001/play/a049/index.m3u8
+#EXTINF:-1 tvg-logo="https://imgur.com/BT1f1ER.png" group-title="TV PREMIUM",Canal 23
+http://38.199.6.1:17001/play/a04a/index.m3u8
+#EXTINF:-1 tvg-logo="https://imgur.com/BT1f1ER.png" group-title="TV PREMIUM",Canal 24
+http://38.199.6.1:17001/play/a06e/index.m3u8
+#EXTINF:-1 tvg-logo="https://imgur.com/BT1f1ER.png" group-title="TV PREMIUM",Canal 25
+http://38.199.6.1:17001/play/a0bx/index.m3u8
+#EXTINF:-1 tvg-logo="https://imgur.com/BT1f1ER.png" group-title="TV PREMIUM",Canal 26
+http://38.199.6.1:17001/play/a0bh/index.m3u8
+#EXTINF:-1 tvg-logo="https://imgur.com/BT1f1ER.png" group-title="TV PREMIUM",Canal 27
+http://38.199.6.1:17001/play/a0d0/index.m3u8
+#EXTINF:-1 tvg-logo="https://imgur.com/BT1f1ER.png" group-title="TV PREMIUM",Canal 28
+http://38.199.6.1:17001/play/a0vx/index.m3u8
+#EXTINF:-1 tvg-logo="https://imgur.com/BT1f1ER.png" group-title="TV PREMIUM",Canal 29
+http://38.199.6.1:17001/play/a04j/index.m3u8
+#EXTINF:-1 tvg-logo="https://imgur.com/BT1f1ER.png" group-title="TV PREMIUM",Canal 30
+http://38.199.6.1:17001/play/a06f/index.m3u8
+#EXTINF:-1 tvg-logo="https://imgur.com/BT1f1ER.png" group-title="TV PREMIUM",Canal 31
+http://38.199.6.1:17001/play/a0de/index.m3u8
+#EXTINF:-1 tvg-logo="https://imgur.com/BT1f1ER.png" group-title="TV PREMIUM",Canal 32
+http://38.199.6.1:17001/play/a04i/index.m3u8
+#EXTINF:-1 tvg-logo="https://imgur.com/BT1f1ER.png" group-title="TV PREMIUM",Canal 33
+http://38.199.6.1:17001/play/a0dd/index.m3u8
+#EXTINF:-1 tvg-logo="https://imgur.com/BT1f1ER.png" group-title="TV PREMIUM",Canal 34
+http://38.199.6.1:17001/play/a04k/index.m3u8
+#EXTINF:-1 tvg-logo="https://imgur.com/BT1f1ER.png" group-title="TV PREMIUM",Canal 35
+http://38.199.6.1:17001/play/a0bf/index.m3u8
+#EXTINF:-1 tvg-logo="https://imgur.com/BT1f1ER.png" group-title="TV PREMIUM",Canal 36
+http://38.199.6.1:17001/play/a052/index.m3u8
+#EXTINF:-1 tvg-logo="https://imgur.com/BT1f1ER.png" group-title="TV PREMIUM",Canal 37
+http://38.199.6.1:17001/play/a040/index.m3u8
+#EXTINF:-1 tvg-logo="https://imgur.com/BT1f1ER.png" group-title="TV PREMIUM",Canal 38
+http://38.199.6.1:17001/play/a0up/index.m3u8
+#EXTINF:-1 tvg-logo="https://imgur.com/BT1f1ER.png" group-title="TV PREMIUM",Canal 39
+http://38.199.6.1:17001/play/a0s8/index.m3u8
+#EXTINF:-1 tvg-logo="https://imgur.com/BT1f1ER.png" group-title="TV PREMIUM",Canal 40
+http://38.199.6.1:17001/play/a0on/index.m3u8
+#EXTINF:-1 tvg-logo="https://imgur.com/BT1f1ER.png" group-title="TV PREMIUM",Canal 41
+http://38.199.6.1:17001/play/a05r/index.m3u8
+#EXTINF:-1 tvg-logo="https://imgur.com/BT1f1ER.png" group-title="TV PREMIUM",Canal 42
+http://38.199.6.1:17001/play/a046/index.m3u8
+#EXTINF:-1 tvg-logo="https://imgur.com/BT1f1ER.png" group-title="TV PREMIUM",Canal 43
+http://38.199.6.1:17001/play/a043/index.m3u8
+#EXTINF:-1 tvg-logo="https://imgur.com/BT1f1ER.png" group-title="TV PREMIUM",Canal 44
+http://38.199.6.1:17001/play/a055/index.m3u8
+#EXTINF:-1 tvg-logo="https://imgur.com/BT1f1ER.png" group-title="TV PREMIUM",Canal 45
+http://38.199.6.1:17001/play/a04o/index.m3u8
+#EXTINF:-1 tvg-logo="https://imgur.com/BT1f1ER.png" group-title="TV PREMIUM",Canal 46
+http://38.199.6.1:17001/play/a044/index.m3u8
+#EXTINF:-1 tvg-logo="https://imgur.com/BT1f1ER.png" group-title="TV PREMIUM",Canal 47
+http://38.199.6.1:17001/play/a04p/index.m3u8
+#EXTINF:-1 tvg-logo="https://imgur.com/BT1f1ER.png" group-title="TV PREMIUM",Canal 48
+http://38.199.6.1:17001/play/a03f/index.m3u8
+#EXTINF:-1 tvg-logo="https://imgur.com/BT1f1ER.png" group-title="TV PREMIUM",Canal 49
+http://38.199.6.1:17001/play/a06g/index.m3u8
+#EXTINF:-1 tvg-logo="https://imgur.com/BT1f1ER.png" group-title="TV PREMIUM",Canal 50
+http://38.199.6.1:17001/play/a0ps/index.m3u8
+#EXTINF:-1 tvg-logo="https://imgur.com/BT1f1ER.png" group-title="TV PREMIUM",Canal 51
+http://38.199.6.1:17001/play/a04d/index.m3u8
+#EXTINF:-1 tvg-logo="https://imgur.com/BT1f1ER.png" group-title="TV PREMIUM",Canal 52
+http://38.199.6.1:17001/play/a0tb/index.m3u8
+#EXTINF:-1 tvg-logo="https://imgur.com/BT1f1ER.png" group-title="TV PREMIUM",Canal 53
+http://38.199.6.1:17001/play/a0q1/index.m3u8
+#EXTINF:-1 tvg-logo="https://imgur.com/BT1f1ER.png" group-title="TV PREMIUM",Canal 54
+http://38.199.6.1:17001/play/a0cb/index.m3u8
+#EXTINF:-1 tvg-logo="https://imgur.com/BT1f1ER.png" group-title="TV PREMIUM",Canal 55
+http://38.199.6.1:17001/play/a0uh/index.m3u8
+#EXTINF:-1 tvg-logo="https://imgur.com/BT1f1ER.png" group-title="TV PREMIUM",Canal 56
+http://38.199.6.1:17001/play/a0dh/index.m3u8
+#EXTINF:-1 tvg-logo="https://imgur.com/BT1f1ER.png" group-title="TV PREMIUM",Canal 57
+http://38.199.6.1:17001/play/a0dm/index.m3u8
+#EXTINF:-1 tvg-logo="https://imgur.com/BT1f1ER.png" group-title="TV PREMIUM",Canal 58
+http://38.199.6.1:17001/play/a04u/index.m3u8
+#EXTINF:-1 tvg-logo="https://imgur.com/BT1f1ER.png" group-title="TV PREMIUM",Canal 59
+http://38.199.6.1:17001/play/a0pl/index.m3u8
+#EXTINF:-1 tvg-logo="https://imgur.com/BT1f1ER.png" group-title="TV PREMIUM",Canal 60
+http://38.199.6.1:17001/play/a0wm/index.m3u8
+#EXTINF:-1 tvg-logo="https://imgur.com/BT1f1ER.png" group-title="TV PREMIUM",Canal 61
+http://38.199.6.1:17001/play/a05u/index.m3u8
+#EXTINF:-1 tvg-logo="https://imgur.com/BT1f1ER.png" group-title="TV PREMIUM",Canal 62
+http://38.199.6.1:17001/play/a0y8/index.m3u8
+#EXTINF:-1 tvg-logo="https://imgur.com/BT1f1ER.png" group-title="TV PREMIUM",Canal 63
+http://38.199.6.1:17001/play/a0uu/index.m3u8
+#EXTINF:-1 tvg-logo="https://imgur.com/BT1f1ER.png" group-title="TV PREMIUM",Canal 64
+http://38.199.6.1:17001/play/a0d4/index.m3u8
+#EXTINF:-1 tvg-logo="https://imgur.com/BT1f1ER.png" group-title="TV PREMIUM",Canal 65
+http://38.199.6.1:17001/play/a05y/index.m3u8
+#EXTINF:-1 tvg-logo="https://imgur.com/BT1f1ER.png" group-title="TV PREMIUM",Canal 66
+http://38.199.6.1:17001/play/a0cs/index.m3u8
+#EXTINF:-1 tvg-logo="https://imgur.com/BT1f1ER.png" group-title="TV PREMIUM",Canal 67
+http://38.199.6.1:17001/play/a05s/index.m3u8
+#EXTINF:-1 tvg-logo="https://imgur.com/BT1f1ER.png" group-title="TV PREMIUM",Canal 68
+http://38.199.6.1:17001/play/a0br/index.m3u8
+#EXTINF:-1 tvg-logo="https://imgur.com/BT1f1ER.png" group-title="TV PREMIUM",Canal 69
+http://38.199.6.1:17001/play/a05l/index.m3u8
+#EXTINF:-1 tvg-logo="https://imgur.com/BT1f1ER.png" group-title="TV PREMIUM",Canal 70
+http://38.199.6.1:17001/play/a0dj/index.m3u8
+#EXTINF:-1 tvg-logo="https://imgur.com/BT1f1ER.png" group-title="TV PREMIUM",Canal 71
+http://38.199.6.1:17001/play/a0pu/index.m3u8
+#EXTINF:-1 tvg-logo="https://imgur.com/BT1f1ER.png" group-title="TV PREMIUM",Canal 72
+http://38.199.6.1:17001/play/a05e/index.m3u8
+#EXTINF:-1 tvg-logo="https://imgur.com/BT1f1ER.png" group-title="TV PREMIUM",Canal 73
+http://38.199.6.1:17001/play/a06i/index.m3u8
+#EXTINF:-1 tvg-logo="https://imgur.com/BT1f1ER.png" group-title="TV PREMIUM",Canal 74
+http://38.199.6.1:17001/play/a056/index.m3u8
+#EXTINF:-1 tvg-logo="https://imgur.com/BT1f1ER.png" group-title="TV PREMIUM",Canal 75
+http://38.199.6.1:17001/play/a0yj/index.m3u8
+#EXTINF:-1 tvg-logo="https://imgur.com/BT1f1ER.png" group-title="TV PREMIUM",Canal 76
+http://38.199.6.1:17001/play/a038/index.m3u8
+#EXTINF:-1 tvg-logo="https://imgur.com/BT1f1ER.png" group-title="TV PREMIUM",Canal 77
+http://38.199.6.1:17001/play/a0by/index.m3u8
+#EXTINF:-1 tvg-logo="https://imgur.com/BT1f1ER.png" group-title="TV PREMIUM",Canal 78
+http://38.199.6.1:17001/play/a0bz/index.m3u8
+#EXTINF:-1 tvg-logo="https://imgur.com/BT1f1ER.png" group-title="TV PREMIUM",Canal 79
+http://38.199.6.1:17001/play/a06j/index.m3u8
+#EXTINF:-1 tvg-logo="https://imgur.com/BT1f1ER.png" group-title="TV PREMIUM",Canal 80
+http://38.199.6.1:17001/play/a041/index.m3u8
+#EXTINF:-1 tvg-logo="https://imgur.com/BT1f1ER.png" group-title="TV PREMIUM",Canal 81
+http://38.199.6.1:17001/play/a0et/index.m3u8
+#EXTINF:-1 tvg-logo="https://imgur.com/BT1f1ER.png" group-title="TV PREMIUM",Canal 82
+http://38.199.6.1:17001/play/a06h/index.m3u8
+#EXTINF:-1 tvg-logo="https://imgur.com/BT1f1ER.png" group-title="TV PREMIUM",Canal 83
+http://38.199.6.1:17001/play/a04b/index.m3u8
+#EXTINF:-1 tvg-logo="https://imgur.com/BT1f1ER.png" group-title="TV PREMIUM",Canal 84
+http://38.199.6.1:17001/play/a0cp/index.m3u8
+#EXTINF:-1 tvg-logo="https://imgur.com/BT1f1ER.png" group-title="TV PREMIUM",Canal 85
+http://38.199.6.1:17001/play/a0ct/index.m3u8
+#EXTINF:-1 tvg-logo="https://imgur.com/BT1f1ER.png" group-title="TV PREMIUM",Canal 86
+http://38.199.6.1:17001/play/a0y9/index.m3u8
+#EXTINF:-1 tvg-logo="https://imgur.com/BT1f1ER.png" group-title="TV PREMIUM",Canal 87
+http://38.199.6.1:17001/play/a058/index.m3u8
+#EXTINF:-1 tvg-logo="https://imgur.com/BT1f1ER.png" group-title="TV PREMIUM",Canal 88
+http://38.199.6.1:17001/play/a0cd/index.m3u8
+#EXTINF:-1 tvg-logo="https://imgur.com/BT1f1ER.png" group-title="TV PREMIUM",Canal 89
+http://38.199.6.1:17001/play/a03e/index.m3u8
+#EXTINF:-1 tvg-logo="https://imgur.com/BT1f1ER.png" group-title="TV PREMIUM",Canal 90
+http://38.199.6.1:17001/play/a06d/index.m3u8
+#EXTINF:-1 tvg-logo="https://imgur.com/BT1f1ER.png" group-title="TV PREMIUM",Canal 91
+http://38.199.6.1:17001/play/a05w/index.m3u8
+#EXTINF:-1 tvg-logo="https://imgur.com/BT1f1ER.png" group-title="TV PREMIUM",Canal 92
+http://38.199.6.1:17001/play/a0v0/index.m3u8
+#EXTINF:-1 tvg-logo="https://imgur.com/BT1f1ER.png" group-title="TV PREMIUM",Canal 93
+http://38.199.6.1:17001/play/a0pw/index.m3u8
+#EXTINF:-1 tvg-logo="https://imgur.com/BT1f1ER.png" group-title="TV PREMIUM",Canal 94
+http://38.199.6.1:17001/play/a0cz/index.m3u8
+#EXTINF:-1 tvg-logo="https://imgur.com/BT1f1ER.png" group-title="TV PREMIUM",Canal 95
+http://38.199.6.1:17001/play/a0ce/index.m3u8
+#EXTINF:-1 tvg-logo="https://imgur.com/BT1f1ER.png" group-title="TV PREMIUM",Canal 96
+http://38.199.6.1:17001/play/a065/index.m3u8
+#EXTINF:-1 tvg-logo="https://imgur.com/BT1f1ER.png" group-title="TV PREMIUM",Canal 97
+http://38.199.6.1:17001/play/a050/index.m3u8
+#EXTINF:-1 tvg-logo="https://imgur.com/BT1f1ER.png" group-title="TV PREMIUM",Canal 98
+http://38.199.6.1:17001/play/a047/index.m3u8
+#EXTINF:-1 tvg-logo="https://imgur.com/BT1f1ER.png" group-title="TV PREMIUM",Canal 99
+http://38.199.6.1:17001/play/a06b/index.m3u8
+#EXTINF:-1 tvg-logo="https://imgur.com/BT1f1ER.png" group-title="TV PREMIUM",Canal 100
+http://38.199.6.1:17001/play/a0ut/index.m3u8
+#EXTINF:-1 tvg-logo="https://imgur.com/BT1f1ER.png" group-title="TV PREMIUM",Canal 101
+http://38.199.6.1:17001/play/a04n/index.m3u8
+#EXTINF:-1 tvg-logo="https://imgur.com/BT1f1ER.png" group-title="TV PREMIUM",Canal 102
+http://38.199.6.1:17001/play/a05j/index.m3u8
+#EXTINF:-1 tvg-logo="https://imgur.com/BT1f1ER.png" group-title="TV PREMIUM",Canal 103
+http://38.199.6.1:17001/play/a0po/index.m3u8
+#EXTINF:-1 tvg-logo="https://imgur.com/BT1f1ER.png" group-title="TV PREMIUM",Canal 104
+http://38.199.6.1:17001/play/a0pq/index.m3u8
+#EXTINF:-1 tvg-logo="https://imgur.com/BT1f1ER.png" group-title="TV PREMIUM",Canal 105
+http://38.199.6.1:17001/play/a04y/index.m3u8
+#EXTINF:-1 tvg-logo="https://imgur.com/BT1f1ER.png" group-title="TV PREMIUM",Canal 106
+http://38.199.6.1:17001/play/a0z4/index.m3u8
+#EXTINF:-1 tvg-logo="https://imgur.com/BT1f1ER.png" group-title="TV PREMIUM",Canal 107
+http://38.199.6.1:17001/play/a051/index.m3u8
+#EXTINF:-1 tvg-logo="https://imgur.com/BT1f1ER.png" group-title="TV PREMIUM",Canal 108
+http://38.199.6.1:17001/play/a0d9/index.m3u8
+#EXTINF:-1 tvg-logo="https://imgur.com/BT1f1ER.png" group-title="TV PREMIUM",Canal 109
+http://38.199.6.1:17001/play/a03d/index.m3u8
+#EXTINF:-1 tvg-logo="https://imgur.com/BT1f1ER.png" group-title="TV PREMIUM",Canal 110
+http://38.199.6.1:17001/play/a0pb/index.m3u8
+#EXTINF:-1 tvg-logo="https://imgur.com/BT1f1ER.png" group-title="TV PREMIUM",Canal 111
+http://38.199.6.1:17001/play/a0pi/index.m3u8
+#EXTINF:-1 tvg-logo="https://imgur.com/BT1f1ER.png" group-title="TV PREMIUM",Canal 112
+http://38.199.6.1:17001/play/a0ux/index.m3u8
+#EXTINF:-1 tvg-logo="https://imgur.com/BT1f1ER.png" group-title="TV PREMIUM",Canal 113
+http://38.199.6.1:17001/play/a0ph/index.m3u8
+#EXTINF:-1 tvg-logo="https://imgur.com/BT1f1ER.png" group-title="TV PREMIUM",Canal 114
+http://38.199.6.1:17001/play/a0us/index.m3u8
+#EXTINF:-1 tvg-logo="https://imgur.com/BT1f1ER.png" group-title="TV PREMIUM",Canal 115
+http://38.199.6.1:17001/play/a0cq/index.m3u8
+#EXTINF:-1 tvg-logo="https://imgur.com/BT1f1ER.png" group-title="TV PREMIUM",Canal 116
+http://38.199.6.1:17001/play/a05a/index.m3u8
+#EXTINF:-1 tvg-logo="https://imgur.com/BT1f1ER.png" group-title="TV PREMIUM",Canal 117
+http://38.199.6.1:17001/play/a03z/index.m3u8
+#EXTINF:-1 tvg-logo="https://imgur.com/BT1f1ER.png" group-title="TV PREMIUM",Canal 118
+http://38.199.6.1:17001/play/a0s6/index.m3u8
+#EXTINF:-1 tvg-logo="https://imgur.com/BT1f1ER.png" group-title="TV PREMIUM",Canal 119
+http://38.199.6.1:17001/play/a0ur/index.m3u8
+#EXTINF:-1 tvg-logo="https://imgur.com/BT1f1ER.png" group-title="TV PREMIUM",Canal 120
+http://38.199.6.1:17001/play/a0yf/index.m3u8
+#EXTINF:-1 tvg-logo="https://imgur.com/BT1f1ER.png" group-title="TV PREMIUM",Canal 121
+http://38.199.6.1:17001/play/a04w/index.m3u8
+#EXTINF:-1 tvg-logo="https://imgur.com/BT1f1ER.png" group-title="TV PREMIUM",Canal 122
+http://38.199.6.1:17001/play/a0dc/index.m3u8
+#EXTINF:-1 tvg-logo="https://imgur.com/BT1f1ER.png" group-title="TV PREMIUM",Canal 123
+http://38.199.6.1:17001/play/a0cv/index.m3u8
+#EXTINF:-1 tvg-logo="https://imgur.com/BT1f1ER.png" group-title="TV PREMIUM",Canal 124
+http://38.199.6.1:17001/play/a0do/index.m3u8
+#EXTINF:-1 tvg-logo="https://imgur.com/BT1f1ER.png" group-title="TV PREMIUM",Canal 125
+http://38.199.6.1:17001/play/a0cn/index.m3u8
+#EXTINF:-1 tvg-logo="https://imgur.com/BT1f1ER.png" group-title="TV PREMIUM",Canal 126
+http://38.199.6.1:17001/play/a0cg/index.m3u8
+#EXTINF:-1 tvg-logo="https://imgur.com/BT1f1ER.png" group-title="TV PREMIUM",Canal 127
+http://38.199.6.1:17001/play/a067/index.m3u8
+#EXTINF:-1 tvg-logo="https://imgur.com/BT1f1ER.png" group-title="TV PREMIUM",Canal 128
+http://38.199.6.1:17001/play/a05c/index.m3u8
+#EXTINF:-1 tvg-logo="https://imgur.com/BT1f1ER.png" group-title="TV PREMIUM",Canal 129
+http://38.199.6.1:17001/play/a032/index.m3u8
+#EXTINF:-1 tvg-logo="https://imgur.com/BT1f1ER.png" group-title="TV PREMIUM",Canal 130
+http://38.199.6.1:17001/play/a0di/index.m3u8
+#EXTINF:-1 tvg-logo="https://imgur.com/BT1f1ER.png" group-title="TV PREMIUM",Canal 131
+http://38.199.6.1:17001/play/a05t/index.m3u8
+#EXTINF:-1 tvg-logo="https://imgur.com/BT1f1ER.png" group-title="TV PREMIUM",Canal 132
+http://38.199.6.1:17001/play/a05b/index.m3u8
+#EXTINF:-1 tvg-logo="https://imgur.com/BT1f1ER.png" group-title="TV PREMIUM",Canal 133
+http://38.199.6.1:17001/play/a04h/index.m3u8
+#EXTINF:-1 tvg-logo="https://imgur.com/BT1f1ER.png" group-title="TV PREMIUM",Canal 134
+http://38.199.6.1:17001/play/a0q0/index.m3u8
+#EXTINF:-1 tvg-logo="https://imgur.com/BT1f1ER.png" group-title="TV PREMIUM",Canal 135
+http://38.199.6.1:17001/play/a0c9/index.m3u8
+#EXTINF:-1 tvg-logo="https://imgur.com/BT1f1ER.png" group-title="TV PREMIUM",Canal 136
+http://38.199.6.1:17001/play/a042/index.m3u8
+#EXTINF:-1 tvg-logo="https://imgur.com/BT1f1ER.png" group-title="TV PREMIUM",Canal 137
+http://38.199.6.1:17001/play/a062/index.m3u8
+#EXTINF:-1 tvg-logo="https://imgur.com/BT1f1ER.png" group-title="TV PREMIUM",Canal 138
+http://38.199.6.1:17001/play/a04t/index.m3u8
+#EXTINF:-1 tvg-logo="https://imgur.com/BT1f1ER.png" group-title="TV PREMIUM",Canal 139
+http://38.199.6.1:17001/play/a036/index.m3u8
+#EXTINF:-1 tvg-logo="https://imgur.com/BT1f1ER.png" group-title="TV PREMIUM",Canal 140
+http://38.199.6.1:17001/play/a04z/index.m3u8
+#EXTINF:-1 tvg-logo="https://imgur.com/BT1f1ER.png" group-title="TV PREMIUM",Canal 141
+http://38.199.6.1:17001/play/a03x/index.m3u8
+#EXTINF:-1 tvg-logo="https://imgur.com/BT1f1ER.png" group-title="TV PREMIUM",Canal 142
+http://38.199.6.1:17001/play/a0co/index.m3u8
+#EXTINF:-1 tvg-logo="https://imgur.com/BT1f1ER.png" group-title="TV PREMIUM",Canal 143
+http://38.199.6.1:17001/play/a0cm/index.m3u8
+#EXTINF:-1 tvg-logo="https://imgur.com/BT1f1ER.png" group-title="TV PREMIUM",Canal 144
+http://38.199.6.1:17001/play/a0pj/index.m3u8
+#EXTINF:-1 tvg-logo="https://imgur.com/BT1f1ER.png" group-title="TV PREMIUM",Canal 145
+http://38.199.6.1:17001/play/a0pr/index.m3u8
+#EXTINF:-1 tvg-logo="https://imgur.com/BT1f1ER.png" group-title="TV PREMIUM",Canal 146
+http://38.199.6.1:17001/play/a0xt/index.m3u8
+#EXTINF:-1 tvg-logo="https://imgur.com/BT1f1ER.png" group-title="TV PREMIUM",Canal 147
+http://38.199.6.1:17001/play/a0dp/index.m3u8
+#EXTINF:-1 tvg-logo="https://imgur.com/BT1f1ER.png" group-title="TV PREMIUM",Canal 148
+http://38.199.6.1:17001/play/a0d2/index.m3u8
+#EXTINF:-1 tvg-logo="https://imgur.com/BT1f1ER.png" group-title="TV PREMIUM",Canal 149
+http://38.199.6.1:17001/play/a0bt/index.m3u8
+#EXTINF:-1 tvg-logo="https://imgur.com/BT1f1ER.png" group-title="TV PREMIUM",Canal 150
+http://38.199.6.1:17001/play/a0cw/index.m3u8
+#EXTINF:-1 tvg-logo="https://imgur.com/BT1f1ER.png" group-title="TV PREMIUM",Canal 151
+http://38.199.6.1:17001/play/a05x/index.m3u8
+#EXTINF:-1 tvg-logo="https://imgur.com/BT1f1ER.png" group-title="TV PREMIUM",Canal 152
+http://38.199.6.1:17001/play/a04m/index.m3u8
+#EXTINF:-1 tvg-logo="https://imgur.com/BT1f1ER.png" group-title="TV PREMIUM",Canal 153
+http://38.199.6.1:17001/play/a0dk/index.m3u8
+#EXTINF:-1 tvg-logo="https://imgur.com/BT1f1ER.png" group-title="TV PREMIUM",Canal 154
+http://38.199.6.1:17001/play/a0px/index.m3u8
+#EXTINF:-1 tvg-logo="https://imgur.com/BT1f1ER.png" group-title="TV PREMIUM",Canal 155
+http://38.199.6.1:17001/play/a0cx/index.m3u8
+#EXTINF:-1 tvg-logo="https://imgur.com/BT1f1ER.png" group-title="TV PREMIUM",Canal 156
+http://38.199.6.1:17001/play/a0uv/index.m3u8
+#EXTINF:-1 tvg-logo="https://imgur.com/BT1f1ER.png" group-title="TV PREMIUM",Canal 157
+http://38.199.6.1:17001/play/a0dg/index.m3u8
+#EXTINF:-1 tvg-logo="https://imgur.com/BT1f1ER.png" group-title="TV PREMIUM",Canal 158
+http://38.199.6.1:17001/play/a0p1/index.m3u8
+#EXTINF:-1 tvg-logo="https://imgur.com/BT1f1ER.png" group-title="TV PREMIUM",Canal 159
+http://38.199.6.1:17001/play/a0um/index.m3u8
+#EXTINF:-1 tvg-logo="https://imgur.com/BT1f1ER.png" group-title="TV PREMIUM",Canal 160
+http://38.199.6.1:17001/play/a0g8/index.m3u8
+#EXTINF:-1 tvg-logo="https://imgur.com/BT1f1ER.png" group-title="TV PREMIUM",Canal 161
+http://38.199.6.1:17001/play/a0g9/index.m3u8
+#EXTINF:-1 tvg-logo="https://imgur.com/BT1f1ER.png" group-title="TV PREMIUM",Canal 162
+http://38.199.6.1:17001/play/a0yi/index.m3u8
+#EXTINF:-1 tvg-logo="https://imgur.com/BT1f1ER.png" group-title="TV PREMIUM",Canal 163
+http://38.199.6.1:17001/play/a0ca/index.m3u8
+#EXTINF:-1 tvg-logo="https://imgur.com/BT1f1ER.png" group-title="TV PREMIUM",Canal 164
+http://38.199.6.1:17001/play/a0wn/index.m3u8
+#EXTINF:-1 tvg-logo="https://imgur.com/BT1f1ER.png" group-title="TV PREMIUM",Canal 165
+http://38.199.6.1:17001/play/a0yc/index.m3u8
+#EXTINF:-1 tvg-logo="https://imgur.com/BT1f1ER.png" group-title="TV PREMIUM",Canal 166
+http://38.199.6.1:17001/play/a0q8/index.m3u8
+#EXTINF:-1 tvg-logo="https://imgur.com/BT1f1ER.png" group-title="TV PREMIUM",Canal 167
+http://38.199.6.1:17001/play/a033/index.m3u8
+#EXTINF:-1 tvg-logo="https://imgur.com/BT1f1ER.png" group-title="TV PREMIUM",Canal 168
+http://38.199.6.1:17001/play/a0ci/index.m3u8
+
+
 #EXTINF:-1 tvg-logo="",FILM Y ARTS
 http://181.13.198.204:8000/play/a0ee/index.m3u8
