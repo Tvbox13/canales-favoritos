@@ -6,6 +6,7 @@
   <title>Dc Tv - Estilo DC</title>
   <script src="https://cdn.jsdelivr.net/npm/clappr@latest/dist/clappr.min.js"></script>
   <style>
+    /* Estilos igual que antes */
     :root {
       --text-color: #fff;
     }
@@ -17,8 +18,6 @@
       background-size: cover;
       color: var(--text-color);
       text-align: center;
-      position: relative;
-      z-index: 1;
     }
 
     body::before {
@@ -30,17 +29,15 @@
     }
 
     .container {
-      width: 90%;
+      position: relative;
+      z-index: 1;
       max-width: 1200px;
       margin: auto;
       padding: 20px;
-      position: relative;
-      z-index: 1;
     }
 
     h1 {
       font-size: 3rem;
-      margin: 40px 0 30px;
       background: linear-gradient(to right, gold, white, black);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
@@ -86,25 +83,14 @@
     }
 
     .canal {
-      width: 100%;
-      height: 100px;
-      padding: 10px;
       display: flex;
-      flex-direction: row;
       align-items: center;
+      padding: 10px;
       background-color: rgba(0, 0, 0, 0.4);
-      border-radius: 10px;
       border: 2px solid gold;
+      border-radius: 10px;
       box-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
-      transition: transform 0.3s, box-shadow 0.3s;
       cursor: pointer;
-    }
-
-    .canal:hover,
-    .canal:focus {
-      transform: scale(1.02);
-      box-shadow: 0 0 15px gold;
-      outline: none;
     }
 
     .canal img {
@@ -137,30 +123,12 @@
       width: 100%;
       height: 100%;
     }
-
-    @media (max-width: 768px) {
-      .canal {
-        flex-direction: row;
-        height: auto;
-      }
-
-      .canal img {
-        width: 80px;
-        height: 60px;
-      }
-
-      .canal span {
-        font-size: 1rem;
-      }
-    }
   </style>
 </head>
 <body>
   <div class="container">
     <h1>DC TV - Estilo DC</h1>
     <input type="text" id="buscador" placeholder="🔍 Buscar canal..." />
-
-    <!-- Contenedor de Categorías -->
     <div id="categorias"></div>
   </div>
 
@@ -173,8 +141,6 @@
       { nombre: "Entretenimiento", url: "https://raw.githubusercontent.com/Tvbox13/canales-favoritos/main/lista.m3u" },
       { nombre: "Deportes", url: "https://example.com/lista2.m3u" },
       { nombre: "Noticias", url: "https://example.com/lista3.m3u" },
-      { nombre: "Películas", url: "https://example.com/lista4.m3u" },
-      { nombre: "Infantiles", url: "https://example.com/lista5.m3u" },
     ];
 
     const categoriasContainer = document.getElementById("categorias");
@@ -183,7 +149,6 @@
     let playerInstance = null;
     const esAndroid = /Android/i.test(navigator.userAgent);
 
-    // Crear secciones por cada lista
     listas.forEach((lista, index) => {
       const categoriaDiv = document.createElement("div");
       categoriaDiv.className = "categoria";
@@ -209,15 +174,12 @@
       const div = document.getElementById(`categoria-${index}`);
       const isVisible = div.style.display === "flex";
 
-      // Cerrar todos los demás
-      document.querySelectorAll('.canales-container').forEach(d => d.style.display = "none");
+      document.querySelectorAll(".canales-container").forEach(d => d.style.display = "none");
 
       if (!isVisible) {
-        div.innerHTML = ""; // Limpiar antes de cargar
+        div.innerHTML = "";
         div.style.display = "flex";
         cargarListaM3U(url, div);
-      } else {
-        div.style.display = "none";
       }
     }
 
@@ -226,14 +188,12 @@
         .then(response => response.text())
         .then(data => {
           const lines = data.split('\n');
-          let nombre = "", url = "", logo = "";
-
           for (let i = 0; i < lines.length; i++) {
             if (lines[i].startsWith("#EXTINF")) {
-              nombre = lines[i].split(',')[1]?.trim() || "Canal";
+              const nombre = lines[i].split(',')[1]?.trim() || "Canal";
               const logoMatch = lines[i].match(/tvg-logo="([^"]+)"/);
-              logo = logoMatch ? logoMatch[1] : "";
-              url = lines[i + 1]?.trim();
+              const logo = logoMatch ? logoMatch[1] : "";
+              const url = lines[i + 1]?.trim();
 
               if (url && url.startsWith("http")) {
                 agregarCanal(nombre, url, logo, container);
@@ -245,9 +205,34 @@
     }
 
     function agregarCanal(nombre, url, logo, container) {
-      const elemento = esAndroid ? document.createElement("a") : document.createElement("button");
-      elemento.className = "canal";
-      elemento.setAttribute("data-nombre", nombre.toLowerCase());
+      const canal = esAndroid ? document.createElement("a") : document.createElement("button");
+      canal.className = "canal";
+      canal.setAttribute("data-nombre", nombre.toLowerCase());
 
       if (esAndroid) {
-       
+        const intentUrl = `intent://${url.replace(/^https?:\/\//, '')}#Intent;package=org.videolan.vlc;type=video/*;scheme=http;end`;
+        canal.href = intentUrl;
+        canal.target = "_self";
+      } else {
+        canal.onclick = () => reproducir(url);
+      }
+
+      if (logo) {
+        const img = document.createElement("img");
+        img.src = logo;
+        img.alt = nombre;
+        canal.appendChild(img);
+      }
+
+      const span = document.createElement("span");
+      span.textContent = nombre;
+      canal.appendChild(span);
+      container.appendChild(canal);
+    }
+
+    function reproducir(url) {
+      if (playerInstance) {
+        playerInstance.destroy();
+      }
+      playerWrapper.style.display = "block";
+      playerInstance = new Clap
