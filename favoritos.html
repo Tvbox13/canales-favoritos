@@ -211,7 +211,8 @@
       }
     }
 
-    function cargarListaM3U(m3uUrl, container) {
+    function
+    cargarListaM3U(m3uUrl, container) {
       fetch(m3uUrl)
         .then(r => r.text())
         .then(data => {
@@ -235,6 +236,9 @@
       const canal = esAndroid ? document.createElement("a") : document.createElement("button");
       canal.className = "canal";
       canal.setAttribute("data-nombre", nombre.toLowerCase());
+      canal.tabIndex = 0;
+      canal.onkeydown = e => { if (e.key === "Enter") canal.click(); };
+      
       if (esAndroid) {
         const intentUrl = `intent://${url.replace(/^https?:\/\//, '')}#Intent;package=org.videolan.vlc;type=video/*;scheme=http;end`;
         canal.href = intentUrl;
