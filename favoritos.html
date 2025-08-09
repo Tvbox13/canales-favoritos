@@ -1,238 +1,134 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Dc Tv - Estilo DC</title>
-  <script src="https://cdn.jsdelivr.net/npm/clappr@latest/dist/clappr.min.js"></script>
-  <style>
-    /* Estilos igual que antes */
-    :root {
-      --text-color: #fff;
+<script>
+  // Configura aquí tus listas .m3u desde tu repo
+  const GITHUB_BASE = "https://raw.githubusercontent.com/Tvbox13/canales-favoritos/main/";
+
+  const listas = [
+    { nombre: "Entretenimiento", archivo: "lista.m3u" },
+    { nombre: "Deportes", archivo: "deportes.m3u" },
+    { nombre: "Películas", archivo: "peliculas.m3u" },
+    { nombre: "Infantiles", archivo: "infantiles.m3u" },
+    { nombre: "Noticias", archivo: "noticias.m3u" }
+  ];
+
+  const categoriasContainer = document.getElementById("categorias");
+  const buscador = document.getElementById("buscador");
+  const playerWrapper = document.getElementById("player-wrapper");
+  let playerInstance = null;
+  const esAndroid = /Android/i.test(navigator.userAgent);
+
+  listas.forEach((lista, index) => {
+    const categoriaDiv = document.createElement("div");
+    categoriaDiv.className = "categoria";
+
+    const titulo = document.createElement("h2");
+    titulo.textContent = lista.nombre;
+    titulo.tabIndex = 0;
+    titulo.onclick = () => toggleCategoria(index, GITHUB_BASE + lista.archivo);
+    titulo.onkeydown = (e) => {
+      if (e.key === "Enter" || e.key === " ") titulo.click();
+    };
+
+    const canalesDiv = document.createElement("div");
+    canalesDiv.className = "canales-container";
+    canalesDiv.id = `categoria-${index}`;
+
+    categoriaDiv.appendChild(titulo);
+    categoriaDiv.appendChild(canalesDiv);
+    categoriasContainer.appendChild(categoriaDiv);
+  });
+
+  function toggleCategoria(index, url) {
+    const div = document.getElementById(`categoria-${index}`);
+    const isVisible = div.style.display === "flex";
+
+    document.querySelectorAll(".canales-container").forEach(d => d.style.display = "none");
+
+    if (!isVisible) {
+      div.innerHTML = "";
+      div.style.display = "flex";
+      cargarListaM3U(url, div);
     }
+  }
 
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: url('https://dl.dropboxusercontent.com/scl/fi/53cl5dg07jneprsqbvkdp/Fondo-dorado-negro.jpg?rlkey=fxysssw9toe3zdhw873nob0k7&st=brpgsbw8&dl=0') no-repeat center center fixed;
-      background-size: cover;
-      color: var(--text-color);
-      text-align: center;
-    }
+  function cargarListaM3U(m3uUrl, container) {
+    fetch(m3uUrl)
+      .then(response => response.text())
+      .then(data => {
+        const lines = data.split('\n');
+        for (let i = 0; i < lines.length; i++) {
+          if (lines[i].startsWith("#EXTINF")) {
+            const nombre = lines[i].split(',')[1]?.trim() || "Canal";
+            const logoMatch = lines[i].match(/tvg-logo="([^"]+)"/);
+            const logo = logoMatch ? logoMatch[1] : "";
+            const url = lines[i + 1]?.trim();
 
-    body::before {
-      content: '';
-      position: fixed;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.6);
-      z-index: 0;
-    }
-
-    .container {
-      position: relative;
-      z-index: 1;
-      max-width: 1200px;
-      margin: auto;
-      padding: 20px;
-    }
-
-    h1 {
-      font-size: 3rem;
-      background: linear-gradient(to right, gold, white, black);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.8), 0 0 20px gold;
-    }
-
-    #buscador {
-      padding: 12px;
-      font-size: 16px;
-      width: 90%;
-      max-width: 500px;
-      margin: 20px auto 30px auto;
-      border-radius: 10px;
-      border: none;
-      outline: none;
-      background-color: rgba(255, 255, 255, 0.15);
-      color: white;
-      text-align: center;
-      box-shadow: 0 0 10px gold;
-    }
-
-    .categoria {
-      text-align: left;
-      margin-bottom: 15px;
-    }
-
-    .categoria h2 {
-      background-color: rgba(255, 215, 0, 0.1);
-      padding: 10px;
-      cursor: pointer;
-      border-radius: 10px;
-      color: gold;
-      font-size: 1.4rem;
-      text-shadow: 1px 1px 2px black;
-      border: 1px solid gold;
-    }
-
-    .canales-container {
-      display: none;
-      flex-direction: column;
-      gap: 10px;
-      margin-top: 10px;
-    }
-
-    .canal {
-      display: flex;
-      align-items: center;
-      padding: 10px;
-      background-color: rgba(0, 0, 0, 0.4);
-      border: 2px solid gold;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
-      cursor: pointer;
-    }
-
-    .canal img {
-      width: 100px;
-      height: 80px;
-      object-fit: cover;
-      border-radius: 8px;
-      margin-right: 15px;
-    }
-
-    .canal span {
-      font-size: 1.2rem;
-      font-weight: bold;
-      color: gold;
-      text-shadow: 1px 1px 2px black;
-    }
-
-    #player-wrapper {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      background: black;
-      z-index: 9999;
-    }
-
-    #player {
-      width: 100%;
-      height: 100%;
-    }
-  </style>
-</head>
-<body>
-  <div class="container">
-    <h1>DC TV - Estilo DC</h1>
-    <input type="text" id="buscador" placeholder="🔍 Buscar canal..." />
-    <div id="categorias"></div>
-  </div>
-
-  <div id="player-wrapper">
-    <div id="player"></div>
-  </div>
-
-  <script>
-    const listas = [
-      { nombre: "Entretenimiento", url: "https://raw.githubusercontent.com/Tvbox13/canales-favoritos/main/lista.m3u" },
-      { nombre: "Deportes", url: "https://example.com/lista2.m3u" },
-      { nombre: "Noticias", url: "https://example.com/lista3.m3u" },
-    ];
-
-    const categoriasContainer = document.getElementById("categorias");
-    const buscador = document.getElementById("buscador");
-    const playerWrapper = document.getElementById("player-wrapper");
-    let playerInstance = null;
-    const esAndroid = /Android/i.test(navigator.userAgent);
-
-    listas.forEach((lista, index) => {
-      const categoriaDiv = document.createElement("div");
-      categoriaDiv.className = "categoria";
-
-      const titulo = document.createElement("h2");
-      titulo.textContent = lista.nombre;
-      titulo.tabIndex = 0;
-      titulo.onclick = () => toggleCategoria(index, lista.url);
-      titulo.onkeydown = (e) => {
-        if (e.key === "Enter" || e.key === " ") titulo.click();
-      };
-
-      const canalesDiv = document.createElement("div");
-      canalesDiv.className = "canales-container";
-      canalesDiv.id = `categoria-${index}`;
-
-      categoriaDiv.appendChild(titulo);
-      categoriaDiv.appendChild(canalesDiv);
-      categoriasContainer.appendChild(categoriaDiv);
-    });
-
-    function toggleCategoria(index, url) {
-      const div = document.getElementById(`categoria-${index}`);
-      const isVisible = div.style.display === "flex";
-
-      document.querySelectorAll(".canales-container").forEach(d => d.style.display = "none");
-
-      if (!isVisible) {
-        div.innerHTML = "";
-        div.style.display = "flex";
-        cargarListaM3U(url, div);
-      }
-    }
-
-    function cargarListaM3U(m3uUrl, container) {
-      fetch(m3uUrl)
-        .then(response => response.text())
-        .then(data => {
-          const lines = data.split('\n');
-          for (let i = 0; i < lines.length; i++) {
-            if (lines[i].startsWith("#EXTINF")) {
-              const nombre = lines[i].split(',')[1]?.trim() || "Canal";
-              const logoMatch = lines[i].match(/tvg-logo="([^"]+)"/);
-              const logo = logoMatch ? logoMatch[1] : "";
-              const url = lines[i + 1]?.trim();
-
-              if (url && url.startsWith("http")) {
-                agregarCanal(nombre, url, logo, container);
-              }
+            if (url && url.startsWith("http")) {
+              agregarCanal(nombre, url, logo, container);
             }
           }
-        })
-        .catch(error => console.error("Error cargando M3U:", error));
+        }
+      })
+      .catch(error => console.error("Error cargando M3U:", error));
+  }
+
+  function agregarCanal(nombre, url, logo, container) {
+    const canal = esAndroid ? document.createElement("a") : document.createElement("button");
+    canal.className = "canal";
+    canal.setAttribute("data-nombre", nombre.toLowerCase());
+
+    if (esAndroid) {
+      const intentUrl = `intent://${url.replace(/^https?:\/\//, '')}#Intent;package=org.videolan.vlc;type=video/*;scheme=http;end`;
+      canal.href = intentUrl;
+      canal.target = "_self";
+    } else {
+      canal.onclick = () => reproducir(url);
     }
 
-    function agregarCanal(nombre, url, logo, container) {
-      const canal = esAndroid ? document.createElement("a") : document.createElement("button");
-      canal.className = "canal";
-      canal.setAttribute("data-nombre", nombre.toLowerCase());
-
-      if (esAndroid) {
-        const intentUrl = `intent://${url.replace(/^https?:\/\//, '')}#Intent;package=org.videolan.vlc;type=video/*;scheme=http;end`;
-        canal.href = intentUrl;
-        canal.target = "_self";
-      } else {
-        canal.onclick = () => reproducir(url);
-      }
-
-      if (logo) {
-        const img = document.createElement("img");
-        img.src = logo;
-        img.alt = nombre;
-        canal.appendChild(img);
-      }
-
-      const span = document.createElement("span");
-      span.textContent = nombre;
-      canal.appendChild(span);
-      container.appendChild(canal);
+    if (logo) {
+      const img = document.createElement("img");
+      img.src = logo;
+      img.alt = nombre;
+      canal.appendChild(img);
     }
 
-    function reproducir(url) {
-      if (playerInstance) {
-        playerInstance.destroy();
+    const span = document.createElement("span");
+    span.textContent = nombre;
+    canal.appendChild(span);
+    container.appendChild(canal);
+  }
+
+  function reproducir(url) {
+    if (playerInstance) {
+      playerInstance.destroy();
+    }
+    playerWrapper.style.display = "block";
+    playerInstance = new Clappr.Player({
+      source: url,
+      parentId: "#player",
+      autoPlay: true,
+      height: "100%",
+      width: "100%",
+    });
+  }
+
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape" || e.key === "Backspace") {
+      if (playerWrapper.style.display === "block") {
+        playerWrapper.style.display = "none";
+        if (playerInstance) {
+          playerInstance.destroy();
+          playerInstance = null;
+        }
       }
-      playerWrapper.style.display = "block";
-      playerInstance = new Clap
+    }
+  });
+
+  buscador.addEventListener("input", function () {
+    const filtro = this.value.toLowerCase();
+    const canales = document.querySelectorAll(".canal");
+    canales.forEach(canal => {
+      const nombre = canal.getAttribute("data-nombre");
+      canal.style.display = nombre.includes(filtro) ? "flex" : "none";
+    });
+  });
+</script>
