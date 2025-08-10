@@ -4,7 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>DC TV - Categorías</title>
-  <script src="https://cdn.jsdelivr.net/npm/clappr@latest/dist/clappr.min.js"></script>
+
+  <!-- Video.js CSS -->
+  <link href="https://vjs.zencdn.net/8.10.0/video-js.css" rel="stylesheet" />
 
   <style>
     :root {
@@ -159,8 +161,18 @@
   </div>
 
   <div id="player-wrapper">
-    <div id="player"></div>
+    <!-- Reproductor Video.js -->
+    <video
+      id="player"
+      class="video-js vjs-default-skin"
+      controls
+      autoplay
+      preload="auto"
+    ></video>
   </div>
+
+  <!-- Video.js JS -->
+  <script src="https://vjs.zencdn.net/8.10.0/video.min.js"></script>
 
   <script>
     const OWNER = "Tvbox13";
@@ -169,8 +181,8 @@
     const archivosM3U = [
       { nombre: "Categoría 1", archivo: "lista.m3u" },
       { nombre: "Categoría 2", archivo: "lista 2.m3u" },
-      { nombre: "Categoría 3", archivo: "lista.m3u" }, // Puedes reemplazar estos
-      { nombre: "Categoría 4", archivo: "lista 2.m3u" } // con más archivos reales
+      { nombre: "Categoría 3", archivo: "lista.m3u" },
+      { nombre: "Categoría 4", archivo: "lista 2.m3u" }
     ];
 
     const categoriasContainer = document.getElementById("categorias");
@@ -211,8 +223,7 @@
       }
     }
 
-    function
-    cargarListaM3U(m3uUrl, container) {
+    function cargarListaM3U(m3uUrl, container) {
       fetch(m3uUrl)
         .then(r => r.text())
         .then(data => {
@@ -238,7 +249,7 @@
       canal.setAttribute("data-nombre", nombre.toLowerCase());
       canal.tabIndex = 0;
       canal.onkeydown = e => { if (e.key === "Enter") canal.click(); };
-      
+
       if (esAndroid) {
         const intentUrl = `intent://${url.replace(/^https?:\/\//, '')}#Intent;package=org.videolan.vlc;type=video/*;scheme=http;end`;
         canal.href = intentUrl;
@@ -262,15 +273,36 @@
     }
 
     function reproducir(url) {
-      if (playerInstance) playerInstance.destroy();
+      const videoElement = document.getElementById("player");
+
+      // Cerrar instancia anterior
+      if (playerInstance) {
+        playerInstance.dispose();
+      }
+
+      // Mostrar el contenedor
       playerWrapper.style.display = "block";
-      playerInstance = new Clappr.Player({ source: url, parentId: "#player", autoPlay: true, height: "100%", width: "100%" });
+
+      // Crear nueva instancia de Video.js
+      playerInstance = videojs(videoElement, {
+        sources: [{
+          src: url,
+          type: url.endsWith(".m3u8") ? "application/x-mpegURL" : "video/mp4"
+        }],
+        autoplay: true,
+        controls: true,
+        fluid: true
+      });
     }
 
+    // Cerrar reproductor con Escape o Backspace
     document.addEventListener("keydown", e => {
       if (["Escape", "Backspace"].includes(e.key) && playerWrapper.style.display === "block") {
         playerWrapper.style.display = "none";
-        if (playerInstance) { playerInstance.destroy(); playerInstance = null; }
+        if (playerInstance) {
+          playerInstance.dispose();
+          playerInstance = null;
+        }
       }
     });
 
