@@ -161,7 +161,6 @@
   </div>
 
   <div id="player-wrapper">
-    <!-- Reproductor Video.js -->
     <video
       id="player"
       class="video-js vjs-default-skin"
@@ -189,7 +188,6 @@
     const buscador = document.getElementById("buscador");
     const playerWrapper = document.getElementById("player-wrapper");
     let playerInstance = null;
-    const esAndroid = /Android/i.test(navigator.userAgent);
 
     archivosM3U.forEach((item, index) => {
       const url = `https://raw.githubusercontent.com/${OWNER}/${REPO}/main/${encodeURIComponent(item.archivo)}`;
@@ -244,19 +242,13 @@
     }
 
     function agregarCanal(nombre, url, logo, container) {
-      const canal = esAndroid ? document.createElement("a") : document.createElement("button");
+      const canal = document.createElement("button");
       canal.className = "canal";
       canal.setAttribute("data-nombre", nombre.toLowerCase());
       canal.tabIndex = 0;
       canal.onkeydown = e => { if (e.key === "Enter") canal.click(); };
 
-      if (esAndroid) {
-        const intentUrl = `intent://${url.replace(/^https?:\/\//, '')}#Intent;package=org.videolan.vlc;type=video/*;scheme=http;end`;
-        canal.href = intentUrl;
-        canal.target = "_self";
-      } else {
-        canal.onclick = () => reproducir(url);
-      }
+      canal.onclick = () => reproducir(url);
 
       if (logo) {
         const img = document.createElement("img");
@@ -275,15 +267,12 @@
     function reproducir(url) {
       const videoElement = document.getElementById("player");
 
-      // Cerrar instancia anterior
       if (playerInstance) {
         playerInstance.dispose();
       }
 
-      // Mostrar el contenedor
       playerWrapper.style.display = "block";
 
-      // Crear nueva instancia de Video.js
       playerInstance = videojs(videoElement, {
         sources: [{
           src: url,
@@ -295,7 +284,6 @@
       });
     }
 
-    // Cerrar reproductor con Escape o Backspace
     document.addEventListener("keydown", e => {
       if (["Escape", "Backspace"].includes(e.key) && playerWrapper.style.display === "block") {
         playerWrapper.style.display = "none";
@@ -316,4 +304,3 @@
   </script>
 </body>
 </html>
-
