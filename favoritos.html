@@ -368,10 +368,11 @@
       }
     });
 
-    // Al cargar la página, enfocar en buscador para comodidad TV
     window.onload = () => {
-      buscador.focus();
-    };
+  const primerTitulo = document.querySelector("#categorias h2");
+  if (primerTitulo) primerTitulo.focus();
+};
   </script>
 </body>
 </html>
+
