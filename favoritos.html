@@ -5,63 +5,68 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>DC TV - Categorías</title>
   <script src="https://cdn.jsdelivr.net/npm/clappr@latest/dist/clappr.min.js"></script>
-
   <style>
     :root {
       --text-color: #fff;
       --focus-outline: 3px solid gold;
+      --bg-overlay: rgba(0, 0, 0, 0.7);
+      --canal-bg: rgba(0, 0, 0, 0.65);
+      --canal-border: gold;
+      --transition-time: 0.3s;
     }
 
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background: url('https://dl.dropboxusercontent.com/scl/fi/53cl5dg07jneprsqbvkdp/Fondo-dorado-negro.jpg?rlkey=fxysssw9toe3zdhw873nob0k7&st=brpgsbw8&dl=0') no-repeat center center fixed;
       background-size: cover;
       color: var(--text-color);
       text-align: center;
       position: relative;
-      z-index: 1;
       overflow-y: auto;
-      outline: none;
       user-select: none;
+      outline: none;
+      min-height: 100vh;
     }
 
     body::before {
       content: '';
       position: fixed;
       inset: 0;
-      background: rgba(0, 0, 0, 0.6);
+      background: var(--bg-overlay);
       z-index: 0;
     }
 
     .container {
-      width: 90%;
-      max-width: 1200px;
+      max-width: 1100px;
       margin: auto;
-      padding: 20px 0 60px 0;
+      padding: 20px 15px 70px;
       position: relative;
       z-index: 1;
-      outline: none;
+      outline-offset: 2px;
     }
 
     h1 {
       font-size: 4rem;
-      margin: 40px 0 30px;
-      background: linear-gradient(to right, gold, white, black);
+      margin: 50px 0 30px;
+      background: linear-gradient(90deg, gold 0%, white 40%, black 80%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.8), 0 0 20px gold;
+      text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.85);
+      user-select: text;
     }
 
     h2 {
-      font-size: 2.5rem;
-      margin-top: 30px;
+      font-size: 2.4rem;
+      margin: 32px 0 15px;
       cursor: pointer;
       color: gold;
-      text-shadow: 1px 1px 4px black;
-      border-bottom: 2px solid gold;
-      padding-bottom: 10px;
-      outline-offset: 4px;
+      text-shadow: 1px 1px 5px black;
+      border-bottom: 3px solid var(--canal-border);
+      padding-bottom: 8px;
+      transition: border-color var(--transition-time);
+      outline-offset: 5px;
+      user-select: none;
     }
 
     h2:focus {
@@ -70,75 +75,85 @@
     }
 
     #buscador {
-      padding: 16px;
-      font-size: 24px;
+      padding: 14px 20px;
+      font-size: 22px;
       width: 90%;
-      max-width: 600px;
-      margin: 20px auto 30px auto;
-      border-radius: 12px;
+      max-width: 620px;
+      margin: 25px auto 40px;
+      border-radius: 14px;
       border: none;
       outline: none;
-      background-color: rgba(255, 255, 255, 0.15);
+      background-color: rgba(255, 255, 255, 0.18);
       color: white;
       text-align: center;
-      box-shadow: 0 0 15px gold;
+      box-shadow: 0 0 16px gold;
+      transition: box-shadow 0.3s, background-color 0.3s;
+      font-weight: 600;
+      user-select: text;
+    }
+
+    #buscador::placeholder {
+      color: #ddd;
+      font-style: italic;
     }
 
     #buscador:focus {
       outline: var(--focus-outline);
-      box-shadow: 0 0 25px white;
+      box-shadow: 0 0 28px white;
+      background-color: rgba(255, 255, 255, 0.25);
     }
 
     .canales-container {
       display: none;
       flex-direction: column;
-      gap: 12px;
-      margin-bottom: 20px;
+      gap: 10px;
+      margin-bottom: 25px;
       max-height: 500px;
       overflow-y: auto;
       outline: none;
+      padding-right: 8px; /* espacio para scrollbar */
     }
 
     .canal {
-      width: 100%;
-      height: 50px;
-      margin: 5px 0;
-      padding: 10px;
       display: flex;
-      flex-direction: row;
       align-items: center;
-      background-color: rgba(0, 0, 0, 0.6);
+      padding: 10px 15px;
       border-radius: 15px;
-      border: 3px solid gold;
-      box-shadow: none;
-      transition: transform 0.3s, box-shadow 0.3s;
-      cursor: pointer;
-      font-size: 1.6rem;
-      font-weight: bold;
+      border: 3px solid var(--canal-border);
+      background-color: var(--canal-bg);
+      font-size: 1.5rem;
+      font-weight: 700;
       color: gold;
-      text-shadow: none;
+      cursor: pointer;
+      user-select: none;
+      transition: transform var(--transition-time), box-shadow var(--transition-time);
       outline-offset: 6px;
+      text-align: left;
     }
 
     .canal:hover,
-    .canal:focus {
-      transform: none;
-      box-shadow: none;
+    .canal:focus-visible {
+      box-shadow: 0 0 18px gold;
+      transform: scale(1.03);
       outline: var(--focus-outline);
+      background-color: rgba(30, 30, 30, 0.75);
     }
 
     .canal img {
-      width: 30px;
-      height: 22.5px;
+      width: 36px;
+      height: 27px;
       object-fit: contain;
       background-color: black;
-      border-radius: 12px;
-      margin-right: 6px;
+      border-radius: 10px;
+      margin-right: 10px;
+      flex-shrink: 0;
+      box-shadow: 0 0 6px rgba(255, 215, 0, 0.7);
+      user-select: none;
     }
 
     .canal span {
       flex: 1;
-      text-align: left;
+      user-select: text;
     }
 
     #player-wrapper {
@@ -150,11 +165,50 @@
       height: 100vh;
       background: black;
       z-index: 9999;
+      justify-content: center;
+      align-items: center;
+      padding: 12px;
     }
 
     #player {
       width: 100%;
       height: 100%;
+      max-width: 1000px;
+      max-height: 90vh;
+      box-shadow: 0 0 30px gold;
+      border-radius: 12px;
+      background: black;
+    }
+
+    .close-player-btn {
+      position: absolute;
+      top: 15px;
+      right: 20px;
+      background: transparent;
+      border: none;
+      color: gold;
+      font-size: 2.8rem;
+      cursor: pointer;
+      outline-offset: 4px;
+      font-weight: bold;
+      transition: color 0.2s;
+      z-index: 10000;
+      user-select: none;
+    }
+
+    .close-player-btn:hover,
+    .close-player-btn:focus-visible {
+      color: white;
+      outline: var(--focus-outline);
+    }
+
+    /* Scrollbar para canales */
+    .canales-container::-webkit-scrollbar {
+      width: 8px;
+    }
+    .canales-container::-webkit-scrollbar-thumb {
+      background-color: gold;
+      border-radius: 4px;
     }
 
     @media (max-width: 768px) {
@@ -166,28 +220,38 @@
       }
       #buscador {
         font-size: 18px;
+        padding: 12px 18px;
+        max-width: 100%;
       }
       .canal {
-        height: auto;
         font-size: 1.2rem;
+        flex-wrap: wrap;
+        height: auto;
+        padding: 10px 12px;
+        gap: 6px;
       }
       .canal img {
-        width: 80px;
-        height: 60px;
-        margin-right: 15px;
+        width: 70px;
+        height: 52px;
+        margin-right: 12px;
+      }
+      #player {
+        max-width: 100%;
+        max-height: 70vh;
       }
     }
   </style>
 </head>
-<body tabindex="0">
+<body tabindex="0" aria-label="Página de canales de DC TV">
   <div class="container" tabindex="-1">
     <h1>DC TV</h1>
-    <input type="text" id="buscador" placeholder="🔍 Buscar canal..." autocomplete="off" />
-    <div id="categorias"></div>
+    <input type="search" id="buscador" aria-label="Buscar canal" placeholder="🔍 Buscar canal..." autocomplete="off" />
+    <div id="categorias" aria-live="polite" aria-relevant="additions"></div>
   </div>
 
-  <div id="player-wrapper" tabindex="-1" role="dialog" aria-modal="true" aria-label="Reproductor de video">
-    <div id="player"></div>
+  <div id="player-wrapper" role="dialog" aria-modal="true" aria-labelledby="player-title" tabindex="-1" aria-hidden="true" >
+    <button class="close-player-btn" aria-label="Cerrar reproductor" title="Cerrar reproductor">&times;</button>
+    <div id="player" tabindex="0" aria-live="assertive" aria-atomic="true"></div>
   </div>
 
   <script>
@@ -205,18 +269,31 @@
     const buscador = document.getElementById("buscador");
     const playerWrapper = document.getElementById("player-wrapper");
     const playerElement = document.getElementById("player");
+    const closePlayerBtn = playerWrapper.querySelector(".close-player-btn");
     let playerInstance = null;
+    let lastFocusedCanal = null;
 
-    // No más intent:// ni enlaces para Android TV, usar siempre Clappr para reproducir
-    // Para enfocar mejor el primer canal cargado o el título al abrir categoría
-    function focusFirstCanal(container) {
-      const primerCanal = container.querySelector(".canal");
-      if (primerCanal) primerCanal.focus();
+    // Utilidad para limpiar HTML
+    function limpiarTexto(text) {
+      const temp = document.createElement("div");
+      temp.textContent = text;
+      return temp.innerHTML;
     }
 
-    // Construir categorías y eventos
+    // Enfocar el primer canal visible dentro del contenedor
+    function focusFirstCanal(container) {
+      const primerCanalVisible = Array.from(container.querySelectorAll(".canal"))
+        .find(canal => canal.offsetParent !== null);
+      if (primerCanalVisible) {
+        primerCanalVisible.focus();
+      } else {
+        container.previousElementSibling.focus();
+      }
+    }
+
+    // Crear categorías y sus eventos
     archivosM3U.forEach((item, index) => {
-      const url = `https://raw.githubusercontent.com/${OWNER}/${REPO}/main/${encodeURIComponent(item.archivo)}`;
+      const urlArchivo = `https://raw.githubusercontent.com/${OWNER}/${REPO}/main/${encodeURIComponent(item.archivo)}`;
 
       const categoriaDiv = document.createElement("div");
       categoriaDiv.className = "categoria";
@@ -228,11 +305,11 @@
       titulo.setAttribute("aria-expanded", "false");
       titulo.setAttribute("aria-controls", `categoria-${index}`);
 
-      titulo.addEventListener("click", () => toggleCategoria(index, url));
+      titulo.addEventListener("click", () => toggleCategoria(index, urlArchivo));
       titulo.addEventListener("keydown", e => {
-        if (e.key === "Enter" || e.key === " ") {
+        if (e.key === "Enter" || e.key === " " || e.key === "Spacebar") {
           e.preventDefault();
-          toggleCategoria(index, url);
+          toggleCategoria(index, urlArchivo);
         }
       });
 
@@ -248,130 +325,186 @@
       categoriasContainer.appendChild(categoriaDiv);
     });
 
-    function toggleCategoria(index, url) {
+    // Mostrar u ocultar categorías con carga dinámica
+    async function toggleCategoria(index, url) {
       const div = document.getElementById(`categoria-${index}`);
       const titulo = div.previousElementSibling;
       const isVisible = div.style.display === "flex";
 
-      // Cerrar todas las categorías
+      // Cerrar todas las categorías y limpiar búsqueda al abrir una
       document.querySelectorAll(".canales-container").forEach(d => {
         d.style.display = "none";
         d.previousElementSibling.setAttribute("aria-expanded", "false");
       });
+      buscador.value = "";
 
       if (!isVisible) {
         div.innerHTML = "";
         div.style.display = "flex";
-        div.focus();
         titulo.setAttribute("aria-expanded", "true");
-        cargarListaM3U(url, div).then(() => focusFirstCanal(div));
+        await cargarListaM3U(url, div);
+        focusFirstCanal(div);
       }
     }
 
+    // Carga y parseo de archivo M3U
     async function cargarListaM3U(m3uUrl, container) {
       try {
-        const r = await fetch(m3uUrl);
-        const data = await r.text();
-        const lines = data.split("\n");
+        const resp = await fetch(m3uUrl);
+        if (!resp.ok) throw new Error(`HTTP error ${resp.status}`);
+        const texto = await resp.text();
+
+        const lines = texto.split(/\r?\n/);
+        let canalesAgregados = 0;
+
         for (let i = 0; i < lines.length; i++) {
           if (lines[i].startsWith("#EXTINF")) {
-            const nombre = lines[i].split(",")[1]?.trim() || "Canal";
-            const logoMatch = lines[i].match(/tvg-logo="([^"]+)"/);
-            const logo = logoMatch ? logoMatch[1] : "";
-            const url = lines[i + 1]?.trim();
-            if (url && url.startsWith("http")) {
+            const info = lines[i];
+            const nombre = info.split(",")[1]?.trim() || "Canal";
+            const logoMatch = info.match(/tvg-logo="([^"]+)"/);
+            const logo = logoMatch ? logoMatch[1].trim() : "";
+            const url = (lines[i + 1] || "").trim();
+
+            if (url && (url.startsWith("http") || url.startsWith("https"))) {
               agregarCanal(nombre, url, logo, container);
+              canalesAgregados++;
             }
           }
         }
+
+        if (canalesAgregados === 0) {
+          container.innerHTML = `<p style="color: #f0a500; font-weight:600;">No se encontraron canales válidos en esta lista.</p>`;
+        }
       } catch(err) {
         console.error("Error cargando M3U:", err);
-        container.innerHTML = "<p style='color: red;'>No se pudo cargar la lista de canales.</p>";
+        container.innerHTML = `<p style="color: #ff4c4c; font-weight: 700;">No se pudo cargar la lista de canales.</p>`;
       }
     }
 
+    // Agregar canal a la lista
     function agregarCanal(nombre, url, logo, container) {
-      const canal = document.createElement("button");
-      canal.className = "canal";
-      canal.setAttribute("data-nombre", nombre.toLowerCase());
-      canal.tabIndex = 0;
-      canal.setAttribute("aria-label", `Reproducir canal ${nombre}`);
+      const canalBtn = document.createElement("button");
+      canalBtn.className = "canal";
+      canalBtn.setAttribute("data-nombre", nombre.toLowerCase());
+      canalBtn.setAttribute("aria-label", `Reproducir canal ${nombre}`);
+      canalBtn.type = "button";
+      canalBtn.tabIndex = 0;
 
-      canal.addEventListener("click", () => reproducir(url, canal));
-      canal.addEventListener("keydown", e => { if (e.key === "Enter") canal.click(); });
+      canalBtn.addEventListener("click", () => reproducir(url, canalBtn));
+      canalBtn.addEventListener("keydown", e => { if (e.key === "Enter" || e.key === " ") canalBtn.click(); });
 
       if (logo) {
         const img = document.createElement("img");
         img.src = logo;
-        img.alt = nombre;
-        canal.appendChild(img);
+        img.alt = `${nombre} logo`;
+        img.loading = "lazy";
+        canalBtn.appendChild(img);
       }
 
-      const span = document.createElement("span");
-      span.textContent = nombre;
-      canal.appendChild(span);
+      const nombreSpan = document.createElement("span");
+      nombreSpan.textContent = nombre;
+      canalBtn.appendChild(nombreSpan);
 
-      container.appendChild(canal);
+      container.appendChild(canalBtn);
     }
 
+    // Reproducción usando Clappr
     function reproducir(url, canalBoton) {
-  // Extraemos solo el path y query de la URL para el intent
-  const urlSinProtocolo = url.replace(/^https?:\/\//, '');
-
-  const intentUrl = `intent://${urlSinProtocolo}#Intent;package=org.videolan.vlc;scheme=http;end`;
-
-  window.location.href = intentUrl;
-}
-
-
-
-
-    // Cerrar reproductor con ESC o botón Atrás
-    document.addEventListener("keydown", e => {
-      if ((e.key === "Escape" || e.key === "Backspace") && playerWrapper.style.display === "block") {
-        playerWrapper.style.display = "none";
-        if (playerInstance) { playerInstance.destroy(); playerInstance = null; }
-        document.body.style.overflow = "auto";
-
-        // Regresar foco al último canal seleccionado
-        const ultimoFoco = document.activeElement;
-        if (ultimoFoco && ultimoFoco.classList.contains("canal")) {
-          ultimoFoco.focus();
-        } else {
-          // Si no, al buscador
-          buscador.focus();
-        }
+      lastFocusedCanal = canalBoton;
+      if (playerInstance) {
+        playerInstance.destroy();
+        playerInstance = null;
       }
-    });
 
-    // Buscar canales (filtrado)
-    buscador.addEventListener("input", () => {
-      const filtro = buscador.value.toLowerCase();
-      document.querySelectorAll(".canal").forEach(canal => {
-        const nombre = canal.getAttribute("data-nombre");
-        canal.style.display = nombre.includes(filtro) ? "flex" : "none";
+      playerWrapper.style.display = "flex";
+      playerWrapper.setAttribute("aria-hidden", "false");
+      playerWrapper.focus();
+      document.body.style.overflow = "hidden";
+
+      playerInstance = new Clappr.Player({
+        source: url,
+        parentId: '#player',
+        autoPlay: true,
+        mute: false,
+        height: '100%',
+        width: '100%',
+        plugins: [Clappr.FlasHLS],
+        mediacontrol: { seekbar: "#333", buttons: 'play,fullscreen' },
+        hideMediaControl: false,
       });
+    }
 
-      // Si filtro está vacío, mostrar todas las categorías cerradas
-      if (filtro === "") {
-        document.querySelectorAll(".canales-container").forEach(div => {
-          div.style.display = "none";
-          div.previousElementSibling.setAttribute("aria-expanded", "false");
-        });
+    // Cerrar reproductor
+    function cerrarPlayer() {
+      if (playerInstance) {
+        playerInstance.destroy();
+        playerInstance = null;
+      }
+      playerWrapper.style.display = "none";
+      playerWrapper.setAttribute("aria-hidden", "true");
+      document.body.style.overflow = "auto";
+
+      if (lastFocusedCanal) {
+        lastFocusedCanal.focus();
+        lastFocusedCanal = null;
+      } else {
+        buscador.focus();
+      }
+    }
+
+    closePlayerBtn.addEventListener("click", cerrarPlayer);
+
+    document.addEventListener("keydown", e => {
+      if ((e.key === "Escape" || e.key === "Backspace") && playerWrapper.style.display === "flex") {
+        e.preventDefault();
+        cerrarPlayer();
       }
     });
 
-    window.onload = () => {
-  const primerTitulo = document.querySelector("#categorias h2");
-  if (primerTitulo) primerTitulo.focus();
-};
+    // Búsqueda con filtrado en categorías abiertas
+    buscador.addEventListener("input", () => {
+      const filtro = buscador.value.trim().toLowerCase();
+
+      if (!filtro) {
+        // Restaurar todas las categorías cerradas
+        document.querySelectorAll(".canales-container").forEach(container => {
+          container.style.display = "none";
+          container.previousElementSibling.setAttribute("aria-expanded", "false");
+          Array.from(container.children).forEach(canal => (canal.style.display = "flex"));
+        });
+        return;
+      }
+
+      // Mostrar todas las categorías y filtrar canales
+      document.querySelectorAll(".canales-container").forEach(container => {
+        container.style.display = "flex";
+        container.previousElementSibling.setAttribute("aria-expanded", "true");
+
+        let hasVisibleCanal = false;
+        Array.from(container.children).forEach(canal => {
+          const nombre = canal.getAttribute("data-nombre");
+          if (nombre && nombre.includes(filtro)) {
+            canal.style.display = "flex";
+            hasVisibleCanal = true;
+          } else {
+            canal.style.display = "none";
+          }
+        });
+
+        // Si no hay canales visibles, ocultar categoría entera
+        if (!hasVisibleCanal) {
+          container.style.display = "none";
+          container.previousElementSibling.setAttribute("aria-expanded", "false");
+        }
+      });
+    });
+
+    // Inicializar foco en el primer título al cargar la página
+    window.addEventListener("load", () => {
+      const primerTitulo = document.querySelector("#categorias h2");
+      if (primerTitulo) primerTitulo.focus();
+    });
+
   </script>
 </body>
 </html>
-
-
-
-
-
-
-
