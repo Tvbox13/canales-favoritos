@@ -4,8 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>DC TV - Categorías</title>
-  <!-- Ya no usaremos Clappr, puedes remover este script si quieres -->
-  <!-- <script src="https://cdn.jsdelivr.net/npm/clappr@latest/dist/clappr.min.js"></script> -->
+  <!-- Cargamos VLC.js versión fija 1.0.0 para evitar 404 -->
+  <script src="https://cdn.jsdelivr.net/npm/@vlc/web@1.0.0/dist/vlc.min.js"></script>
   <style>
     :root {
       --text-color: #fff;
@@ -256,9 +256,6 @@
     <button class="close-player-btn" aria-label="Cerrar reproductor" title="Cerrar reproductor">&times;</button>
     <div id="player" tabindex="0" aria-live="assertive" aria-atomic="true"></div>
   </div>
-
-  <!-- VLC.js library -->
-  <script src="https://cdn.jsdelivr.net/npm/@vlc/web@latest/dist/vlc.min.js"></script>
 
   <script>
     const OWNER = "Tvbox13";
@@ -512,7 +509,6 @@
       const primerTitulo = document.querySelector("#categorias h2");
       if (primerTitulo) primerTitulo.focus();
     });
-
   </script>
 </body>
 </html>
