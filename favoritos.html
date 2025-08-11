@@ -2,45 +2,48 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <title>Prueba canal HLS</title>
+  <title>VideoJS con Proxy HTTPS para M3U8</title>
   <link href="https://vjs.zencdn.net/7.20.3/video-js.css" rel="stylesheet" />
   <style>
-    body { background: black; margin: 0; display: flex; justify-content: center; align-items: center; height: 100vh; }
-    .video-js { width: 80vw; height: 45vw; max-height: 90vh; max-width: 1280px; }
+    body { background: #222; color: white; display: flex; justify-content: center; margin-top: 40px; }
   </style>
 </head>
 <body>
 
 <video
-  id="player"
+  id="my-video"
   class="video-js vjs-default-skin"
   controls
   preload="auto"
   width="640"
   height="360"
-></video>
+  data-setup='{}'
+>
+  <source src="" type="application/x-mpegURL" />
+  Tu navegador no soporta video HLS.
+</video>
 
 <script src="https://vjs.zencdn.net/7.20.3/video.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
-
 <script>
-  const video = document.getElementById('player');
-  const player = videojs('player');
-  const url = "URL_DEL_CANAL"; // Reemplaza por tu URL .m3u8 que funciona en VLC
+  const player = videojs('my-video');
 
-  if (video.canPlayType('application/vnd.apple.mpegurl')) {
-    player.src({ src: url, type: 'application/vnd.apple.mpegurl' });
-    player.play();
-  } else if (Hls.isSupported()) {
-    const hls = new Hls();
-    hls.loadSource(url);
-    hls.attachMedia(video);
-    hls.on(Hls.Events.MANIFEST_PARSED, () => {
-      player.play();
-    });
-  } else {
-    alert('Tu navegador no soporta reproducción HLS');
-  }
+  // URL original HTTP (ejemplo tu stream)
+  const originalUrl = "http://181.13.198.204:8000/play/a0cf/index.m3u8";
+
+  // Proxy HTTPS gratuito para evitar mixed content
+  const proxyUrl = "https://cors-anywhere.herokuapp.com/";
+
+  // Fuente con proxy
+  const proxiedUrl = proxyUrl + originalUrl;
+
+  player.src({
+    src: proxiedUrl,
+    type: 'application/x-mpegURL'
+  });
+
+  player.play().catch(err => {
+    console.warn("Error al reproducir: ", err);
+  });
 </script>
 
 </body>
