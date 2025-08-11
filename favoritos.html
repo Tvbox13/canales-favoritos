@@ -2,353 +2,110 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>DC TV - Categorías</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>DC TV - Player HLS con video.js</title>
 
-  <!-- jQuery necesario para jPlayer -->
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
-  <!-- jPlayer CSS y JS -->
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/jplayer/2.9.2/skin/blue.monday/jplayer.blue.monday.min.css" rel="stylesheet" />
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jplayer/2.9.2/jplayer/jquery.jplayer.min.js"></script>
+  <!-- video.js CSS -->
+  <link href="https://vjs.zencdn.net/7.20.3/video-js.css" rel="stylesheet" />
 
   <style>
-    :root {
-      --text-color: #fff;
-    }
-
     body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: url('https://dl.dropboxusercontent.com/scl/fi/53cl5dg07jneprsqbvkdp/Fondo-dorado-negro.jpg?rlkey=fxysssw9toe3zdhw873nob0k7&st=brpgsbw8&dl=0') no-repeat center center fixed;
-      background-size: cover;
-      color: var(--text-color);
-      text-align: center;
-      position: relative;
-      z-index: 1;
-    }
-
-    body::before {
-      content: '';
-      position: fixed;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.6);
-      z-index: 0;
-    }
-
-    .container {
-      width: 90%;
-      max-width: 1200px;
-      margin: auto;
-      padding: 20px;
-      position: relative;
-      z-index: 1;
-    }
-
-    h1 {
-      font-size: 3rem;
-      margin: 40px 0 30px;
-      background: linear-gradient(to right, gold, white, black);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.8), 0 0 20px gold;
-    }
-
-    h2 {
-      font-size: 2rem;
-      margin-top: 30px;
-      cursor: pointer;
-      color: gold;
-      text-shadow: 1px 1px 4px black;
-      border-bottom: 2px solid gold;
-      padding-bottom: 10px;
-    }
-
-    #buscador {
-      padding: 12px;
-      font-size: 16px;
-      width: 90%;
-      max-width: 500px;
-      margin: 20px auto 30px auto;
-      border-radius: 10px;
-      border: none;
-      outline: none;
-      background-color: rgba(255, 255, 255, 0.15);
+      background: black;
       color: white;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
       text-align: center;
-      box-shadow: 0 0 10px gold;
     }
 
-    .canales-container {
-      display: none;
-      flex-direction: column;
-      gap: 10px;
-      margin-bottom: 20px;
+    #player {
+      width: 90%;
+      max-width: 960px;
+      margin: 20px auto;
+      border: 3px solid gold;
+      border-radius: 10px;
     }
 
     .canal {
-      width: 100%;
-      height: 100px;
-      margin: 10px 0;
-      padding: 10px;
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      background-color: rgba(0, 0, 0, 0.4);
-      border-radius: 10px;
-      border: 2px solid gold;
-      box-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
-      transition: transform 0.3s, box-shadow 0.3s;
       cursor: pointer;
-    }
-
-    .canal:hover,
-    .canal:focus {
-      transform: scale(1.02);
-      box-shadow: 0 0 15px gold;
-      outline: none;
-    }
-
-    .canal img {
-      width: 100px;
-      height: 80px;
-      object-fit: cover;
-      border-radius: 8px;
-      margin-right: 15px;
-    }
-
-    .canal span {
-      font-size: 1.2rem;
+      margin: 10px 0;
       font-weight: bold;
       color: gold;
-      text-shadow: 1px 1px 2px black;
+      text-shadow: 0 0 5px black;
     }
 
-    #player-wrapper {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      background: black;
-      z-index: 9999;
-      justify-content: center;
-      align-items: center;
-    }
-
-    #jquery_jplayer_1 {
-      width: 90%;
-      max-width: 960px;
-      height: 540px;
-      margin: auto;
-      outline: none;
-    }
-
-    @media (max-width: 768px) {
-      .canal {
-        flex-direction: row;
-        height: auto;
-      }
-
-      .canal img {
-        width: 80px;
-        height: 60px;
-      }
-
-      .canal span {
-        font-size: 1rem;
-      }
+    .canal:hover {
+      color: white;
+      text-shadow: 0 0 10px gold;
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1>DC TV</h1>
-    <input type="text" id="buscador" placeholder="🔍 Buscar canal..." />
-    <div id="categorias"></div>
+
+  <h1>DC TV - Lista de Canales</h1>
+
+  <div id="listaCanales">
+    <!-- Canales aparecerán aquí -->
   </div>
 
-  <div id="player-wrapper">
-    <div id="jquery_jplayer_1" class="jp-jplayer"></div>
-    <div id="jp_container_1" class="jp-video jp-video-360p" role="application" aria-label="media player">
-      <div class="jp-type-single">
-        <div class="jp-gui jp-interface">
-          <div class="jp-video-play">
-            <button class="jp-video-play-icon" role="button" tabindex="0">play</button>
-          </div>
-          <div class="jp-controls">
-            <button class="jp-play" role="button" tabindex="0">play</button>
-            <button class="jp-stop" role="button" tabindex="0">stop</button>
-          </div>
-          <div class="jp-progress">
-            <div class="jp-seek-bar">
-              <div class="jp-play-bar"></div>
-            </div>
-          </div>
-          <div class="jp-volume-controls">
-            <button class="jp-mute" role="button" tabindex="0">mute</button>
-            <button class="jp-volume-max" role="button" tabindex="0">max volume</button>
-            <div class="jp-volume-bar">
-              <div class="jp-volume-bar-value"></div>
-            </div>
-          </div>
-          <div class="jp-time-holder">
-            <div class="jp-current-time" role="timer" aria-label="time elapsed"></div>
-            <div class="jp-duration" role="timer" aria-label="duration"></div>
-          </div>
-          <div class="jp-toggles">
-            <button class="jp-full-screen" role="button" tabindex="0">full screen</button>
-            <button class="jp-repeat" role="button" tabindex="0">repeat</button>
-          </div>
-        </div>
-        <div class="jp-details"></div>
-        <div class="jp-no-solution">
-          <span>Actualiza tu navegador para ver este video.</span>
-        </div>
-      </div>
-    </div>
-  </div>
+  <video
+    id="player"
+    class="video-js vjs-default-skin"
+    controls
+    preload="auto"
+    width="960"
+    height="540"
+    data-setup='{}'
+  ></video>
+
+  <!-- video.js JS -->
+  <script src="https://vjs.zencdn.net/7.20.3/video.min.js"></script>
 
   <script>
     const OWNER = "Tvbox13";
     const REPO = "canales-favoritos";
+    const archivoM3U = "lista.m3u"; // Cambia por tu archivo principal
 
-    const archivosM3U = [
-      { nombre: "Categoría 1", archivo: "lista.m3u" },
-      { nombre: "Categoría 2", archivo: "lista 2.m3u" },
-      { nombre: "Categoría 3", archivo: "lista.m3u" }, 
-      { nombre: "Categoría 4", archivo: "lista 2.m3u" }
-    ];
+    const listaCanalesDiv = document.getElementById("listaCanales");
+    const player = videojs("player");
 
-    const categoriasContainer = document.getElementById("categorias");
-    const buscador = document.getElementById("buscador");
-    const playerWrapper = document.getElementById("player-wrapper");
-    const jp = $("#jquery_jplayer_1");
-    let canalesActivos = [];
-    let esAndroid = /Android/i.test(navigator.userAgent);
-
-    archivosM3U.forEach((item, index) => {
-      const url = `https://raw.githubusercontent.com/${OWNER}/${REPO}/main/${encodeURIComponent(item.archivo)}`;
-
-      const categoriaDiv = document.createElement("div");
-      categoriaDiv.className = "categoria";
-
-      const titulo = document.createElement("h2");
-      titulo.textContent = item.nombre;
-      titulo.tabIndex = 0;
-      titulo.onclick = () => toggleCategoria(index, url);
-      titulo.onkeydown = e => { if (e.key === "Enter" || e.key === " ") titulo.click(); };
-
-      const canalesDiv = document.createElement("div");
-      canalesDiv.className = "canales-container";
-      canalesDiv.id = `categoria-${index}`;
-
-      categoriaDiv.appendChild(titulo);
-      categoriaDiv.appendChild(canalesDiv);
-      categoriasContainer.appendChild(categoriaDiv);
-    });
-
-    function toggleCategoria(index, url) {
-      const div = document.getElementById(`categoria-${index}`);
-      const isVisible = div.style.display === "flex";
-      document.querySelectorAll(".canales-container").forEach(d => d.style.display = "none");
-      if (!isVisible) {
-        div.innerHTML = "";
-        div.style.display = "flex";
-        cargarListaM3U(url, div);
-      }
-    }
-
-    function cargarListaM3U(m3uUrl, container) {
-      fetch(m3uUrl)
-        .then(r => r.text())
-        .then(data => {
-          canalesActivos = [];
-          const lines = data.split("\n");
-          for (let i = 0; i < lines.length; i++) {
-            if (lines[i].startsWith("#EXTINF")) {
-              const nombre = lines[i].split(",")[1]?.trim() || "Canal";
-              const logoMatch = lines[i].match(/tvg-logo="([^"]+)"/);
-              const logo = logoMatch ? logoMatch[1] : "";
-              const url = lines[i + 1]?.trim();
-              if (url && url.startsWith("http")) {
-                agregarCanal(nombre, url, logo, container);
-                canalesActivos.push({nombre, url});
-              }
+    // Carga y parsea lista M3U desde GitHub
+    fetch(`https://raw.githubusercontent.com/${OWNER}/${REPO}/main/${encodeURIComponent(archivoM3U)}`)
+      .then(res => res.text())
+      .then(texto => {
+        const lines = texto.split("\n");
+        for(let i=0; i<lines.length; i++) {
+          if(lines[i].startsWith("#EXTINF")) {
+            const nombre = lines[i].split(",")[1]?.trim() || "Canal";
+            const url = lines[i+1]?.trim();
+            if(url && url.startsWith("http")) {
+              agregarCanal(nombre, url);
             }
           }
-        })
-        .catch(err => console.error("Error cargando M3U:", err));
-    }
+        }
+      })
+      .catch(err => {
+        listaCanalesDiv.innerHTML = `<p style="color:red;">Error cargando la lista M3U: ${err}</p>`;
+      });
 
-    function agregarCanal(nombre, url, logo, container) {
-      const canal = esAndroid ? document.createElement("a") : document.createElement("button");
-      canal.className = "canal";
-      canal.setAttribute("data-nombre", nombre.toLowerCase());
-      canal.tabIndex = 0;
-      canal.onkeydown = e => { if (e.key === "Enter") canal.click(); };
-
-      if (esAndroid) {
-        const intentUrl = `intent://${url.replace(/^https?:\/\//, '')}#Intent;package=org.videolan.vlc;type=video/*;scheme=http;end`;
-        canal.href = intentUrl;
-        canal.target = "_self";
-      } else {
-        canal.onclick = () => reproducir(url);
-      }
-
-      if (logo) {
-        const img = document.createElement("img");
-        img.src = logo;
-        img.alt = nombre;
-        canal.appendChild(img);
-      }
-
-      const span = document.createElement("span");
-      span.textContent = nombre;
-      canal.appendChild(span);
-
-      container.appendChild(canal);
+    function agregarCanal(nombre, url) {
+      const div = document.createElement("div");
+      div.className = "canal";
+      div.textContent = nombre;
+      div.tabIndex = 0;
+      div.onclick = () => reproducir(url);
+      div.onkeydown = e => { if(e.key === "Enter" || e.key === " ") reproducir(url); };
+      listaCanalesDiv.appendChild(div);
     }
 
     function reproducir(url) {
-      playerWrapper.style.display = "flex";
-      jp.jPlayer("destroy");
-      jp.jPlayer({
-        ready: function () {
-          // Para URLs HTTP/HTTPS usamos m4v o mp4 como tipo. Ajusta si tienes otro formato.
-          $(this).jPlayer("setMedia", {
-            m4v: url,
-            // fallback a video/mp4 si es necesario
-            // video/mp4: url,
-          }).jPlayer("play");
-        },
-        supplied: "m4v, mp4, webmv, ogv",
-        solution: "html, flash",
-        size: {
-          width: "100%",
-          height: "100%"
-        },
-        preload: "auto",
-        errorAlerts: false,
-        warningAlerts: false
+      player.src({
+        src: url,
+        type: "application/x-mpegURL"  // Indica que es HLS
       });
+      player.play();
     }
-
-    document.addEventListener("keydown", e => {
-      if (["Escape", "Backspace"].includes(e.key) && playerWrapper.style.display === "flex") {
-        playerWrapper.style.display = "none";
-        jp.jPlayer("stop");
-      }
-    });
-
-    buscador.addEventListener("input", function () {
-      const filtro = this.value.toLowerCase();
-      document.querySelectorAll(".canal").forEach(canal => {
-        const nombre = canal.getAttribute("data-nombre");
-        canal.style.display = nombre.includes(filtro) ? "flex" : "none";
-      });
-    });
   </script>
+
 </body>
 </html>
