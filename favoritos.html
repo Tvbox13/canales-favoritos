@@ -315,9 +315,10 @@
     }
 
     function reproducir(url, canalBoton) {
-  const intentUrl = `intent://${url}#Intent;package=ru.ottplayer.app;end`;
-  window.location.href = intentUrl;
+  const vlcUrl = url.startsWith("http") ? url.replace(/^http(s)?:\/\//, "vlc://") : url;
+  window.open(vlcUrl, '_blank');
 }
+
 
 
     // Cerrar reproductor con ESC o botón Atrás
@@ -362,6 +363,7 @@
   </script>
 </body>
 </html>
+
 
 
 
