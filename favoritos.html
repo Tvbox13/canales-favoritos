@@ -82,8 +82,8 @@
 
     .canal {
       width: 100%;
-      height: 50px;
-      margin: 20px 0;
+      height: 100px;
+      margin: 10px 0;
       padding: 10px;
       display: flex;
       flex-direction: row;
@@ -92,7 +92,7 @@
       border-radius: 10px;
       border: 2px solid gold;
       box-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
-      transition: transform none;
+      transition: transform 0.3s, box-shadow 0.3s;
       cursor: pointer;
     }
 
@@ -150,6 +150,11 @@
         font-size: 1rem;
       }
     }
+
+    /* Opcional: para que se vea dónde está el foco cuando está en body */
+    body:focus {
+      outline: none;
+    }
   </style>
 </head>
 <body>
@@ -201,15 +206,17 @@
       categoriasContainer.appendChild(categoriaDiv);
     });
 
-    // Al cargar, no se abre ninguna categoría ni se pone foco en buscador
     window.addEventListener("load", () => {
-      buscador.blur();
-      // No hacemos toggleCategoria aquí, así que no abre ninguna
+      buscador.blur();            // quita foco del buscador
+      document.body.tabIndex = -1; // hace focusable el body
+      document.body.focus();      // pone el foco en body (sin abrir teclado ni hacer nada)
+      // No abrir ninguna categoría al cargar
     });
 
     function toggleCategoria(index, url) {
       const div = document.getElementById(`categoria-${index}`);
       const isVisible = div.style.display === "flex";
+      // cerrar todas las otras categorías
       document.querySelectorAll(".canales-container").forEach(d => d.style.display = "none");
       if (!isVisible) {
         div.innerHTML = "";
@@ -220,7 +227,10 @@
 
     function cargarListaM3U(m3uUrl, container) {
       fetch(m3uUrl)
-        .then(r => r.text())
+        .then(r => {
+          if (!r.ok) throw new Error(`No se pudo cargar la lista (${r.status})`);
+          return r.text();
+        })
         .then(data => {
           const lines = data.split("\n");
           for (let i = 0; i < lines.length; i++) {
@@ -235,7 +245,10 @@
             }
           }
         })
-        .catch(err => console.error("Error cargando M3U:", err));
+        .catch(err => {
+          console.error("Error cargando M3U:", err);
+          container.innerHTML = `<span style="color: red;">Error al cargar la lista.</span>`;
+        });
     }
 
     function agregarCanal(nombre, url, logo, container) {
@@ -270,13 +283,22 @@
     function reproducir(url) {
       if (playerInstance) playerInstance.destroy();
       playerWrapper.style.display = "block";
-      playerInstance = new Clappr.Player({ source: url, parentId: "#player", autoPlay: true, height: "100%", width: "100%" });
+      playerInstance = new Clappr.Player({
+        source: url,
+        parentId: "#player",
+        autoPlay: true,
+        height: "100%",
+        width: "100%"
+      });
     }
 
     document.addEventListener("keydown", e => {
       if (["Escape", "Backspace"].includes(e.key) && playerWrapper.style.display === "block") {
         playerWrapper.style.display = "none";
-        if (playerInstance) { playerInstance.destroy(); playerInstance = null; }
+        if (playerInstance) {
+          playerInstance.destroy();
+          playerInstance = null;
+        }
       }
     });
 
@@ -290,4 +312,3 @@
   </script>
 </body>
 </html>
-
