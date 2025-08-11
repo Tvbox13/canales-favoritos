@@ -315,9 +315,14 @@
     }
 
     function reproducir(url, canalBoton) {
-  const vlcUrl = url.startsWith("http") ? url.replace(/^http(s)?:\/\//, "vlc://") : url;
-  window.open(vlcUrl, '_blank');
+  // Extraemos solo el path y query de la URL para el intent
+  const urlSinProtocolo = url.replace(/^https?:\/\//, '');
+
+  const intentUrl = `intent://${urlSinProtocolo}#Intent;package=org.videolan.vlc;scheme=http;end`;
+
+  window.location.href = intentUrl;
 }
+
 
 
 
@@ -363,6 +368,7 @@
   </script>
 </body>
 </html>
+
 
 
 
