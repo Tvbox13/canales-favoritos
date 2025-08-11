@@ -2,110 +2,46 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>DC TV - Player HLS con video.js</title>
-
-  <!-- video.js CSS -->
+  <title>Prueba canal HLS</title>
   <link href="https://vjs.zencdn.net/7.20.3/video-js.css" rel="stylesheet" />
-
   <style>
-    body {
-      background: black;
-      color: white;
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 20px;
-      text-align: center;
-    }
-
-    #player {
-      width: 90%;
-      max-width: 960px;
-      margin: 20px auto;
-      border: 3px solid gold;
-      border-radius: 10px;
-    }
-
-    .canal {
-      cursor: pointer;
-      margin: 10px 0;
-      font-weight: bold;
-      color: gold;
-      text-shadow: 0 0 5px black;
-    }
-
-    .canal:hover {
-      color: white;
-      text-shadow: 0 0 10px gold;
-    }
+    body { background: black; margin: 0; display: flex; justify-content: center; align-items: center; height: 100vh; }
+    .video-js { width: 80vw; height: 45vw; max-height: 90vh; max-width: 1280px; }
   </style>
 </head>
 <body>
 
-  <h1>DC TV - Lista de Canales</h1>
+<video
+  id="player"
+  class="video-js vjs-default-skin"
+  controls
+  preload="auto"
+  width="640"
+  height="360"
+></video>
 
-  <div id="listaCanales">
-    <!-- Canales aparecerán aquí -->
-  </div>
+<script src="https://vjs.zencdn.net/7.20.3/video.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
 
-  <video
-    id="player"
-    class="video-js vjs-default-skin"
-    controls
-    preload="auto"
-    width="960"
-    height="540"
-    data-setup='{}'
-  ></video>
+<script>
+  const video = document.getElementById('player');
+  const player = videojs('player');
+  const url = "URL_DEL_CANAL"; // Reemplaza por tu URL .m3u8 que funciona en VLC
 
-  <!-- video.js JS -->
-  <script src="https://vjs.zencdn.net/7.20.3/video.min.js"></script>
-
-  <script>
-    const OWNER = "Tvbox13";
-    const REPO = "canales-favoritos";
-    const archivoM3U = "lista.m3u"; // Cambia por tu archivo principal
-
-    const listaCanalesDiv = document.getElementById("listaCanales");
-    const player = videojs("player");
-
-    // Carga y parsea lista M3U desde GitHub
-    fetch(`https://raw.githubusercontent.com/${OWNER}/${REPO}/main/${encodeURIComponent(archivoM3U)}`)
-      .then(res => res.text())
-      .then(texto => {
-        const lines = texto.split("\n");
-        for(let i=0; i<lines.length; i++) {
-          if(lines[i].startsWith("#EXTINF")) {
-            const nombre = lines[i].split(",")[1]?.trim() || "Canal";
-            const url = lines[i+1]?.trim();
-            if(url && url.startsWith("http")) {
-              agregarCanal(nombre, url);
-            }
-          }
-        }
-      })
-      .catch(err => {
-        listaCanalesDiv.innerHTML = `<p style="color:red;">Error cargando la lista M3U: ${err}</p>`;
-      });
-
-    function agregarCanal(nombre, url) {
-      const div = document.createElement("div");
-      div.className = "canal";
-      div.textContent = nombre;
-      div.tabIndex = 0;
-      div.onclick = () => reproducir(url);
-      div.onkeydown = e => { if(e.key === "Enter" || e.key === " ") reproducir(url); };
-      listaCanalesDiv.appendChild(div);
-    }
-
-    function reproducir(url) {
-      player.src({
-        src: url,
-        type: "application/x-mpegURL"  // Indica que es HLS
-      });
+  if (video.canPlayType('application/vnd.apple.mpegurl')) {
+    player.src({ src: url, type: 'application/vnd.apple.mpegurl' });
+    player.play();
+  } else if (Hls.isSupported()) {
+    const hls = new Hls();
+    hls.loadSource(url);
+    hls.attachMedia(video);
+    hls.on(Hls.Events.MANIFEST_PARSED, () => {
       player.play();
-    }
-  </script>
+    });
+  } else {
+    alert('Tu navegador no soporta reproducción HLS');
+  }
+</script>
 
 </body>
 </html>
