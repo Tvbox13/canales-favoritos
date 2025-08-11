@@ -42,9 +42,9 @@
     h1 {
       font-size: 3rem;
       margin: 40px 0 30px;
-      background: linear-gradient(to right, gold, white, black);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+      background: none;
+      -webkit-background-clip: unset;
+      -webkit-text-fill-color: white;
       text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.8), 0 0 20px gold;
     }
 
@@ -53,8 +53,8 @@
       margin-top: 30px;
       cursor: pointer;
       color: gold;
-      text-shadow: 1px 1px 4px black;
-      border-bottom: 2px solid gold;
+      text-shadow: 1px 1px 2px black;
+      border-bottom: 2px solid white;
       padding-bottom: 10px;
     }
 
@@ -90,8 +90,8 @@
       align-items: center;
       background-color: rgba(0, 0, 0, 0.4);
       border-radius: 10px;
-      border: 2px solid gold;
-      box-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+      border: 2px solid white;
+      box-shadow:none;
       transition: transform 0.3s, box-shadow 0.3s;
       cursor: pointer;
     }
@@ -99,7 +99,7 @@
     .canal:hover,
     .canal:focus {
       transform: scale(1.02);
-      box-shadow: 0 0 15px gold;
+      box-shadow: 0 0 5px white;
       outline: none;
     }
 
@@ -332,4 +332,5 @@
   </script>
 </body>
 </html>
+
 
