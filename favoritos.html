@@ -106,7 +106,8 @@
     .canal img {
       width: 100px;
       height: 80px;
-      object-fit: cover;
+      object-fit: contain;
+      background-color: black;
       border-radius: 8px;
       margin-right: 15px;
     }
@@ -170,7 +171,7 @@
       { nombre: "Categoría 1", archivo: "lista.m3u" },
       { nombre: "Categoría 2", archivo: "lista 2.m3u" },
       { nombre: "Categoría 3", archivo: "lista3.m3u" },
-      { nombre: "Categoría 4", archivo: "lista 2.m3u" } // con más archivos reales
+      { nombre: "Categoría 4", archivo: "lista 2.m3u" }
     ];
 
     const categoriasContainer = document.getElementById("categorias");
@@ -211,8 +212,7 @@
       }
     }
 
-    function
-    cargarListaM3U(m3uUrl, container) {
+    function cargarListaM3U(m3uUrl, container) {
       fetch(m3uUrl)
         .then(r => r.text())
         .then(data => {
@@ -284,5 +284,3 @@
   </script>
 </body>
 </html>
-
-
