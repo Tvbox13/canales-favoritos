@@ -4,7 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>DC TV - Categorías</title>
-  <script src="https://cdn.jsdelivr.net/npm/clappr@latest/dist/clappr.min.js"></script>
+  <!-- Ya no usaremos Clappr, puedes remover este script si quieres -->
+  <!-- <script src="https://cdn.jsdelivr.net/npm/clappr@latest/dist/clappr.min.js"></script> -->
   <style>
     :root {
       --text-color: #fff;
@@ -168,6 +169,7 @@
       justify-content: center;
       align-items: center;
       padding: 12px;
+      flex-direction: column;
     }
 
     #player {
@@ -178,6 +180,7 @@
       box-shadow: 0 0 30px gold;
       border-radius: 12px;
       background: black;
+      position: relative;
     }
 
     .close-player-btn {
@@ -254,6 +257,9 @@
     <div id="player" tabindex="0" aria-live="assertive" aria-atomic="true"></div>
   </div>
 
+  <!-- VLC.js library -->
+  <script src="https://cdn.jsdelivr.net/npm/@vlc/web@latest/dist/vlc.min.js"></script>
+
   <script>
     const OWNER = "Tvbox13";
     const REPO = "canales-favoritos";
@@ -270,15 +276,8 @@
     const playerWrapper = document.getElementById("player-wrapper");
     const playerElement = document.getElementById("player");
     const closePlayerBtn = playerWrapper.querySelector(".close-player-btn");
-    let playerInstance = null;
+    let playerInstance = null; // VLC.js player instance
     let lastFocusedCanal = null;
-
-    // Utilidad para limpiar HTML
-    function limpiarTexto(text) {
-      const temp = document.createElement("div");
-      temp.textContent = text;
-      return temp.innerHTML;
-    }
 
     // Enfocar el primer canal visible dentro del contenedor
     function focusFirstCanal(container) {
@@ -408,40 +407,49 @@
       container.appendChild(canalBtn);
     }
 
-    // Reproducción usando Clappr
-    function reproducir(url, canalBoton) {
+    // Reproducción usando VLC.js
+    async function reproducir(url, canalBoton) {
       lastFocusedCanal = canalBoton;
       if (playerInstance) {
-        playerInstance.destroy();
+        try {
+          await playerInstance.unload();
+        } catch {}
         playerInstance = null;
       }
+      playerElement.innerHTML = ""; // Limpia contenido previo
 
       playerWrapper.style.display = "flex";
       playerWrapper.setAttribute("aria-hidden", "false");
       playerWrapper.focus();
       document.body.style.overflow = "hidden";
 
-      playerInstance = new Clappr.Player({
-        source: url,
-        parentId: '#player',
-        autoPlay: true,
-        mute: false,
-        height: '100%',
-        width: '100%',
-        plugins: [Clappr.FlasHLS],
-        mediacontrol: { seekbar: "#333", buttons: 'play,fullscreen' },
-        hideMediaControl: false,
-      });
+      try {
+        playerInstance = await VLC.create(playerElement, {
+          media: url,
+          autoplay: true,
+          volume: 100,
+          width: "100%",
+          height: "100%",
+          controls: true
+        });
+      } catch (error) {
+        alert("Error al cargar el reproductor VLC.js para este canal.");
+        console.error(error);
+        cerrarPlayer();
+      }
     }
 
     // Cerrar reproductor
     function cerrarPlayer() {
       if (playerInstance) {
-        playerInstance.destroy();
+        try {
+          playerInstance.unload();
+        } catch {}
         playerInstance = null;
       }
       playerWrapper.style.display = "none";
       playerWrapper.setAttribute("aria-hidden", "true");
+      playerElement.innerHTML = "";
       document.body.style.overflow = "auto";
 
       if (lastFocusedCanal) {
