@@ -241,29 +241,30 @@
 
     function cargarListaM3U(m3uUrl, container) {
       fetch(m3uUrl)
-        .then(r => {
-          if (!r.ok) throw new Error(`No se pudo cargar la lista (${r.status})`);
-          return r.text();
-        })
-        .then(data => {
-          const lines = data.split("\n");
-          for (let i = 0; i < lines.length; i++) {
-            if (lines[i].startsWith("#EXTINF")) {
-              const nombre = lines[i].split(",")[1]?.trim() || "Canal";
-              const logoMatch = lines[i].match(/tvg-logo="([^"]+)"/);
-              const logo = logoMatch ? logoMatch[1] : "";
-              const url = lines[i + 1]?.trim();
-              if (url && url.startsWith("http")) {
-                agregarCanal(nombre, url, logo, container);
-              }
-            }
-          }
-        })
-        .catch(err => {
-          console.error("Error cargando M3U:", err);
-          container.innerHTML = `<span style="color: red;">Error al cargar la lista.</span>`;
-        });
+  .then(r => {
+    if (!r.ok) throw new Error(`No se pudo cargar la lista (${r.status})`);
+    return r.text();
+  })
+  .then(data => {
+    console.log("Contenido lista cargada:", data);  // <-- Aquí ves el contenido en consola
+    const lines = data.split("\n");
+    for (let i = 0; i < lines.length; i++) {
+      if (lines[i].startsWith("#EXTINF")) {
+        const nombre = lines[i].split(",")[1]?.trim() || "Canal";
+        const logoMatch = lines[i].match(/tvg-logo="([^"]+)"/);
+        const logo = logoMatch ? logoMatch[1] : "";
+        const url = lines[i + 1]?.trim();
+        if (url && url.startsWith("http")) {
+          agregarCanal(nombre, url, logo, container);
+        }
+      }
     }
+  })
+  .catch(err => {
+    console.error("Error cargando M3U:", err);
+    container.innerHTML = `<span style="color: red;">Error al cargar la lista.</span>`;
+  });
+
 
     function agregarCanal(nombre, url, logo, container) {
       const canal = esAndroid ? document.createElement("a") : document.createElement("button");
@@ -332,3 +333,4 @@
   </script>
 </body>
 </html>
+
