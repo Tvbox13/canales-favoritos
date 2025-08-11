@@ -82,9 +82,9 @@
 
     .canal {
       width: 100%;
-      height: 50px; /* reducido a la mitad */
+      height: 100px;
       margin: 10px 0;
-      padding: 8px;
+      padding: 10px;
       display: flex;
       flex-direction: row;
       align-items: center;
@@ -104,12 +104,12 @@
     }
 
     .canal img {
-      width: 70px;  /* ajustado */
-      height: 40px; /* ajustado */
+      width: 100px;
+      height: 80px;
       object-fit: contain;
       background-color: black;
-      border-radius: 6px;
-      margin-right: 12px;
+      border-radius: 8px;
+      margin-right: 15px;
     }
 
     .canal span {
@@ -184,6 +184,7 @@
     let playerInstance = null;
     const esAndroid = /Android/i.test(navigator.userAgent);
 
+    // Cargar categorías y asignar eventos teclado y click
     archivosM3U.forEach((item, index) => {
       const url = `https://raw.githubusercontent.com/${OWNER}/${REPO}/main/${encodeURIComponent(item.archivo)}`;
 
@@ -193,8 +194,15 @@
       const titulo = document.createElement("h2");
       titulo.textContent = item.nombre;
       titulo.tabIndex = 0;
+
+      // Abrir categoría con click o con tecla Enter o Space
       titulo.onclick = () => toggleCategoria(index, url);
-      titulo.onkeydown = e => { if (e.key === "Enter" || e.key === " ") titulo.click(); };
+      titulo.onkeydown = e => {
+        if (e.key === "Enter" || e.key === " " || e.keyCode === 13 || e.keyCode === 32) {
+          e.preventDefault();
+          titulo.click();
+        }
+      };
 
       const canalesDiv = document.createElement("div");
       canalesDiv.className = "canales-container";
@@ -206,19 +214,28 @@
     });
 
     window.addEventListener("load", () => {
-      buscador.blur();
+      buscador.blur();           // quita foco del buscador
       document.body.tabIndex = -1;
       document.body.focus();
+
+      // Poner foco en la primera categoría para control remoto
+      const primeraCategoria = document.querySelector(".categoria h2");
+      if (primeraCategoria) primeraCategoria.focus();
     });
 
     function toggleCategoria(index, url) {
       const div = document.getElementById(`categoria-${index}`);
       const isVisible = div.style.display === "flex";
+
+      // cerrar todas las otras categorías
       document.querySelectorAll(".canales-container").forEach(d => d.style.display = "none");
+
       if (!isVisible) {
         div.innerHTML = "";
         div.style.display = "flex";
         cargarListaM3U(url, div);
+      } else {
+        div.style.display = "none";
       }
     }
 
@@ -253,7 +270,13 @@
       canal.className = "canal";
       canal.setAttribute("data-nombre", nombre.toLowerCase());
       canal.tabIndex = 0;
-      canal.onkeydown = e => { if (e.key === "Enter") canal.click(); };
+
+      canal.onkeydown = e => {
+        if (e.key === "Enter" || e.keyCode === 13) {
+          e.preventDefault();
+          canal.click();
+        }
+      };
 
       if (esAndroid) {
         const intentUrl = `intent://${url.replace(/^https?:\/\//, '')}#Intent;package=org.videolan.vlc;type=video/*;scheme=http;end`;
@@ -278,26 +301,23 @@
     }
 
     function reproducir(url) {
+      if (playerInstance) playerInstance.destroy();
       playerWrapper.style.display = "block";
-
-      if (!playerInstance) {
-        playerInstance = new Clappr.Player({
-          parentId: "#player",
-          autoPlay: true,
-          height: "100%",
-          width: "100%"
-        });
-      }
-
-      playerInstance.load(url);
+      playerInstance = new Clappr.Player({
+        source: url,
+        parentId: "#player",
+        autoPlay: true,
+        height: "100%",
+        width: "100%"
+      });
     }
 
     document.addEventListener("keydown", e => {
       if (["Escape", "Backspace"].includes(e.key) && playerWrapper.style.display === "block") {
         playerWrapper.style.display = "none";
         if (playerInstance) {
-          playerInstance.stop();
-          // No destruir para reutilizar, solo parar
+          playerInstance.destroy();
+          playerInstance = null;
         }
       }
     });
