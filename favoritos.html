@@ -151,7 +151,6 @@
       }
     }
 
-    /* Opcional: para que se vea dónde está el foco cuando está en body */
     body:focus {
       outline: none;
     }
@@ -185,6 +184,7 @@
     let playerInstance = null;
     const esAndroid = /Android/i.test(navigator.userAgent);
 
+    // Cargar categorías y asignar eventos teclado y click
     archivosM3U.forEach((item, index) => {
       const url = `https://raw.githubusercontent.com/${OWNER}/${REPO}/main/${encodeURIComponent(item.archivo)}`;
 
@@ -194,8 +194,15 @@
       const titulo = document.createElement("h2");
       titulo.textContent = item.nombre;
       titulo.tabIndex = 0;
+
+      // Abrir categoría con click o con tecla Enter o Space
       titulo.onclick = () => toggleCategoria(index, url);
-      titulo.onkeydown = e => { if (e.key === "Enter" || e.key === " ") titulo.click(); };
+      titulo.onkeydown = e => {
+        if (e.key === "Enter" || e.key === " " || e.keyCode === 13 || e.keyCode === 32) {
+          e.preventDefault();
+          titulo.click();
+        }
+      };
 
       const canalesDiv = document.createElement("div");
       canalesDiv.className = "canales-container";
@@ -207,21 +214,28 @@
     });
 
     window.addEventListener("load", () => {
-      buscador.blur();            // quita foco del buscador
-      document.body.tabIndex = -1; // hace focusable el body
-      document.body.focus();      // pone el foco en body (sin abrir teclado ni hacer nada)
-      // No abrir ninguna categoría al cargar
+      buscador.blur();           // quita foco del buscador
+      document.body.tabIndex = -1;
+      document.body.focus();
+
+      // Poner foco en la primera categoría para control remoto
+      const primeraCategoria = document.querySelector(".categoria h2");
+      if (primeraCategoria) primeraCategoria.focus();
     });
 
     function toggleCategoria(index, url) {
       const div = document.getElementById(`categoria-${index}`);
       const isVisible = div.style.display === "flex";
+
       // cerrar todas las otras categorías
       document.querySelectorAll(".canales-container").forEach(d => d.style.display = "none");
+
       if (!isVisible) {
         div.innerHTML = "";
         div.style.display = "flex";
         cargarListaM3U(url, div);
+      } else {
+        div.style.display = "none";
       }
     }
 
@@ -256,7 +270,13 @@
       canal.className = "canal";
       canal.setAttribute("data-nombre", nombre.toLowerCase());
       canal.tabIndex = 0;
-      canal.onkeydown = e => { if (e.key === "Enter") canal.click(); };
+
+      canal.onkeydown = e => {
+        if (e.key === "Enter" || e.keyCode === 13) {
+          e.preventDefault();
+          canal.click();
+        }
+      };
 
       if (esAndroid) {
         const intentUrl = `intent://${url.replace(/^https?:\/\//, '')}#Intent;package=org.videolan.vlc;type=video/*;scheme=http;end`;
