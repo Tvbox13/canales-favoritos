@@ -9,6 +9,7 @@
   <style>
     :root {
       --text-color: #fff;
+      --focus-outline: 3px solid gold;
     }
 
     body {
@@ -20,6 +21,9 @@
       text-align: center;
       position: relative;
       z-index: 1;
+      overflow-y: auto;
+      outline: none;
+      user-select: none;
     }
 
     body::before {
@@ -34,13 +38,14 @@
       width: 90%;
       max-width: 1200px;
       margin: auto;
-      padding: 20px;
+      padding: 20px 0 60px 0;
       position: relative;
       z-index: 1;
+      outline: none;
     }
 
     h1 {
-      font-size: 3rem;
+      font-size: 4rem;
       margin: 40px 0 30px;
       background: linear-gradient(to right, gold, white, black);
       -webkit-background-clip: text;
@@ -49,35 +54,49 @@
     }
 
     h2 {
-      font-size: 2rem;
+      font-size: 2.5rem;
       margin-top: 30px;
       cursor: pointer;
       color: gold;
       text-shadow: 1px 1px 4px black;
       border-bottom: 2px solid gold;
       padding-bottom: 10px;
+      outline-offset: 4px;
+    }
+
+    h2:focus {
+      outline: var(--focus-outline);
+      border-color: white;
     }
 
     #buscador {
-      padding: 12px;
-      font-size: 16px;
+      padding: 16px;
+      font-size: 24px;
       width: 90%;
-      max-width: 500px;
+      max-width: 600px;
       margin: 20px auto 30px auto;
-      border-radius: 10px;
+      border-radius: 12px;
       border: none;
       outline: none;
       background-color: rgba(255, 255, 255, 0.15);
       color: white;
       text-align: center;
-      box-shadow: 0 0 10px gold;
+      box-shadow: 0 0 15px gold;
+    }
+
+    #buscador:focus {
+      outline: var(--focus-outline);
+      box-shadow: 0 0 25px white;
     }
 
     .canales-container {
       display: none;
       flex-direction: column;
-      gap: 10px;
+      gap: 12px;
       margin-bottom: 20px;
+      max-height: 500px;
+      overflow-y: auto;
+      outline: none;
     }
 
     .canal {
@@ -88,35 +107,38 @@
       display: flex;
       flex-direction: row;
       align-items: center;
-      background-color: rgba(0, 0, 0, 0.4);
-      border-radius: 10px;
-      border: 2px solid gold;
-      box-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+      background-color: rgba(0, 0, 0, 0.6);
+      border-radius: 15px;
+      border: 3px solid gold;
+      box-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
       transition: transform 0.3s, box-shadow 0.3s;
       cursor: pointer;
+      font-size: 1.6rem;
+      font-weight: bold;
+      color: gold;
+      text-shadow: 2px 2px 4px black;
+      outline-offset: 6px;
     }
 
     .canal:hover,
     .canal:focus {
-      transform: scale(1.02);
-      box-shadow: 0 0 15px gold;
-      outline: none;
+      transform: scale(1.05);
+      box-shadow: 0 0 30px gold;
+      outline: var(--focus-outline);
     }
 
     .canal img {
-      width: 100px;
-      height: 80px;
+      width: 120px;
+      height: 90px;
       object-fit: contain;
       background-color: black;
-      border-radius: 8px;
-      margin-right: 15px;
+      border-radius: 12px;
+      margin-right: 25px;
     }
 
     .canal span {
-      font-size: 1.2rem;
-      font-weight: bold;
-      color: gold;
-      text-shadow: 1px 1px 2px black;
+      flex: 1;
+      text-align: left;
     }
 
     #player-wrapper {
@@ -136,30 +158,35 @@
     }
 
     @media (max-width: 768px) {
-      .canal {
-        flex-direction: row;
-        height: auto;
+      h1 {
+        font-size: 3rem;
       }
-
+      h2 {
+        font-size: 1.8rem;
+      }
+      #buscador {
+        font-size: 18px;
+      }
+      .canal {
+        height: auto;
+        font-size: 1.2rem;
+      }
       .canal img {
         width: 80px;
         height: 60px;
-      }
-
-      .canal span {
-        font-size: 1rem;
+        margin-right: 15px;
       }
     }
   </style>
 </head>
-<body>
-  <div class="container">
+<body tabindex="0">
+  <div class="container" tabindex="-1">
     <h1>DC TV</h1>
-    <input type="text" id="buscador" placeholder="🔍 Buscar canal..." />
+    <input type="text" id="buscador" placeholder="🔍 Buscar canal..." autocomplete="off" />
     <div id="categorias"></div>
   </div>
 
-  <div id="player-wrapper">
+  <div id="player-wrapper" tabindex="-1" role="dialog" aria-modal="true" aria-label="Reproductor de video">
     <div id="player"></div>
   </div>
 
@@ -177,9 +204,17 @@
     const categoriasContainer = document.getElementById("categorias");
     const buscador = document.getElementById("buscador");
     const playerWrapper = document.getElementById("player-wrapper");
+    const playerElement = document.getElementById("player");
     let playerInstance = null;
-    const esAndroid = /Android/i.test(navigator.userAgent);
 
+    // No más intent:// ni enlaces para Android TV, usar siempre Clappr para reproducir
+    // Para enfocar mejor el primer canal cargado o el título al abrir categoría
+    function focusFirstCanal(container) {
+      const primerCanal = container.querySelector(".canal");
+      if (primerCanal) primerCanal.focus();
+    }
+
+    // Construir categorías y eventos
     archivosM3U.forEach((item, index) => {
       const url = `https://raw.githubusercontent.com/${OWNER}/${REPO}/main/${encodeURIComponent(item.archivo)}`;
 
@@ -189,12 +224,24 @@
       const titulo = document.createElement("h2");
       titulo.textContent = item.nombre;
       titulo.tabIndex = 0;
-      titulo.onclick = () => toggleCategoria(index, url);
-      titulo.onkeydown = e => { if (e.key === "Enter" || e.key === " ") titulo.click(); };
+      titulo.setAttribute("role", "button");
+      titulo.setAttribute("aria-expanded", "false");
+      titulo.setAttribute("aria-controls", `categoria-${index}`);
+
+      titulo.addEventListener("click", () => toggleCategoria(index, url));
+      titulo.addEventListener("keydown", e => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          toggleCategoria(index, url);
+        }
+      });
 
       const canalesDiv = document.createElement("div");
       canalesDiv.className = "canales-container";
       canalesDiv.id = `categoria-${index}`;
+      canalesDiv.setAttribute("role", "region");
+      canalesDiv.setAttribute("aria-label", `Lista de canales de ${item.nombre}`);
+      canalesDiv.tabIndex = -1;
 
       categoriaDiv.appendChild(titulo);
       categoriaDiv.appendChild(canalesDiv);
@@ -203,49 +250,55 @@
 
     function toggleCategoria(index, url) {
       const div = document.getElementById(`categoria-${index}`);
+      const titulo = div.previousElementSibling;
       const isVisible = div.style.display === "flex";
-      document.querySelectorAll(".canales-container").forEach(d => d.style.display = "none");
+
+      // Cerrar todas las categorías
+      document.querySelectorAll(".canales-container").forEach(d => {
+        d.style.display = "none";
+        d.previousElementSibling.setAttribute("aria-expanded", "false");
+      });
+
       if (!isVisible) {
         div.innerHTML = "";
         div.style.display = "flex";
-        cargarListaM3U(url, div);
+        div.focus();
+        titulo.setAttribute("aria-expanded", "true");
+        cargarListaM3U(url, div).then(() => focusFirstCanal(div));
       }
     }
 
-    function cargarListaM3U(m3uUrl, container) {
-      fetch(m3uUrl)
-        .then(r => r.text())
-        .then(data => {
-          const lines = data.split("\n");
-          for (let i = 0; i < lines.length; i++) {
-            if (lines[i].startsWith("#EXTINF")) {
-              const nombre = lines[i].split(",")[1]?.trim() || "Canal";
-              const logoMatch = lines[i].match(/tvg-logo="([^"]+)"/);
-              const logo = logoMatch ? logoMatch[1] : "";
-              const url = lines[i + 1]?.trim();
-              if (url && url.startsWith("http")) {
-                agregarCanal(nombre, url, logo, container);
-              }
+    async function cargarListaM3U(m3uUrl, container) {
+      try {
+        const r = await fetch(m3uUrl);
+        const data = await r.text();
+        const lines = data.split("\n");
+        for (let i = 0; i < lines.length; i++) {
+          if (lines[i].startsWith("#EXTINF")) {
+            const nombre = lines[i].split(",")[1]?.trim() || "Canal";
+            const logoMatch = lines[i].match(/tvg-logo="([^"]+)"/);
+            const logo = logoMatch ? logoMatch[1] : "";
+            const url = lines[i + 1]?.trim();
+            if (url && url.startsWith("http")) {
+              agregarCanal(nombre, url, logo, container);
             }
           }
-        })
-        .catch(err => console.error("Error cargando M3U:", err));
+        }
+      } catch(err) {
+        console.error("Error cargando M3U:", err);
+        container.innerHTML = "<p style='color: red;'>No se pudo cargar la lista de canales.</p>";
+      }
     }
 
     function agregarCanal(nombre, url, logo, container) {
-      const canal = esAndroid ? document.createElement("a") : document.createElement("button");
+      const canal = document.createElement("button");
       canal.className = "canal";
       canal.setAttribute("data-nombre", nombre.toLowerCase());
       canal.tabIndex = 0;
-      canal.onkeydown = e => { if (e.key === "Enter") canal.click(); };
-      
-      if (esAndroid) {
-        const intentUrl = `intent://${url.replace(/^https?:\/\//, '')}#Intent;package=org.videolan.vlc;type=video/*;scheme=http;end`;
-        canal.href = intentUrl;
-        canal.target = "_self";
-      } else {
-        canal.onclick = () => reproducir(url);
-      }
+      canal.setAttribute("aria-label", `Reproducir canal ${nombre}`);
+
+      canal.addEventListener("click", () => reproducir(url, canal));
+      canal.addEventListener("keydown", e => { if (e.key === "Enter") canal.click(); });
 
       if (logo) {
         const img = document.createElement("img");
@@ -261,26 +314,64 @@
       container.appendChild(canal);
     }
 
-    function reproducir(url) {
+    function reproducir(url, canalBoton) {
       if (playerInstance) playerInstance.destroy();
+
       playerWrapper.style.display = "block";
-      playerInstance = new Clappr.Player({ source: url, parentId: "#player", autoPlay: true, height: "100%", width: "100%" });
+      playerWrapper.focus();
+
+      playerInstance = new Clappr.Player({
+        source: url,
+        parentId: "#player",
+        autoPlay: true,
+        height: "100%",
+        width: "100%",
+        mediacontrol: { seekbar: "#player" }
+      });
+
+      // Desactivar scroll en background
+      document.body.style.overflow = "hidden";
     }
 
+    // Cerrar reproductor con ESC o botón Atrás
     document.addEventListener("keydown", e => {
-      if (["Escape", "Backspace"].includes(e.key) && playerWrapper.style.display === "block") {
+      if ((e.key === "Escape" || e.key === "Backspace") && playerWrapper.style.display === "block") {
         playerWrapper.style.display = "none";
         if (playerInstance) { playerInstance.destroy(); playerInstance = null; }
+        document.body.style.overflow = "auto";
+
+        // Regresar foco al último canal seleccionado
+        const ultimoFoco = document.activeElement;
+        if (ultimoFoco && ultimoFoco.classList.contains("canal")) {
+          ultimoFoco.focus();
+        } else {
+          // Si no, al buscador
+          buscador.focus();
+        }
       }
     });
 
-    buscador.addEventListener("input", function () {
-      const filtro = this.value.toLowerCase();
+    // Buscar canales (filtrado)
+    buscador.addEventListener("input", () => {
+      const filtro = buscador.value.toLowerCase();
       document.querySelectorAll(".canal").forEach(canal => {
         const nombre = canal.getAttribute("data-nombre");
         canal.style.display = nombre.includes(filtro) ? "flex" : "none";
       });
+
+      // Si filtro está vacío, mostrar todas las categorías cerradas
+      if (filtro === "") {
+        document.querySelectorAll(".canales-container").forEach(div => {
+          div.style.display = "none";
+          div.previousElementSibling.setAttribute("aria-expanded", "false");
+        });
+      }
     });
+
+    // Al cargar la página, enfocar en buscador para comodidad TV
+    window.onload = () => {
+      buscador.focus();
+    };
   </script>
 </body>
 </html>
