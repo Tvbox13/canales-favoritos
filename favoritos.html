@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>DC TV - Categorías</title>
 
-  <!-- MediaElement.js CSS -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mediaelement@7.0.4/build/mediaelementplayer.min.css">
+  <!-- Plyr CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/plyr@3.7.8/dist/plyr.css" />
 
   <style>
     :root { --text-color: #fff; }
@@ -58,11 +58,13 @@
   </div>
 
   <div id="player-wrapper">
-    <video id="player" controls preload="auto"></video>
+    <video id="player" controls playsinline></video>
   </div>
 
-  <!-- MediaElement.js JS -->
-  <script src="https://cdn.jsdelivr.net/npm/mediaelement@7.0.4/build/mediaelement-and-player.min.js"></script>
+  <!-- Plyr JS -->
+  <script src="https://cdn.jsdelivr.net/npm/plyr@3.7.8/dist/plyr.polyfilled.min.js"></script>
+  <!-- HLS.js para streams m3u8 -->
+  <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
 
   <script>
     const OWNER = "Tvbox13";
@@ -76,8 +78,8 @@
     const categoriasContainer = document.getElementById("categorias");
     const buscador = document.getElementById("buscador");
     const playerWrapper = document.getElementById("player-wrapper");
-    const playerEl = document.getElementById("player");
-    let playerInstance = null;
+    const videoEl = document.getElementById("player");
+    let plyrPlayer = null;
 
     archivosM3U.forEach((item, index) => {
       const url = `https://raw.githubusercontent.com/${OWNER}/${REPO}/main/${encodeURIComponent(item.archivo)}`;
@@ -136,7 +138,6 @@
       canal.setAttribute("data-nombre", nombre.toLowerCase());
       canal.tabIndex = 0;
       canal.onkeydown = e => { if (e.key === "Enter") canal.click(); };
-
       canal.onclick = () => reproducir(url);
 
       if (logo) {
@@ -155,20 +156,35 @@
 
     function reproducir(url) {
       playerWrapper.style.display = "block";
-      playerEl.src = url;
-      if (playerInstance) playerInstance.remove();
-      playerInstance = new MediaElementPlayer(playerEl, {
-        stretching: 'fill',
-        features: ['playpause','volume','fullscreen'],
-        success: (media) => { media.play(); }
-      });
+
+      if (plyrPlayer) {
+        plyrPlayer.destroy();
+        plyrPlayer = null;
+      }
+
+      if (Hls.isSupported() && url.endsWith(".m3u8")) {
+        const hls = new Hls();
+        hls.loadSource(url);
+        hls.attachMedia(videoEl);
+        hls.on(Hls.Events.MANIFEST_PARSED, () => {
+          plyrPlayer = new Plyr(videoEl);
+          videoEl.play();
+        });
+      } else {
+        videoEl.src = url;
+        plyrPlayer = new Plyr(videoEl);
+        videoEl.play();
+      }
     }
 
     document.addEventListener("keydown", e => {
       if (["Escape", "Backspace"].includes(e.key) && playerWrapper.style.display === "block") {
         playerWrapper.style.display = "none";
-        if (playerInstance) { playerInstance.remove(); playerInstance = null; }
-        playerEl.pause();
+        if (plyrPlayer) {
+          plyrPlayer.destroy();
+          plyrPlayer = null;
+        }
+        videoEl.pause();
       }
     });
 
