@@ -201,13 +201,10 @@
       categoriasContainer.appendChild(categoriaDiv);
     });
 
-    // Mostrar Categoría 1 al iniciar automáticamente
+    // Al cargar, no se abre ninguna categoría ni se pone foco en buscador
     window.addEventListener("load", () => {
-      // No se enfoca el buscador para evitar abrir teclado en Android TV
       buscador.blur();
-      // Abrimos la Categoría 1
-      const primeraCategoriaUrl = `https://raw.githubusercontent.com/${OWNER}/${REPO}/main/${encodeURIComponent(archivosM3U[0].archivo)}`;
-      toggleCategoria(0, primeraCategoriaUrl);
+      // No hacemos toggleCategoria aquí, así que no abre ninguna
     });
 
     function toggleCategoria(index, url) {
@@ -247,7 +244,7 @@
       canal.setAttribute("data-nombre", nombre.toLowerCase());
       canal.tabIndex = 0;
       canal.onkeydown = e => { if (e.key === "Enter") canal.click(); };
-      
+
       if (esAndroid) {
         const intentUrl = `intent://${url.replace(/^https?:\/\//, '')}#Intent;package=org.videolan.vlc;type=video/*;scheme=http;end`;
         canal.href = intentUrl;
