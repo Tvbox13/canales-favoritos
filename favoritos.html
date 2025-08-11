@@ -4,151 +4,50 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>DC TV - Categorías</title>
-  <script src="https://cdn.jsdelivr.net/npm/clappr@latest/dist/clappr.min.js"></script>
+
+  <!-- MediaElement.js CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mediaelement@7.0.4/build/mediaelementplayer.min.css">
 
   <style>
-    :root {
-      --text-color: #fff;
-    }
-
+    :root { --text-color: #fff; }
     body {
-      margin: 0;
-      font-family: Arial, sans-serif;
+      margin: 0; font-family: Arial, sans-serif;
       background: url('https://dl.dropboxusercontent.com/scl/fi/53cl5dg07jneprsqbvkdp/Fondo-dorado-negro.jpg?rlkey=fxysssw9toe3zdhw873nob0k7&st=brpgsbw8&dl=0') no-repeat center center fixed;
-      background-size: cover;
-      color: var(--text-color);
-      text-align: center;
-      position: relative;
-      z-index: 1;
+      background-size: cover; color: var(--text-color); text-align: center; position: relative; z-index: 1;
     }
-
-    body::before {
-      content: '';
-      position: fixed;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.6);
-      z-index: 0;
-    }
-
-    .container {
-      width: 90%;
-      max-width: 1200px;
-      margin: auto;
-      padding: 20px;
-      position: relative;
-      z-index: 1;
-    }
-
+    body::before { content: ''; position: fixed; inset: 0; background: rgba(0,0,0,0.6); z-index: 0; }
+    .container { width: 90%; max-width: 1200px; margin: auto; padding: 20px; position: relative; z-index: 1; }
     h1 {
-      font-size: 3rem;
-      margin: 40px 0 30px;
+      font-size: 3rem; margin: 40px 0 30px;
       background: linear-gradient(to right, gold, white, black);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.8), 0 0 20px gold;
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      text-shadow: 2px 2px 0 rgba(0,0,0,0.8), 0 0 20px gold;
     }
-
     h2 {
-      font-size: 2rem;
-      margin-top: 30px;
-      cursor: pointer;
-      color: gold;
-      text-shadow: 1px 1px 4px black;
-      border-bottom: 2px solid gold;
-      padding-bottom: 10px;
+      font-size: 2rem; margin-top: 30px; cursor: pointer; color: gold;
+      text-shadow: 1px 1px 4px black; border-bottom: 2px solid gold; padding-bottom: 10px;
     }
-
     #buscador {
-      padding: 12px;
-      font-size: 16px;
-      width: 90%;
-      max-width: 500px;
-      margin: 20px auto 30px auto;
-      border-radius: 10px;
-      border: none;
-      outline: none;
-      background-color: rgba(255, 255, 255, 0.15);
-      color: white;
-      text-align: center;
+      padding: 12px; font-size: 16px; width: 90%; max-width: 500px;
+      margin: 20px auto 30px auto; border-radius: 10px; border: none; outline: none;
+      background-color: rgba(255, 255, 255, 0.15); color: white; text-align: center;
       box-shadow: 0 0 10px gold;
     }
-
-    .canales-container {
-      display: none;
-      flex-direction: column;
-      gap: 10px;
-      margin-bottom: 20px;
-    }
-
+    .canales-container { display: none; flex-direction: column; gap: 10px; margin-bottom: 20px; }
     .canal {
-      width: 100%;
-      height: 100px;
-      margin: 10px 0;
-      padding: 10px;
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      background-color: rgba(0, 0, 0, 0.4);
-      border-radius: 10px;
-      border: 2px solid gold;
-      box-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
-      transition: transform 0.3s, box-shadow 0.3s;
-      cursor: pointer;
+      width: 100%; height: 100px; margin: 10px 0; padding: 10px;
+      display: flex; flex-direction: row; align-items: center;
+      background-color: rgba(0, 0, 0, 0.4); border-radius: 10px; border: 2px solid gold;
+      box-shadow: 0 0 10px rgba(255,215,0,0.3); transition: transform 0.3s, box-shadow 0.3s; cursor: pointer;
     }
-
-    .canal:hover,
-    .canal:focus {
-      transform: scale(1.02);
-      box-shadow: 0 0 15px gold;
-      outline: none;
-    }
-
-    .canal img {
-      width: 100px;
-      height: 80px;
-      object-fit: cover;
-      border-radius: 8px;
-      margin-right: 15px;
-    }
-
-    .canal span {
-      font-size: 1.2rem;
-      font-weight: bold;
-      color: gold;
-      text-shadow: 1px 1px 2px black;
-    }
-
+    .canal:hover, .canal:focus { transform: scale(1.02); box-shadow: 0 0 15px gold; outline: none; }
+    .canal img { width: 100px; height: 80px; object-fit: cover; border-radius: 8px; margin-right: 15px; }
+    .canal span { font-size: 1.2rem; font-weight: bold; color: gold; text-shadow: 1px 1px 2px black; }
     #player-wrapper {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      background: black;
-      z-index: 9999;
+      display: none; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+      background: black; z-index: 9999; padding: 20px; box-sizing: border-box;
     }
-
-    #player {
-      width: 100%;
-      height: 100%;
-    }
-
-    @media (max-width: 768px) {
-      .canal {
-        flex-direction: row;
-        height: auto;
-      }
-
-      .canal img {
-        width: 80px;
-        height: 60px;
-      }
-
-      .canal span {
-        font-size: 1rem;
-      }
-    }
+    video { width: 100%; height: 100%; }
   </style>
 </head>
 <body>
@@ -159,8 +58,11 @@
   </div>
 
   <div id="player-wrapper">
-    <div id="player"></div>
+    <video id="player" controls preload="auto"></video>
   </div>
+
+  <!-- MediaElement.js JS -->
+  <script src="https://cdn.jsdelivr.net/npm/mediaelement@7.0.4/build/mediaelement-and-player.min.js"></script>
 
   <script>
     const OWNER = "Tvbox13";
@@ -168,20 +70,17 @@
 
     const archivosM3U = [
       { nombre: "Categoría 1", archivo: "lista.m3u" },
-      { nombre: "Categoría 2", archivo: "lista 2.m3u" },
-      { nombre: "Categoría 3", archivo: "lista.m3u" }, // Puedes reemplazar estos
-      { nombre: "Categoría 4", archivo: "lista 2.m3u" } // con más archivos reales
+      { nombre: "Categoría 2", archivo: "lista 2.m3u" }
     ];
 
     const categoriasContainer = document.getElementById("categorias");
     const buscador = document.getElementById("buscador");
     const playerWrapper = document.getElementById("player-wrapper");
+    const playerEl = document.getElementById("player");
     let playerInstance = null;
-    const esAndroid = /Android/i.test(navigator.userAgent);
 
     archivosM3U.forEach((item, index) => {
       const url = `https://raw.githubusercontent.com/${OWNER}/${REPO}/main/${encodeURIComponent(item.archivo)}`;
-
       const categoriaDiv = document.createElement("div");
       categoriaDiv.className = "categoria";
 
@@ -211,8 +110,7 @@
       }
     }
 
-    function
-    cargarListaM3U(m3uUrl, container) {
+    function cargarListaM3U(m3uUrl, container) {
       fetch(m3uUrl)
         .then(r => r.text())
         .then(data => {
@@ -233,19 +131,13 @@
     }
 
     function agregarCanal(nombre, url, logo, container) {
-      const canal = esAndroid ? document.createElement("a") : document.createElement("button");
+      const canal = document.createElement("button");
       canal.className = "canal";
       canal.setAttribute("data-nombre", nombre.toLowerCase());
       canal.tabIndex = 0;
       canal.onkeydown = e => { if (e.key === "Enter") canal.click(); };
-      
-      if (esAndroid) {
-        const intentUrl = `intent://${url.replace(/^https?:\/\//, '')}#Intent;package=org.videolan.vlc;type=video/*;scheme=http;end`;
-        canal.href = intentUrl;
-        canal.target = "_self";
-      } else {
-        canal.onclick = () => reproducir(url);
-      }
+
+      canal.onclick = () => reproducir(url);
 
       if (logo) {
         const img = document.createElement("img");
@@ -262,15 +154,21 @@
     }
 
     function reproducir(url) {
-      if (playerInstance) playerInstance.destroy();
       playerWrapper.style.display = "block";
-      playerInstance = new Clappr.Player({ source: url, parentId: "#player", autoPlay: true, height: "100%", width: "100%" });
+      playerEl.src = url;
+      if (playerInstance) playerInstance.remove();
+      playerInstance = new MediaElementPlayer(playerEl, {
+        stretching: 'fill',
+        features: ['playpause','volume','fullscreen'],
+        success: (media) => { media.play(); }
+      });
     }
 
     document.addEventListener("keydown", e => {
       if (["Escape", "Backspace"].includes(e.key) && playerWrapper.style.display === "block") {
         playerWrapper.style.display = "none";
-        if (playerInstance) { playerInstance.destroy(); playerInstance = null; }
+        if (playerInstance) { playerInstance.remove(); playerInstance = null; }
+        playerEl.pause();
       }
     });
 
