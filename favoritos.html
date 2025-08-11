@@ -3,13 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>DC TV - Categorías</title>
-  <script src="https://cdn.jsdelivr.net/npm/clappr@latest/dist/clappr.min.js"></script>
+  <title>DC TV - Solo VLC</title>
 
   <style>
     :root {
       --text-color: #fff;
-      --focus-outline: 3px solid gold;
     }
 
     body {
@@ -21,9 +19,6 @@
       text-align: center;
       position: relative;
       z-index: 1;
-      overflow-y: auto;
-      outline: none;
-      user-select: none;
     }
 
     body::before {
@@ -38,14 +33,13 @@
       width: 90%;
       max-width: 1200px;
       margin: auto;
-      padding: 20px 0 60px 0;
+      padding: 20px;
       position: relative;
       z-index: 1;
-      outline: none;
     }
 
     h1 {
-      font-size: 4rem;
+      font-size: 3rem;
       margin: 40px 0 30px;
       background: linear-gradient(to right, gold, white, black);
       -webkit-background-clip: text;
@@ -54,140 +48,104 @@
     }
 
     h2 {
-      font-size: 2.5rem;
+      font-size: 2rem;
       margin-top: 30px;
       cursor: pointer;
       color: gold;
       text-shadow: 1px 1px 4px black;
       border-bottom: 2px solid gold;
       padding-bottom: 10px;
-      outline-offset: 4px;
-    }
-
-    h2:focus {
-      outline: var(--focus-outline);
-      border-color: white;
     }
 
     #buscador {
-      padding: 16px;
-      font-size: 24px;
+      padding: 12px;
+      font-size: 16px;
       width: 90%;
-      max-width: 600px;
+      max-width: 500px;
       margin: 20px auto 30px auto;
-      border-radius: 12px;
+      border-radius: 10px;
       border: none;
       outline: none;
       background-color: rgba(255, 255, 255, 0.15);
       color: white;
       text-align: center;
-      box-shadow: 0 0 15px gold;
-    }
-
-    #buscador:focus {
-      outline: var(--focus-outline);
-      box-shadow: 0 0 25px white;
+      box-shadow: 0 0 10px gold;
     }
 
     .canales-container {
       display: none;
       flex-direction: column;
-      gap: 12px;
+      gap: 6px;
       margin-bottom: 20px;
-      max-height: 500px;
-      overflow-y: auto;
-      outline: none;
     }
 
     .canal {
       width: 100%;
-      height: 100px;
-      margin: 10px 0;
-      padding: 10px;
+      height: 25px; /* 1/4 de 100px */
+      margin: 6px 0;
+      padding: 5px 10px;
       display: flex;
       flex-direction: row;
       align-items: center;
-      background-color: rgba(0, 0, 0, 0.6);
-      border-radius: 15px;
-      border: 3px solid gold;
-      box-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
+      background-color: rgba(0, 0, 0, 0.4);
+      border-radius: 10px;
+      border: 2px solid gold;
+      box-shadow: 0 0 6px rgba(255, 215, 0, 0.3);
       transition: transform 0.3s, box-shadow 0.3s;
       cursor: pointer;
-      font-size: 1.6rem;
-      font-weight: bold;
+      text-decoration: none;
       color: gold;
-      text-shadow: 2px 2px 4px black;
-      outline-offset: 6px;
+      font-weight: bold;
+      user-select: none;
     }
 
     .canal:hover,
     .canal:focus {
-      transform: scale(1.05);
-      box-shadow: 0 0 30px gold;
-      outline: var(--focus-outline);
+      transform: scale(1.02);
+      box-shadow: 0 0 10px gold;
+      outline: none;
     }
 
     .canal img {
-      width: 120px;
-      height: 90px;
+      width: 25px; /* proporcional a la altura */
+      height: 20px;
       object-fit: contain;
       background-color: black;
-      border-radius: 12px;
-      margin-right: 25px;
+      border-radius: 6px;
+      margin-right: 10px;
     }
 
     .canal span {
-      flex: 1;
-      text-align: left;
-    }
-
-    #player-wrapper {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      background: black;
-      z-index: 9999;
-    }
-
-    #player {
-      width: 100%;
-      height: 100%;
+      font-size: 1rem;
+      color: gold;
+      text-shadow: 1px 1px 2px black;
+      line-height: 1;
+      user-select: none;
     }
 
     @media (max-width: 768px) {
-      h1 {
-        font-size: 3rem;
-      }
-      h2 {
-        font-size: 1.8rem;
-      }
-      #buscador {
-        font-size: 18px;
-      }
       .canal {
         height: auto;
-        font-size: 1.2rem;
+        padding: 5px;
       }
+
       .canal img {
-        width: 80px;
-        height: 60px;
-        margin-right: 15px;
+        width: 20px;
+        height: 16px;
+        margin-right: 8px;
+      }
+
+      .canal span {
+        font-size: 0.9rem;
       }
     }
   </style>
 </head>
-<body tabindex="0">
-  <div class="container" tabindex="-1">
+<body>
+  <div class="container">
     <h1>DC TV</h1>
-    <input type="text" id="buscador" placeholder="🔍 Buscar canal..." autocomplete="off" />
+    <input type="text" id="buscador" placeholder="🔍 Buscar canal..." />
     <div id="categorias"></div>
-  </div>
-
-  <div id="player-wrapper" tabindex="-1" role="dialog" aria-modal="true" aria-label="Reproductor de video">
-    <div id="player"></div>
   </div>
 
   <script>
@@ -203,18 +161,7 @@
 
     const categoriasContainer = document.getElementById("categorias");
     const buscador = document.getElementById("buscador");
-    const playerWrapper = document.getElementById("player-wrapper");
-    const playerElement = document.getElementById("player");
-    let playerInstance = null;
 
-    // No más intent:// ni enlaces para Android TV, usar siempre Clappr para reproducir
-    // Para enfocar mejor el primer canal cargado o el título al abrir categoría
-    function focusFirstCanal(container) {
-      const primerCanal = container.querySelector(".canal");
-      if (primerCanal) primerCanal.focus();
-    }
-
-    // Construir categorías y eventos
     archivosM3U.forEach((item, index) => {
       const url = `https://raw.githubusercontent.com/${OWNER}/${REPO}/main/${encodeURIComponent(item.archivo)}`;
 
@@ -224,24 +171,12 @@
       const titulo = document.createElement("h2");
       titulo.textContent = item.nombre;
       titulo.tabIndex = 0;
-      titulo.setAttribute("role", "button");
-      titulo.setAttribute("aria-expanded", "false");
-      titulo.setAttribute("aria-controls", `categoria-${index}`);
-
-      titulo.addEventListener("click", () => toggleCategoria(index, url));
-      titulo.addEventListener("keydown", e => {
-        if (e.key === "Enter" || e.key === " ") {
-          e.preventDefault();
-          toggleCategoria(index, url);
-        }
-      });
+      titulo.onclick = () => toggleCategoria(index, url);
+      titulo.onkeydown = e => { if (e.key === "Enter" || e.key === " ") titulo.click(); };
 
       const canalesDiv = document.createElement("div");
       canalesDiv.className = "canales-container";
       canalesDiv.id = `categoria-${index}`;
-      canalesDiv.setAttribute("role", "region");
-      canalesDiv.setAttribute("aria-label", `Lista de canales de ${item.nombre}`);
-      canalesDiv.tabIndex = -1;
 
       categoriaDiv.appendChild(titulo);
       categoriaDiv.appendChild(canalesDiv);
@@ -250,55 +185,46 @@
 
     function toggleCategoria(index, url) {
       const div = document.getElementById(`categoria-${index}`);
-      const titulo = div.previousElementSibling;
       const isVisible = div.style.display === "flex";
-
-      // Cerrar todas las categorías
-      document.querySelectorAll(".canales-container").forEach(d => {
-        d.style.display = "none";
-        d.previousElementSibling.setAttribute("aria-expanded", "false");
-      });
-
+      document.querySelectorAll(".canales-container").forEach(d => d.style.display = "none");
       if (!isVisible) {
         div.innerHTML = "";
         div.style.display = "flex";
-        div.focus();
-        titulo.setAttribute("aria-expanded", "true");
-        cargarListaM3U(url, div).then(() => focusFirstCanal(div));
+        cargarListaM3U(url, div);
       }
     }
 
-    async function cargarListaM3U(m3uUrl, container) {
-      try {
-        const r = await fetch(m3uUrl);
-        const data = await r.text();
-        const lines = data.split("\n");
-        for (let i = 0; i < lines.length; i++) {
-          if (lines[i].startsWith("#EXTINF")) {
-            const nombre = lines[i].split(",")[1]?.trim() || "Canal";
-            const logoMatch = lines[i].match(/tvg-logo="([^"]+)"/);
-            const logo = logoMatch ? logoMatch[1] : "";
-            const url = lines[i + 1]?.trim();
-            if (url && url.startsWith("http")) {
-              agregarCanal(nombre, url, logo, container);
+    function cargarListaM3U(m3uUrl, container) {
+      fetch(m3uUrl)
+        .then(r => r.text())
+        .then(data => {
+          const lines = data.split("\n");
+          for (let i = 0; i < lines.length; i++) {
+            if (lines[i].startsWith("#EXTINF")) {
+              const nombre = lines[i].split(",")[1]?.trim() || "Canal";
+              const logoMatch = lines[i].match(/tvg-logo="([^"]+)"/);
+              const logo = logoMatch ? logoMatch[1] : "";
+              const url = lines[i + 1]?.trim();
+              if (url && url.startsWith("http")) {
+                agregarCanal(nombre, url, logo, container);
+              }
             }
           }
-        }
-      } catch(err) {
-        console.error("Error cargando M3U:", err);
-        container.innerHTML = "<p style='color: red;'>No se pudo cargar la lista de canales.</p>";
-      }
+        })
+        .catch(err => console.error("Error cargando M3U:", err));
     }
 
     function agregarCanal(nombre, url, logo, container) {
-      const canal = document.createElement("button");
+      const canal = document.createElement("a");
       canal.className = "canal";
       canal.setAttribute("data-nombre", nombre.toLowerCase());
       canal.tabIndex = 0;
-      canal.setAttribute("aria-label", `Reproducir canal ${nombre}`);
+      canal.onkeydown = e => { if (e.key === "Enter") canal.click(); };
 
-      canal.addEventListener("click", () => reproducir(url, canal));
-      canal.addEventListener("keydown", e => { if (e.key === "Enter") canal.click(); });
+      // Crear intent para abrir VLC
+      const intentUrl = `intent://${url.replace(/^https?:\/\//, '')}#Intent;package=org.videolan.vlc;scheme=http;end`;
+      canal.href = intentUrl;
+      canal.target = "_self";
 
       if (logo) {
         const img = document.createElement("img");
@@ -314,64 +240,13 @@
       container.appendChild(canal);
     }
 
-    function reproducir(url, canalBoton) {
-      if (playerInstance) playerInstance.destroy();
-
-      playerWrapper.style.display = "block";
-      playerWrapper.focus();
-
-      playerInstance = new Clappr.Player({
-        source: url,
-        parentId: "#player",
-        autoPlay: true,
-        height: "100%",
-        width: "100%",
-        mediacontrol: { seekbar: "#player" }
-      });
-
-      // Desactivar scroll en background
-      document.body.style.overflow = "hidden";
-    }
-
-    // Cerrar reproductor con ESC o botón Atrás
-    document.addEventListener("keydown", e => {
-      if ((e.key === "Escape" || e.key === "Backspace") && playerWrapper.style.display === "block") {
-        playerWrapper.style.display = "none";
-        if (playerInstance) { playerInstance.destroy(); playerInstance = null; }
-        document.body.style.overflow = "auto";
-
-        // Regresar foco al último canal seleccionado
-        const ultimoFoco = document.activeElement;
-        if (ultimoFoco && ultimoFoco.classList.contains("canal")) {
-          ultimoFoco.focus();
-        } else {
-          // Si no, al buscador
-          buscador.focus();
-        }
-      }
-    });
-
-    // Buscar canales (filtrado)
-    buscador.addEventListener("input", () => {
-      const filtro = buscador.value.toLowerCase();
+    buscador.addEventListener("input", function () {
+      const filtro = this.value.toLowerCase();
       document.querySelectorAll(".canal").forEach(canal => {
         const nombre = canal.getAttribute("data-nombre");
         canal.style.display = nombre.includes(filtro) ? "flex" : "none";
       });
-
-      // Si filtro está vacío, mostrar todas las categorías cerradas
-      if (filtro === "") {
-        document.querySelectorAll(".canales-container").forEach(div => {
-          div.style.display = "none";
-          div.previousElementSibling.setAttribute("aria-expanded", "false");
-        });
-      }
     });
-
-    // Al cargar la página, enfocar en buscador para comodidad TV
-    window.onload = () => {
-      buscador.focus();
-    };
   </script>
 </body>
 </html>
