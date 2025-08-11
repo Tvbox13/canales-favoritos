@@ -3,11 +3,11 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>DC TV - Projekktor</title>
+<title>DC TV - Video.js</title>
 
-<!-- Projekktor CSS y JS -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/panmedia/projekktor@master/theme/maccaco/projekktor.style.css" />
-<script src="https://cdn.jsdelivr.net/gh/panmedia/projekktor@master/projekktor-1.3.09.min.js"></script>
+<!-- Video.js CSS y JS -->
+<link href="https://vjs.zencdn.net/7.24.1/video-js.css" rel="stylesheet" />
+<script src="https://vjs.zencdn.net/7.24.1/video.min.js"></script>
 
 <style>
   body {
@@ -20,7 +20,7 @@
   body::before {
     content: '';
     position: fixed; inset: 0;
-    background: rgba(0,0,0,0.6);
+    background: rgba(0,0,0,0.7);
     z-index: 0;
   }
   .container {
@@ -109,10 +109,7 @@
     z-index: 9999;
     justify-content: center;
     align-items: center;
-  }
-  #player {
-    width: 80%;
-    height: 70%;
+    flex-direction: column;
   }
   #cerrar-player {
     position: fixed;
@@ -128,6 +125,10 @@
     font-size: 1.5rem;
     cursor: pointer;
   }
+  .video-js {
+    width: 80%;
+    height: 70%;
+  }
 
   @media (max-width: 768px) {
     .canal {
@@ -140,7 +141,7 @@
     .canal span {
       font-size: 1rem;
     }
-    #player {
+    .video-js {
       width: 95%;
       height: 50vh;
     }
@@ -154,9 +155,17 @@
     <div id="categorias"></div>
   </div>
 
-  <div id="player-wrapper" style="display:flex; flex-direction: column; align-items: center;">
+  <div id="player-wrapper" style="display:flex;">
     <button id="cerrar-player" title="Cerrar reproductor">×</button>
-    <video id="player_a" class="projekktor" controls></video>
+    <video
+      id="player"
+      class="video-js vjs-default-skin"
+      controls
+      preload="auto"
+      playsinline
+      webkit-playsinline
+      crossorigin="anonymous"
+    ></video>
   </div>
 
 <script>
@@ -171,8 +180,14 @@
   const categoriasContainer = document.getElementById("categorias");
   const buscador = document.getElementById("buscador");
   const playerWrapper = document.getElementById("player-wrapper");
-  const playerVideo = document.getElementById("player_a");
   const cerrarBtn = document.getElementById("cerrar-player");
+
+  let player = videojs('player', {
+    fluid: true,
+    autoplay: false,
+    controls: true,
+    techOrder: ["html5"]
+  });
 
   let canalesTodos = [];
 
@@ -253,16 +268,13 @@
 
   function reproducir(url) {
     playerWrapper.style.display = "flex";
-
-    // Cambiar fuente del video
-    playerVideo.src = url;
-    playerVideo.load();
-    playerVideo.play();
+    player.src({ src: url, type: 'application/x-mpegURL' });
+    player.play();
   }
 
   cerrarBtn.onclick = () => {
-    playerVideo.pause();
-    playerVideo.src = "";
+    player.pause();
+    player.src({ src: '', type: '' });
     playerWrapper.style.display = "none";
   };
 
