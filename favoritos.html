@@ -155,7 +155,7 @@
 <body>
   <div class="container">
     <h1>DC TV</h1>
-    <input type="text" id="buscador" placeholder="🔍 Buscar canal..." />
+    <input type="text" id="buscador" placeholder="🔍 Buscar canal..." autocomplete="off" />
     <div id="categorias"></div>
   </div>
 
@@ -199,6 +199,15 @@
       categoriaDiv.appendChild(titulo);
       categoriaDiv.appendChild(canalesDiv);
       categoriasContainer.appendChild(categoriaDiv);
+    });
+
+    // Mostrar Categoría 1 al iniciar automáticamente
+    window.addEventListener("load", () => {
+      // No se enfoca el buscador para evitar abrir teclado en Android TV
+      buscador.blur();
+      // Abrimos la Categoría 1
+      const primeraCategoriaUrl = `https://raw.githubusercontent.com/${OWNER}/${REPO}/main/${encodeURIComponent(archivosM3U[0].archivo)}`;
+      toggleCategoria(0, primeraCategoriaUrl);
     });
 
     function toggleCategoria(index, url) {
