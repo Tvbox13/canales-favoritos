@@ -1,54 +1,151 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>DC TV - Categorías</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>DC TV - Projekktor</title>
 
-  <!-- Plyr CSS -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/plyr@3.7.8/dist/plyr.css" />
+<!-- Projekktor CSS y JS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/panmedia/projekktor@master/theme/maccaco/projekktor.style.css" />
+<script src="https://cdn.jsdelivr.net/gh/panmedia/projekktor@master/projekktor-1.3.09.min.js"></script>
 
-  <style>
-    :root { --text-color: #fff; }
-    body {
-      margin: 0; font-family: Arial, sans-serif;
-      background: url('https://dl.dropboxusercontent.com/scl/fi/53cl5dg07jneprsqbvkdp/Fondo-dorado-negro.jpg?rlkey=fxysssw9toe3zdhw873nob0k7&st=brpgsbw8&dl=0') no-repeat center center fixed;
-      background-size: cover; color: var(--text-color); text-align: center; position: relative; z-index: 1;
-    }
-    body::before { content: ''; position: fixed; inset: 0; background: rgba(0,0,0,0.6); z-index: 0; }
-    .container { width: 90%; max-width: 1200px; margin: auto; padding: 20px; position: relative; z-index: 1; }
-    h1 {
-      font-size: 3rem; margin: 40px 0 30px;
-      background: linear-gradient(to right, gold, white, black);
-      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-      text-shadow: 2px 2px 0 rgba(0,0,0,0.8), 0 0 20px gold;
-    }
-    h2 {
-      font-size: 2rem; margin-top: 30px; cursor: pointer; color: gold;
-      text-shadow: 1px 1px 4px black; border-bottom: 2px solid gold; padding-bottom: 10px;
-    }
-    #buscador {
-      padding: 12px; font-size: 16px; width: 90%; max-width: 500px;
-      margin: 20px auto 30px auto; border-radius: 10px; border: none; outline: none;
-      background-color: rgba(255, 255, 255, 0.15); color: white; text-align: center;
-      box-shadow: 0 0 10px gold;
-    }
-    .canales-container { display: none; flex-direction: column; gap: 10px; margin-bottom: 20px; }
+<style>
+  body {
+    margin: 0; font-family: Arial, sans-serif;
+    background: url('https://dl.dropboxusercontent.com/scl/fi/53cl5dg07jneprsqbvkdp/Fondo-dorado-negro.jpg?rlkey=fxysssw9toe3zdhw873nob0k7&st=brpgsbw8&dl=0') no-repeat center center fixed;
+    background-size: cover;
+    color: #fff;
+    text-align: center;
+  }
+  body::before {
+    content: '';
+    position: fixed; inset: 0;
+    background: rgba(0,0,0,0.6);
+    z-index: 0;
+  }
+  .container {
+    position: relative;
+    z-index: 1;
+    width: 90%; max-width: 1200px;
+    margin: 20px auto;
+  }
+  h1 {
+    font-size: 3rem;
+    margin: 40px 0 30px;
+    background: linear-gradient(to right, gold, white, black);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 2px 2px 0 rgba(0,0,0,0.8), 0 0 20px gold;
+  }
+  h2 {
+    font-size: 2rem;
+    margin: 30px 0 10px;
+    cursor: pointer;
+    color: gold;
+    text-shadow: 1px 1px 4px black;
+    border-bottom: 2px solid gold;
+    padding-bottom: 10px;
+  }
+  #buscador {
+    padding: 12px;
+    font-size: 16px;
+    width: 90%;
+    max-width: 500px;
+    margin: 20px auto 30px;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    background-color: rgba(255, 255, 255, 0.15);
+    color: white;
+    text-align: center;
+    box-shadow: 0 0 10px gold;
+  }
+  .canales-container {
+    display: none;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  .canal {
+    width: 100%;
+    height: 80px;
+    margin: 10px 0;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.4);
+    border-radius: 10px;
+    border: 2px solid gold;
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+    transition: transform 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+  }
+  .canal:hover, .canal:focus {
+    transform: scale(1.02);
+    box-shadow: 0 0 15px gold;
+    outline: none;
+  }
+  .canal img {
+    width: 100px;
+    height: 70px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-right: 15px;
+  }
+  .canal span {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: gold;
+    text-shadow: 1px 1px 2px black;
+  }
+
+  #player-wrapper {
+    display: none;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: black;
+    z-index: 9999;
+    justify-content: center;
+    align-items: center;
+  }
+  #player {
+    width: 80%;
+    height: 70%;
+  }
+  #cerrar-player {
+    position: fixed;
+    top: 15px;
+    right: 20px;
+    z-index: 10000;
+    background: gold;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-weight: bold;
+    font-size: 1.5rem;
+    cursor: pointer;
+  }
+
+  @media (max-width: 768px) {
     .canal {
-      width: 100%; height: 100px; margin: 10px 0; padding: 10px;
-      display: flex; flex-direction: row; align-items: center;
-      background-color: rgba(0, 0, 0, 0.4); border-radius: 10px; border: 2px solid gold;
-      box-shadow: 0 0 10px rgba(255,215,0,0.3); transition: transform 0.3s, box-shadow 0.3s; cursor: pointer;
+      height: auto;
     }
-    .canal:hover, .canal:focus { transform: scale(1.02); box-shadow: 0 0 15px gold; outline: none; }
-    .canal img { width: 100px; height: 80px; object-fit: cover; border-radius: 8px; margin-right: 15px; }
-    .canal span { font-size: 1.2rem; font-weight: bold; color: gold; text-shadow: 1px 1px 2px black; }
-    #player-wrapper {
-      display: none; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
-      background: black; z-index: 9999; padding: 20px; box-sizing: border-box;
+    .canal img {
+      width: 80px;
+      height: 60px;
     }
-    video { width: 100%; height: 100%; }
-  </style>
+    .canal span {
+      font-size: 1rem;
+    }
+    #player {
+      width: 95%;
+      height: 50vh;
+    }
+  }
+</style>
 </head>
 <body>
   <div class="container">
@@ -57,144 +154,132 @@
     <div id="categorias"></div>
   </div>
 
-  <div id="player-wrapper">
-    <video id="player" controls playsinline></video>
+  <div id="player-wrapper" style="display:flex; flex-direction: column; align-items: center;">
+    <button id="cerrar-player" title="Cerrar reproductor">×</button>
+    <video id="player_a" class="projekktor" controls></video>
   </div>
 
-  <!-- Plyr JS -->
-  <script src="https://cdn.jsdelivr.net/npm/plyr@3.7.8/dist/plyr.polyfilled.min.js"></script>
-  <!-- HLS.js para streams m3u8 -->
-  <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+<script>
+  const OWNER = "Tvbox13";
+  const REPO = "canales-favoritos";
 
-  <script>
-    const OWNER = "Tvbox13";
-    const REPO = "canales-favoritos";
+  const archivosM3U = [
+    { nombre: "Categoría 1", archivo: "lista.m3u" },
+    { nombre: "Categoría 2", archivo: "lista 2.m3u" }
+  ];
 
-    const archivosM3U = [
-      { nombre: "Categoría 1", archivo: "lista.m3u" },
-      { nombre: "Categoría 2", archivo: "lista 2.m3u" }
-    ];
+  const categoriasContainer = document.getElementById("categorias");
+  const buscador = document.getElementById("buscador");
+  const playerWrapper = document.getElementById("player-wrapper");
+  const playerVideo = document.getElementById("player_a");
+  const cerrarBtn = document.getElementById("cerrar-player");
 
-    const categoriasContainer = document.getElementById("categorias");
-    const buscador = document.getElementById("buscador");
-    const playerWrapper = document.getElementById("player-wrapper");
-    const videoEl = document.getElementById("player");
-    let plyrPlayer = null;
+  let canalesTodos = [];
 
-    archivosM3U.forEach((item, index) => {
-      const url = `https://raw.githubusercontent.com/${OWNER}/${REPO}/main/${encodeURIComponent(item.archivo)}`;
-      const categoriaDiv = document.createElement("div");
-      categoriaDiv.className = "categoria";
+  archivosM3U.forEach((item, index) => {
+    const url = `https://raw.githubusercontent.com/${OWNER}/${REPO}/main/${encodeURIComponent(item.archivo)}`;
 
-      const titulo = document.createElement("h2");
-      titulo.textContent = item.nombre;
-      titulo.tabIndex = 0;
-      titulo.onclick = () => toggleCategoria(index, url);
-      titulo.onkeydown = e => { if (e.key === "Enter" || e.key === " ") titulo.click(); };
+    const categoriaDiv = document.createElement("div");
+    categoriaDiv.className = "categoria";
 
-      const canalesDiv = document.createElement("div");
-      canalesDiv.className = "canales-container";
-      canalesDiv.id = `categoria-${index}`;
+    const titulo = document.createElement("h2");
+    titulo.textContent = item.nombre;
+    titulo.tabIndex = 0;
+    titulo.onclick = () => toggleCategoria(index, url);
+    titulo.onkeydown = e => { if (e.key === "Enter" || e.key === " ") titulo.click(); };
 
-      categoriaDiv.appendChild(titulo);
-      categoriaDiv.appendChild(canalesDiv);
-      categoriasContainer.appendChild(categoriaDiv);
-    });
+    const canalesDiv = document.createElement("div");
+    canalesDiv.className = "canales-container";
+    canalesDiv.id = `categoria-${index}`;
 
-    function toggleCategoria(index, url) {
-      const div = document.getElementById(`categoria-${index}`);
-      const isVisible = div.style.display === "flex";
-      document.querySelectorAll(".canales-container").forEach(d => d.style.display = "none");
-      if (!isVisible) {
-        div.innerHTML = "";
-        div.style.display = "flex";
-        cargarListaM3U(url, div);
-      }
+    categoriaDiv.appendChild(titulo);
+    categoriaDiv.appendChild(canalesDiv);
+    categoriasContainer.appendChild(categoriaDiv);
+  });
+
+  function toggleCategoria(index, url) {
+    const div = document.getElementById(`categoria-${index}`);
+    const isVisible = div.style.display === "flex";
+    document.querySelectorAll(".canales-container").forEach(d => d.style.display = "none");
+    if (!isVisible) {
+      div.innerHTML = "";
+      div.style.display = "flex";
+      cargarListaM3U(url, div);
     }
+  }
 
-    function cargarListaM3U(m3uUrl, container) {
-      fetch(m3uUrl)
-        .then(r => r.text())
-        .then(data => {
-          const lines = data.split("\n");
-          for (let i = 0; i < lines.length; i++) {
-            if (lines[i].startsWith("#EXTINF")) {
-              const nombre = lines[i].split(",")[1]?.trim() || "Canal";
-              const logoMatch = lines[i].match(/tvg-logo="([^"]+)"/);
-              const logo = logoMatch ? logoMatch[1] : "";
-              const url = lines[i + 1]?.trim();
-              if (url && url.startsWith("http")) {
-                agregarCanal(nombre, url, logo, container);
-              }
+  function cargarListaM3U(m3uUrl, container) {
+    fetch(m3uUrl)
+      .then(r => r.text())
+      .then(data => {
+        const lines = data.split("\n");
+        for (let i = 0; i < lines.length; i++) {
+          if (lines[i].startsWith("#EXTINF")) {
+            const nombre = lines[i].split(",")[1]?.trim() || "Canal";
+            const logoMatch = lines[i].match(/tvg-logo="([^"]+)"/);
+            const logo = logoMatch ? logoMatch[1] : "";
+            const url = lines[i + 1]?.trim();
+            if (url && url.startsWith("http")) {
+              agregarCanal(nombre, url, logo, container);
+              canalesTodos.push({ nombre: nombre.toLowerCase(), url, logo, container });
             }
           }
-        })
-        .catch(err => console.error("Error cargando M3U:", err));
-    }
-
-    function agregarCanal(nombre, url, logo, container) {
-      const canal = document.createElement("button");
-      canal.className = "canal";
-      canal.setAttribute("data-nombre", nombre.toLowerCase());
-      canal.tabIndex = 0;
-      canal.onkeydown = e => { if (e.key === "Enter") canal.click(); };
-      canal.onclick = () => reproducir(url);
-
-      if (logo) {
-        const img = document.createElement("img");
-        img.src = logo;
-        img.alt = nombre;
-        canal.appendChild(img);
-      }
-
-      const span = document.createElement("span");
-      span.textContent = nombre;
-      canal.appendChild(span);
-
-      container.appendChild(canal);
-    }
-
-    function reproducir(url) {
-      playerWrapper.style.display = "block";
-
-      if (plyrPlayer) {
-        plyrPlayer.destroy();
-        plyrPlayer = null;
-      }
-
-      if (Hls.isSupported() && url.endsWith(".m3u8")) {
-        const hls = new Hls();
-        hls.loadSource(url);
-        hls.attachMedia(videoEl);
-        hls.on(Hls.Events.MANIFEST_PARSED, () => {
-          plyrPlayer = new Plyr(videoEl);
-          videoEl.play();
-        });
-      } else {
-        videoEl.src = url;
-        plyrPlayer = new Plyr(videoEl);
-        videoEl.play();
-      }
-    }
-
-    document.addEventListener("keydown", e => {
-      if (["Escape", "Backspace"].includes(e.key) && playerWrapper.style.display === "block") {
-        playerWrapper.style.display = "none";
-        if (plyrPlayer) {
-          plyrPlayer.destroy();
-          plyrPlayer = null;
         }
-        videoEl.pause();
-      }
-    });
+      })
+      .catch(err => console.error("Error cargando M3U:", err));
+  }
 
-    buscador.addEventListener("input", function () {
-      const filtro = this.value.toLowerCase();
-      document.querySelectorAll(".canal").forEach(canal => {
-        const nombre = canal.getAttribute("data-nombre");
-        canal.style.display = nombre.includes(filtro) ? "flex" : "none";
-      });
+  function agregarCanal(nombre, url, logo, container) {
+    const canal = document.createElement("button");
+    canal.className = "canal";
+    canal.setAttribute("data-nombre", nombre.toLowerCase());
+    canal.tabIndex = 0;
+    canal.onclick = () => reproducir(url);
+    canal.onkeydown = e => { if (e.key === "Enter") canal.click(); };
+
+    if (logo) {
+      const img = document.createElement("img");
+      img.src = logo;
+      img.alt = nombre;
+      canal.appendChild(img);
+    }
+
+    const span = document.createElement("span");
+    span.textContent = nombre;
+    canal.appendChild(span);
+
+    container.appendChild(canal);
+  }
+
+  function reproducir(url) {
+    playerWrapper.style.display = "flex";
+
+    // Cambiar fuente del video
+    playerVideo.src = url;
+    playerVideo.load();
+    playerVideo.play();
+  }
+
+  cerrarBtn.onclick = () => {
+    playerVideo.pause();
+    playerVideo.src = "";
+    playerWrapper.style.display = "none";
+  };
+
+  document.addEventListener("keydown", e => {
+    if (["Escape", "Backspace"].includes(e.key) && playerWrapper.style.display === "flex") {
+      cerrarBtn.click();
+    }
+  });
+
+  buscador.addEventListener("input", function () {
+    const filtro = this.value.toLowerCase();
+    document.querySelectorAll(".canal").forEach(canal => {
+      const nombre = canal.getAttribute("data-nombre");
+      canal.style.display = nombre.includes(filtro) ? "flex" : "none";
     });
-  </script>
+  });
+</script>
+
 </body>
 </html>
