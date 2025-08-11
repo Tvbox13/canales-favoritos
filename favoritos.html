@@ -315,8 +315,10 @@
     }
 
     function reproducir(url, canalBoton) {
-  window.open(url, '_blank');
+  const intentUrl = `intent://${url}#Intent;package=ru.ottplayer.app;end`;
+  window.location.href = intentUrl;
 }
+
 
     // Cerrar reproductor con ESC o botón Atrás
     document.addEventListener("keydown", e => {
@@ -360,5 +362,6 @@
   </script>
 </body>
 </html>
+
 
 
