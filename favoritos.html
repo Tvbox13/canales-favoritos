@@ -313,12 +313,7 @@
     }
 
     document.addEventListener("keydown", e => {
-      if (["Escape", "Backspace"].includes(e.key) && playerWrapper.style.display === "block") {
-        playerWrapper.style.display = "none";
-        if (playerInstance) {
-          playerInstance.destroy();
-          playerInstance = null;
-        }
+      if (["Escape", "Backspace"].includes(e.key)
       }
     });
 
@@ -332,6 +327,7 @@
   </script>
 </body>
 </html>
+
 
 
 
